@@ -1,17 +1,47 @@
-<nav class="navbar-custom">
-  <div class="container-custom nav-wrapper">
+<nav class="navbar" [class.scrolled]="isScrolled" [class.menu-open]="menuOpen">
+  <div class="container-custom nav-inner">
 
-    <div class="logo">
-      <img src="assets/images/logo.png" alt="logo">
-    </div>
+    <!-- Logo -->
+    <a class="nav-logo" href="#hero" (click)="closeMenu()">
+      <img src="assets/images/logo.png" alt="VoltZVital Logo" />
+    </a>
 
+    <!-- Desktop links -->
     <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#vision">Vision</a></li>
-      <li><a href="#sectors">Sectors</a></li>
-      <li><a href="#leadership">Leadership</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li *ngFor="let link of navLinks">
+        <a [href]="link.href" [class.active]="activeSection === link.id"
+           (click)="scrollTo($event, link.href)">
+          {{ link.label }}
+        </a>
+      </li>
+      <li>
+        <a href="#contact" class="nav-cta btn-primary" (click)="scrollTo($event, '#contact')">
+          Get In Touch
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </li>
     </ul>
 
+    <!-- Hamburger -->
+    <button class="hamburger" (click)="toggleMenu()" [attr.aria-expanded]="menuOpen" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+
+  </div>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" [class.open]="menuOpen">
+    <ul>
+      <li *ngFor="let link of navLinks">
+        <a [href]="link.href" (click)="scrollTo($event, link.href); closeMenu()">{{ link.label }}</a>
+      </li>
+      <li>
+        <a href="#contact" class="btn-primary" (click)="scrollTo($event, '#contact'); closeMenu()">
+          Get In Touch
+        </a>
+      </li>
+    </ul>
   </div>
 </nav>

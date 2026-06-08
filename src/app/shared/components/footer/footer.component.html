@@ -1,47 +1,64 @@
-<footer class="footer">
+<footer class="site-footer">
 
-  <div class="container-custom">
+  <div class="footer-top">
+    <div class="container-custom">
+      <div class="footer-grid">
 
-    <div class="footer-grid">
+        <!-- Brand column -->
+        <div class="footer-brand">
+          <img src="assets/images/logo.png" alt="VoltZVital Logo" class="footer-logo" />
+          <p>
+            Environmental and energy consulting built for a sustainable India.
+            Headquartered in Kerala, serving industries nationwide.
+          </p>
+          <div class="footer-cin">
+            <span class="cin-label">CIN:</span>
+            <span class="cin-val">U35105KL2026PTC102538</span>
+          </div>
+        </div>
 
-      <div>
+        <!-- Quick links -->
+        <div class="footer-col">
+          <h5>Navigate</h5>
+          <ul>
+            <li><a href="#about"      (click)="scrollTo($event,'#about')">About Us</a></li>
+            <li><a href="#vision"     (click)="scrollTo($event,'#vision')">Vision &amp; Mission</a></li>
+            <li><a href="#sectors"    (click)="scrollTo($event,'#sectors')">Sectors</a></li>
+            <li><a href="#leadership" (click)="scrollTo($event,'#leadership')">Leadership</a></li>
+            <li><a href="#contact"    (click)="scrollTo($event,'#contact')">Contact</a></li>
+          </ul>
+        </div>
 
-        <img
-          src="assets/images/logo.png"
-          class="footer-logo">
+        <!-- Services -->
+        <div class="footer-col">
+          <h5>Services</h5>
+          <ul>
+            <li><a href="#">Environmental Consulting</a></li>
+            <li><a href="#">Energy Advisory</a></li>
+            <li><a href="#">Urban Development</a></li>
+            <li><a href="#">Industrial Compliance</a></li>
+            <li><a href="#">Sustainability Reporting</a></li>
+          </ul>
+        </div>
 
-        <p>
-          Sustainable environmental
-          and energy consulting solutions
-          for modern industries.
-        </p>
+        <!-- Contact -->
+        <div class="footer-col">
+          <h5>Contact</h5>
+          <address>
+            <p>Chandrakantham Complex,<br>Chandranagar, Palakkad,<br>Kerala, India – 678007</p>
+            <p><a href="mailto:info@voltzvital.com">info&#64;voltzvital.com</a></p>
+          </address>
+        </div>
 
       </div>
-
-      <div>
-
-        <h4>Quick Links</h4>
-
-        <ul>
-
-          <li><a href="#about">About</a></li>
-          <li><a href="#vision">Vision</a></li>
-          <li><a href="#sectors">Sectors</a></li>
-          <li><a href="#contact">Contact</a></li>
-
-        </ul>
-
-      </div>
-
     </div>
+  </div>
 
-    <div class="footer-bottom">
-
-      © 2026 VOLTZVITAL Environment Consultants
-      Private Limited. All Rights Reserved.
-
+  <div class="footer-bottom">
+    <div class="container-custom footer-bottom-inner">
+      <span>© 2026 VoltZVital Environment Consultants Pvt Ltd. All Rights Reserved.</span>
+      <span class="footer-badge">Incorporated Apr 2026 · ROC Ernakulam</span>
     </div>
-
   </div>
 
 </footer>

@@ -1,59 +1,158 @@
-.footer {
-  background: #020817;
-  color: white;
-  padding-top: 80px;
+.site-footer {
+  background: var(--navy);
+  color: rgba(255,255,255,.65);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--teal), transparent);
+  }
+}
+
+.footer-top {
+  padding: 80px 0 60px;
 }
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 50px;
+  grid-template-columns: 2fr 1fr 1fr 1.2fr;
+  gap: 3rem;
 }
 
-.footer-logo {
-  width: 180px;
-  margin-bottom: 20px;
+.footer-brand {
+  .footer-logo {
+    height: 52px;
+    width: auto;
+    margin-bottom: 1.25rem;
+    filter: brightness(0) invert(1);
+    opacity: .9;
+  }
+
+  p {
+    font-size: .9rem;
+    line-height: 1.8;
+    margin-bottom: 1.25rem;
+    max-width: 300px;
+  }
 }
 
-.footer ul {
-  list-style: none;
-  padding: 0;
+.footer-cin {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: var(--radius-sm);
+  padding: .5rem .9rem;
+  font-size: .75rem;
+
+  .cin-label {
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: var(--teal-light);
+    letter-spacing: .06em;
+  }
+  .cin-val {
+    color: rgba(255,255,255,.7);
+    font-family: 'DM Mono', monospace, var(--font-body);
+    letter-spacing: .03em;
+  }
 }
 
-.footer ul li {
-  margin-bottom: 15px;
-}
+.footer-col {
+  h5 {
+    font-family: var(--font-display);
+    font-size: .78rem;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 1.25rem;
+    position: relative;
 
-.footer a {
-  color: white;
-  text-decoration: none;
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -6px; left: 0;
+      width: 28px; height: 2px;
+      background: linear-gradient(90deg, var(--teal), var(--green));
+      border-radius: 1px;
+    }
+  }
+
+  ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: .6rem;
+
+    li a {
+      font-size: .88rem;
+      color: rgba(255,255,255,.55);
+      text-decoration: none;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: .35rem;
+
+      &::before {
+        content: '→';
+        font-size: .75rem;
+        opacity: 0;
+        transform: translateX(-4px);
+        transition: var(--transition);
+        color: var(--teal-light);
+      }
+
+      &:hover {
+        color: var(--teal-light);
+        padding-left: .35rem;
+        &::before { opacity: 1; transform: translateX(0); }
+      }
+    }
+  }
+
+  address {
+    font-style: normal;
+    display: flex;
+    flex-direction: column;
+    gap: .75rem;
+
+    p { font-size: .88rem; line-height: 1.7; }
+    a { color: var(--teal-light); text-decoration: none;
+        &:hover { color: var(--white); } }
+  }
 }
 
 .footer-bottom {
-  border-top: 1px solid rgba(255,255,255,0.1);
-  padding: 30px 0;
-  margin-top: 50px;
-  text-align: center;
+  border-top: 1px solid rgba(255,255,255,.08);
+  padding: 1.5rem 0;
 }
-@media (max-width: 992px) {
 
-  .hero-wrapper,
-  .contact-wrapper,
-  .footer-grid,
-  .leadership-grid,
-  .sectors-grid,
-  .why-grid {
+.footer-bottom-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: .8rem;
+}
 
-    grid-template-columns: 1fr !important;
-    flex-direction: column;
-  }
+.footer-badge {
+  font-family: var(--font-display);
+  font-size: .72rem;
+  color: rgba(255,255,255,.35);
+  letter-spacing: .06em;
+}
 
-  .hero-content h1 {
-    font-size: 42px;
-  }
-
-  .nav-links {
-    display: none;
-  }
-
+@media (max-width: 900px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  .footer-grid { grid-template-columns: 1fr; }
+  .footer-bottom-inner { flex-direction: column; text-align: center; }
 }

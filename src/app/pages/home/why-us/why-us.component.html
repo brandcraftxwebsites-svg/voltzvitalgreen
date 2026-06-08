@@ -1,40 +1,21 @@
-<section
-  class="section-padding why-section">
-
+<section class="why-section section-pad">
   <div class="container-custom">
 
-    <div class="text-center mb-5">
-
-      <h2 class="section-title text-white">
-        Why Choose VOLTZVITAL
-      </h2>
-
+    <div class="why-header reveal">
+      <span class="section-label">Our Advantage</span>
+      <h2 class="section-title">Why Choose <span>VoltZVital</span></h2>
     </div>
 
     <div class="why-grid">
-
-      <div class="why-card">
-        <i class="fas fa-check-circle"></i>
-        <h4>Professional Expertise</h4>
+      <div class="why-card reveal" [class]="'delay-' + (i+1)"
+           *ngFor="let item of reasons; let i = index">
+        <div class="why-icon" [style.color]="item.color">
+          <span [innerHTML]="item.icon"></span>
+        </div>
+        <h4>{{ item.title }}</h4>
+        <p>{{ item.desc }}</p>
       </div>
-
-      <div class="why-card">
-        <i class="fas fa-leaf"></i>
-        <h4>Sustainable Solutions</h4>
-      </div>
-
-      <div class="why-card">
-        <i class="fas fa-lightbulb"></i>
-        <h4>Innovative Approach</h4>
-      </div>
-
-      <div class="why-card">
-        <i class="fas fa-shield-alt"></i>
-        <h4>Reliable Support</h4>
-      </div>
-
     </div>
 
   </div>
-
 </section>

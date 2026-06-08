@@ -11,12 +11,43 @@
 }
 
 .sector-card {
-  background: white;
-  padding: 40px 30px;
-  border-radius: 24px;
-  box-shadow: $shadow;
-  transition: 0.4s ease;
-  text-align: center;
+  display: flex;
+  flex-direction: column;        // ← change to column
+  align-items: flex-start;
+  gap: 1.25rem;
+  padding: 2rem;
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: var(--radius-md);
+  transition: var(--transition);
+  cursor: default;
+  position: relative;
+  overflow: hidden;
+
+  &:hover {
+    border-color: rgba(27,159,191,.3);
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(0,0,0,.25);
+
+    .sector-arrow {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}
+
+.sector-arrow {
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: var(--transition);
+  margin-top: auto;              // ← pushes to bottom
+
+  svg {
+    width: 20px !important;      // ← force small size
+    height: 20px !important;
+    color: var(--teal-light);
+    display: block;
+  }
 }
 
 .sector-card:hover {
@@ -71,4 +102,18 @@
     display: none;
   }
 
+}
+
+.sector-arrow {
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: var(--transition);
+  margin-top: auto;              // ← pushes to bottom
+
+  svg {
+    width: 20px !important;      // ← force small size
+    height: 20px !important;
+    color: var(--teal-light);
+    display: block;
+  }
 }

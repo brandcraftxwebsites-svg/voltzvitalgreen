@@ -1,51 +1,86 @@
-<section
-  class="about-section section-padding"
-  data-aos="fade-up">
-
-<section
-  id="about"
-  class="section-padding">
-
+<section id="about" class="about-section section-pad">
   <div class="container-custom">
 
-    <div class="row align-items-center">
+    <div class="about-grid">
 
-      <div class="col-lg-6">
-        <img
-          src="assets/images/about.jpg"
-          class="img-fluid rounded-4">
-      </div>
-
-      <div class="col-lg-6">
-
-        <h2 class="section-title">
-          About Us
-        </h2>
-
-        <p class="section-subtitle">
-
-          VOLTZVITAL Environment Consultants
-          Private Limited is a forward-thinking
-          environmental and sustainability
-          consulting company focused on
-          delivering innovative and responsible
-          solutions for modern industries.
-
-        </p>
-
-        <div class="about-points">
-
-          <div>✔ Sustainable Consulting</div>
-          <div>✔ Energy Advisory</div>
-          <div>✔ Infrastructure Support</div>
-          <div>✔ Environmental Compliance</div>
-
+      <!-- Left visual panel -->
+      <div class="about-visual reveal-left">
+        <div class="visual-card primary-card">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945"/>
+              <path d="M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 004 0 2 2 0 012-2h1.064"/>
+              <circle cx="12" cy="12" r="9"/>
+            </svg>
+          </div>
+          <h4>Environmental Focus</h4>
+          <p>Holistic sustainability strategies tailored to industry needs</p>
         </div>
 
+        <div class="visual-card accent-card">
+          <div class="card-icon green">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+            </svg>
+          </div>
+          <h4>Energy Innovation</h4>
+          <p>Forward-thinking advisory for tomorrow's energy landscape</p>
+        </div>
+
+        <div class="company-badge">
+          <span class="badge-label">Est.</span>
+          <span class="badge-year">2026</span>
+          <span class="badge-location">Palakkad, Kerala</span>
+        </div>
+      </div>
+
+      <!-- Right text -->
+      <div class="about-text reveal-right">
+        <span class="section-label">Who We Are</span>
+        <h2 class="section-title">
+          A New Benchmark in<br>
+          <span>Environmental Consulting</span>
+        </h2>
+        <div class="gradient-line"></div>
+
+        <p class="section-sub">
+          VoltZVital Environment Consultants Pvt Ltd was founded with a singular conviction:
+          that responsible growth and environmental stewardship are not opposing forces,
+          but complementary pillars of progress.
+        </p>
+        <p class="section-sub" style="margin-top: 1rem;">
+          Headquartered in Palakkad, Kerala, we bring together deep domain expertise,
+          regulatory know-how, and innovative thinking to help businesses navigate
+          environmental challenges with confidence and clarity.
+        </p>
+
+        <div class="about-highlights">
+          <div class="highlight-item" *ngFor="let item of highlights">
+            <div class="hi-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+            </div>
+            <span>{{ item }}</span>
+          </div>
+        </div>
+
+        <div class="company-info">
+          <div class="info-row">
+            <span class="info-label">CIN</span>
+            <span class="info-value">U35105KL2026PTC102538</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Status</span>
+            <span class="info-value status-active">● Active</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Registered</span>
+            <span class="info-value">ROC Ernakulam, Kerala</span>
+          </div>
+        </div>
       </div>
 
     </div>
-
   </div>
-
 </section>

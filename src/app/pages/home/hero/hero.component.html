@@ -1,39 +1,93 @@
-<section
-  class="hero-section"
-  data-aos="zoom-in">
-<section class="hero-section">
+<section id="hero" class="hero-section">
 
-  <div class="container-custom hero-wrapper">
+  <!-- Background mesh / particles -->
+  <div class="hero-bg">
+    <div class="mesh-orb orb-1"></div>
+    <div class="mesh-orb orb-2"></div>
+    <div class="mesh-orb orb-3"></div>
+    <div class="grid-overlay"></div>
+  </div>
 
+  <div class="container-custom hero-inner">
+
+    <!-- Left content -->
     <div class="hero-content">
-
-      <h1>
-        Sustainable Environmental
-        & Energy Consulting Solutions
-      </h1>
-
-      <p>
-        Delivering innovative environmental,
-        sustainability, and infrastructure
-        consulting services for a greener future.
-      </p>
-
-      <div class="hero-buttons">
-        <button class="primary-btn">
-          Explore Services
-        </button>
-
-        <button class="secondary-btn">
-          Contact Us
-        </button>
+      <div class="hero-badge reveal">
+        <span class="dot"></span>
+        Environmental &amp; Energy Consulting
       </div>
 
+      <h1 class="hero-headline reveal delay-1">
+        Building a<br>
+        <span class="gradient-text">Sustainable</span><br>
+        Tomorrow
+      </h1>
+
+      <p class="hero-desc reveal delay-2">
+        Strategic environmental consulting that bridges innovation
+        with responsibility — empowering industries across India
+        to operate smarter, cleaner, and more efficiently.
+      </p>
+
+      <div class="hero-actions reveal delay-3">
+        <a href="#sectors" class="btn-primary" (click)="scrollTo($event,'#sectors')">
+          Explore Our Services
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+        <a href="#contact" class="btn-outline-white" (click)="scrollTo($event,'#contact')">
+          Let's Talk
+        </a>
+      </div>
+
+      <!-- Stats strip -->
+      <div class="hero-stats reveal delay-4">
+        <div class="stat" *ngFor="let s of stats">
+          <span class="stat-value">{{ s.value }}</span>
+          <span class="stat-label">{{ s.label }}</span>
+        </div>
+      </div>
     </div>
 
-    <div class="hero-image">
-      <img src="assets/images/logo.png" alt="">
+    <!-- Right visual -->
+    <div class="hero-visual reveal-right delay-2">
+      <div class="logo-float">
+        <img src="assets/images/logo.png" alt="VoltZVital" />
+      </div>
+      <div class="ring ring-1"></div>
+      <div class="ring ring-2"></div>
+      <div class="ring ring-3"></div>
+
+      <!-- Floating chips -->
+      <div class="chip chip-1">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 3v1m0 16v1M4.22 4.22l.7.7m12.16 12.16.7.7M3 12h1m16 0h1M4.22 19.78l.7-.7M18.36 5.64l.7-.7"/>
+          <circle cx="12" cy="12" r="4"/>
+        </svg>
+        Energy Advisory
+      </div>
+      <div class="chip chip-2">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0"/>
+        </svg>
+        Expert Team
+      </div>
+      <div class="chip chip-3">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2 2z"/>
+          <path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2"/>
+        </svg>
+        Compliance Ready
+      </div>
     </div>
 
+  </div>
+
+  <!-- Scroll cue -->
+  <div class="scroll-hint">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
   </div>
 
 </section>

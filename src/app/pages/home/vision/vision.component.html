@@ -1,46 +1,69 @@
-<section
-  id="vision"
-  class="section-padding">
-
+<section id="vision" class="vision-section section-pad">
   <div class="container-custom">
 
-    <div class="row g-4">
+    <div class="vision-header reveal">
+      <span class="section-label">Our Purpose</span>
+      <h2 class="section-title">Vision &amp; Mission</h2>
+      <p class="section-sub">
+        Driven by purpose, guided by expertise, committed to a greener future for India and beyond.
+      </p>
+    </div>
 
-      <div class="col-lg-6">
+    <div class="vm-grid">
 
-        <div class="vision-card">
-
-          <h3>Vision</h3>
-
-          <p>
-            To become a trusted leader
-            in environmental and
-            sustainability consulting.
-          </p>
-
+      <!-- Vision -->
+      <div class="vm-card vision-card reveal delay-1">
+        <div class="vm-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+            <circle cx="12" cy="12" r="3"/>
+          </svg>
         </div>
-
+        <div class="vm-tag">Vision</div>
+        <h3>Leading Environmental Excellence</h3>
+        <p>
+          To emerge as India's most trusted environmental and sustainability consulting partner —
+          recognised for integrity, innovation, and the lasting positive impact we create for
+          communities, industries, and ecosystems.
+        </p>
+        <div class="vm-footer">
+          <div class="vm-line"></div>
+          <span>Where we're headed</span>
+        </div>
       </div>
 
-      <div class="col-lg-6">
-
-        <div class="mission-card">
-
-          <h3>Mission</h3>
-
-          <p>
-            Empowering organizations
-            with sustainable and
-            future-ready environmental
-            solutions.
-          </p>
-
+      <!-- Mission -->
+      <div class="vm-card mission-card reveal delay-2">
+        <div class="vm-icon green">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M12 8v4l3 3"/>
+          </svg>
         </div>
-
+        <div class="vm-tag green">Mission</div>
+        <h3>Empowering Responsible Growth</h3>
+        <p>
+          To deliver practical, future-ready environmental solutions that help organisations
+          meet regulatory requirements, reduce their ecological footprint, and make
+          sustainability a competitive advantage — not just a compliance obligation.
+        </p>
+        <div class="vm-footer">
+          <div class="vm-line green"></div>
+          <span>How we operate</span>
+        </div>
       </div>
 
     </div>
 
-  </div>
+    <!-- Values strip -->
+    <div class="values-strip reveal delay-3">
+      <div class="value-item" *ngFor="let v of values">
+        <div class="value-icon">
+          <span [innerHTML]="v.icon"></span>
+        </div>
+        <span class="value-label">{{ v.label }}</span>
+      </div>
+    </div>
 
+  </div>
 </section>
