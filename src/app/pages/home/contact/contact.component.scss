@@ -1,0 +1,69 @@
+@import '../../../../assets/styles/variables';
+
+.contact-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+}
+
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+
+  padding: 18px;
+  border: 1px solid #dbeafe;
+  border-radius: 14px;
+  outline: none;
+}
+
+.contact-form button {
+
+  background: linear-gradient(
+    135deg,
+    #022b72,
+    #1ca55a
+  );
+
+  color: white;
+  border: none;
+  padding: 18px;
+  border-radius: 50px;
+  font-weight: 600;
+}
+
+.contact-details div {
+  margin-bottom: 20px;
+}
+
+.contact-details i {
+  color: #1ca55a;
+  margin-right: 10px;
+}
+
+@media (max-width: 992px) {
+
+  .hero-wrapper,
+  .contact-wrapper,
+  .footer-grid,
+  .leadership-grid,
+  .sectors-grid,
+  .why-grid {
+
+    grid-template-columns: 1fr !important;
+    flex-direction: column;
+  }
+
+  .hero-content h1 {
+    font-size: 42px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+}

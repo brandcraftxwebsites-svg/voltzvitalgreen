@@ -1,0 +1,86 @@
+@import '../../../../assets/styles/variables';
+
+.hero-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+
+  background:
+  linear-gradient(
+    135deg,
+    #021b4e,
+    #0f7dc2,
+    #1fa65a
+  );
+
+  color: white;
+}
+
+.hero-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 50px;
+}
+
+.hero-content h1 {
+  font-size: 64px;
+  line-height: 1.1;
+  margin-bottom: 25px;
+}
+
+.hero-content p {
+  font-size: 18px;
+  line-height: 1.8;
+  margin-bottom: 30px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.primary-btn {
+  background: white;
+  color: #022b72;
+  border: none;
+  padding: 15px 35px;
+  border-radius: 50px;
+  font-weight: 600;
+}
+
+.secondary-btn {
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+  padding: 15px 35px;
+  border-radius: 50px;
+}
+
+.hero-image img {
+  width: 100%;
+  max-width: 500px;
+}
+
+@media (max-width: 992px) {
+
+  .hero-wrapper,
+  .contact-wrapper,
+  .footer-grid,
+  .leadership-grid,
+  .sectors-grid,
+  .why-grid {
+
+    grid-template-columns: 1fr !important;
+    flex-direction: column;
+  }
+
+  .hero-content h1 {
+    font-size: 42px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+}

@@ -1,0 +1,76 @@
+.why-section {
+  background: #06152e;
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+.why-card {
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+
+  padding: 40px;
+  border-radius: 24px;
+
+  text-align: center;
+  color: white;
+
+  transition: 0.4s ease;
+}
+
+.why-card:hover {
+  transform: translateY(-10px);
+}
+
+.why-card i {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 992px) {
+
+  .hero-wrapper,
+  .contact-wrapper,
+  .footer-grid,
+  .leadership-grid,
+  .sectors-grid,
+  .why-grid {
+
+    grid-template-columns: 1fr !important;
+    flex-direction: column;
+  }
+
+  .hero-content h1 {
+    font-size: 42px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+}
+@media (max-width: 992px) {
+
+  .hero-wrapper,
+  .contact-wrapper,
+  .footer-grid,
+  .leadership-grid,
+  .sectors-grid,
+  .why-grid {
+
+    grid-template-columns: 1fr !important;
+    flex-direction: column;
+  }
+
+  .hero-content h1 {
+    font-size: 42px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+}

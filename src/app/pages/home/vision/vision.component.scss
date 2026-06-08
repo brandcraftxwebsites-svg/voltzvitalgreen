@@ -1,0 +1,45 @@
+.vision-card,
+.mission-card {
+
+  padding: 50px;
+  border-radius: 24px;
+  color: white;
+}
+
+.vision-card {
+  background: linear-gradient(
+    135deg,
+    #022b72,
+    #0fa3dc
+  );
+}
+
+.mission-card {
+  background: linear-gradient(
+    135deg,
+    #1ca55a,
+    #0f7dc2
+  );
+}
+@media (max-width: 992px) {
+
+  .hero-wrapper,
+  .contact-wrapper,
+  .footer-grid,
+  .leadership-grid,
+  .sectors-grid,
+  .why-grid {
+
+    grid-template-columns: 1fr !important;
+    flex-direction: column;
+  }
+
+  .hero-content h1 {
+    font-size: 42px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+}

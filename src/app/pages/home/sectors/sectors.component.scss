@@ -1,0 +1,74 @@
+@import '../../../../assets/styles/variables';
+
+.sectors-section {
+  background: #ffffff;
+}
+
+.sectors-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+.sector-card {
+  background: white;
+  padding: 40px 30px;
+  border-radius: 24px;
+  box-shadow: $shadow;
+  transition: 0.4s ease;
+  text-align: center;
+}
+
+.sector-card:hover {
+  transform: translateY(-10px);
+}
+
+.icon {
+  width: 80px;
+  height: 80px;
+  margin: auto;
+  border-radius: 50%;
+  background: linear-gradient(
+    135deg,
+    #022b72,
+    #1ca55a
+  );
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 25px;
+}
+
+.icon i {
+  color: white;
+  font-size: 30px;
+}
+
+.sector-card h3 {
+  margin-bottom: 15px;
+}
+
+@media (max-width: 992px) {
+
+  .hero-wrapper,
+  .contact-wrapper,
+  .footer-grid,
+  .leadership-grid,
+  .sectors-grid,
+  .why-grid {
+
+    grid-template-columns: 1fr !important;
+    flex-direction: column;
+  }
+
+  .hero-content h1 {
+    font-size: 42px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+}

@@ -1,0 +1,32 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  background: #f5f7fa;
+  color: #1e293b;
+}
+
+.section-padding {
+  padding: 100px 0;
+}
+
+.container-custom {
+  width: 90%;
+  max-width: 1280px;
+  margin: auto;
+}
+
+.section-title {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.section-subtitle {
+  color: #64748b;
+  line-height: 1.8;
+}
