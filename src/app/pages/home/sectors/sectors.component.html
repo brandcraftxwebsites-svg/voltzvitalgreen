@@ -1,31 +1,104 @@
+<!-- ════════════════════════════════════════════════════════════════════════
+  PREMIUM SECTORS SECTION — Environmental & Sustainability Consulting
+  SVG mesh animation lives inside each card via .card-svg-mesh
+  Each card needs a theme class: sector-card-green | teal | navy | amber
+  Map your sectors array variant to these four classes in your component TS
+════════════════════════════════════════════════════════════════════════ -->
+
 <section id="sectors" class="sectors-section section-pad">
-    <div class="container-custom">
+  <div class="container-custom">
 
-        <div class="sectors-header reveal">
-            <span class="section-label">What We Do</span>
-            <h2 class="section-title">Industries &amp; <span>Sectors We Serve</span></h2>
-            <p class="section-sub">
-                Delivering tailored environmental and sustainability consulting across diverse
-                industries — from compliance and energy planning to urban infrastructure.
-            </p>
-        </div>
-
-        <div class="sectors-grid">
-            <div class="sector-card reveal" [class]="'delay-' + (i+1)" *ngFor="let sector of sectors; let i = index">
-                <div class="sector-icon" [style.background]="sector.gradient">
-                    <span [innerHTML]="sector.icon"></span>
-                </div>
-                <div class="sector-body">
-                    <h3>{{ sector.title }}</h3>
-                    <p>{{ sector.desc }}</p>
-                </div>
-                <div class="sector-arrow">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M5 12h14M12 5l7 7-7 7" />
-                    </svg>
-                </div>
-            </div>
-        </div>
-
+    <div class="sectors-header reveal">
+      <span class="section-label">What We Do</span>
+      <h2 class="section-title">Industries &amp; <span>Sectors We Serve</span></h2>
+      <p class="section-sub">Delivering tailored environmental and sustainability consulting across diverse industries.</p>
     </div>
+
+    <div class="sectors-grid">
+      <div
+        class="sector-card reveal"
+        [ngClass]="['sector-card-' + sector.theme, 'delay-' + (i + 1)]"
+        *ngFor="let sector of sectors; let i = index"
+      >
+
+        <!-- ── Ambient glow blob ──────────────────────────────────── -->
+        <div class="card-blob"></div>
+
+        <!-- ── SVG mesh animation canvas ────────────────────────────
+             Three drifting lines + four pulsing nodes + one arc
+             All colours driven by SCSS theme classes
+        ──────────────────────────────────────────────────────────── -->
+        <svg class="card-svg-mesh" viewBox="0 0 260 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <!-- Drifting grid lines -->
+          <line class="mesh-line" x1="0"   y1="60"  x2="260" y2="80"  />
+          <line class="mesh-line" x1="0"   y1="130" x2="260" y2="110" />
+          <line class="mesh-line" x1="180" y1="0"   x2="210" y2="200" />
+
+          <!-- Connecting diagonals -->
+          <line class="mesh-line" x1="40"  y1="0"   x2="220" y2="200" opacity=".4" />
+          <line class="mesh-line" x1="0"   y1="170" x2="160" y2="10"  opacity=".3" />
+
+          <!-- Pulsing nodes at intersections -->
+          <circle class="mesh-node" cx="52"  cy="62"  r="1.5" />
+          <circle class="mesh-node" cx="130" cy="72"  r="1.5" />
+          <circle class="mesh-node" cx="205" cy="58"  r="1.5" />
+          <circle class="mesh-node" cx="170" cy="128" r="1.5" />
+
+          <!-- Reveal arc on hover -->
+          <path class="mesh-arc"
+            d="M 20 180 Q 100 40 240 90"
+          />
+        </svg>
+
+        <!-- ── Icon ──────────────────────────────────────────────── -->
+        <div class="sector-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+            [attr.stroke]="sector.color" stroke-width="1.7"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path *ngFor="let p of sector.paths" [attr.d]="p"/>
+          </svg>
+        </div>
+
+        <!-- ── Body ──────────────────────────────────────────────── -->
+        <div class="sector-body">
+          <h3>{{ sector.title }}</h3>
+          <p>{{ sector.desc }}</p>
+        </div>
+
+        <!-- ── Arrow CTA ─────────────────────────────────────────── -->
+        <div class="sector-arrow">
+          <span>Explore</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </div>
+
+      </div>
+    </div><!-- /sectors-grid -->
+
+  </div>
 </section>
+
+
+<!-- ════════════════════════════════════════════════════════════════════════
+  COMPONENT TS — sector model (add theme field)
+
+  export interface Sector {
+    title:    string;
+    desc:     string;
+    color:    string;   // icon stroke colour e.g. '#00c97a'
+    gradient: string;   // icon bg (still used via [style.background])
+    theme:    'green' | 'teal' | 'navy' | 'amber';
+    paths:    string[];
+  }
+
+  EXAMPLE DATA:
+  {
+    title: 'Energy & Utilities',
+    desc:  'Sustainability roadmaps and emissions reporting for power generators and grid operators.',
+    color: '#00c97a',
+    gradient: 'linear-gradient(135deg, rgba(0,201,122,.12), rgba(77,255,168,.2))',
+    theme: 'green',
+    paths: ['M13 2L3 14h9l-1 8 10-12h-9l1-8']
+  }
+════════════════════════════════════════════════════════════════════════ -->
