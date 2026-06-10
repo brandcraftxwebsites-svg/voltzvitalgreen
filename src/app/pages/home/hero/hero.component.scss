@@ -45,7 +45,7 @@
   opacity: 0.9;
 }
 
-/* White fade covers left ~55%, fades to transparent right */
+/* Desktop overlay — white fade covers left ~55%, fades to transparent right */
 .vz-hero .vz-overlay {
   position: absolute;
   inset: 0;
@@ -76,6 +76,21 @@
 @keyframes vz-grid-drift {
   from { background-position: 0 0; }
   to   { background-position: 42px 42px; }
+}
+
+/* ══════════════════════════════════════════
+   BACKGROUND IMAGE
+══════════════════════════════════════════ */
+.vz-bg-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  z-index: 0;
+  /* Desktop: full opacity, image visible on right side */
+  opacity: 1;
 }
 
 /* ══════════════════════════════════════════
@@ -155,7 +170,7 @@
   50%       { opacity: 0.4; transform: scale(0.65); }
 }
 
-/* Headline — navy dark matching logo "VOLTZ" text */
+/* Headline */
 .vz-hero .vz-headline {
   font-family: 'Inter', sans-serif !important;
   font-size: clamp(40px, 5.2vw, 72px) !important;
@@ -168,7 +183,7 @@
   margin-top: -12px !important;
 }
 
-/* Gradient word "Sustainable" — matches logo teal→green */
+/* Gradient word "Sustainable" */
 .vz-hero .vz-grad {
   background: linear-gradient(92deg, #0096b4 0%, #3aad52 100%);
   -webkit-background-clip: text;
@@ -225,6 +240,7 @@
     box-shadow: 0 8px 32px rgba(0, 150, 180, 0.40);
     color: #ffffff !important;
     text-decoration: none !important;
+
     svg { transform: translateX(5px); }
   }
 }
@@ -304,7 +320,6 @@
   line-height: 1.2;
 }
 
-/* Stat value — teal matching logo */
 .vz-hero .vz-stat-val {
   font-family: 'Inter', sans-serif !important;
   font-size: 22px !important;
@@ -320,19 +335,6 @@
   font-weight: 500 !important;
   color: #718096 !important;
   letter-spacing: 0.04em !important;
-}
-
-/* ══════════════════════════════════════════
-   BACKGROUND IMAGE
-══════════════════════════════════════════ */
-.vz-bg-image {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  z-index: 0;
 }
 
 /* ══════════════════════════════════════════
@@ -429,86 +431,403 @@
 .vz-hero .delay-3 { transition-delay: 0.34s; }
 .vz-hero .delay-4 { transition-delay: 0.48s; }
 
+
 /* ══════════════════════════════════════════
-   RESPONSIVE
+   TABLET — ≤ 1100px
 ══════════════════════════════════════════ */
 @media (max-width: 1100px) {
+
+  .vz-hero .vz-wrap {
+    padding: 0 32px;
+  }
+
   .vz-hero .vz-inner {
     grid-template-columns: 1fr;
     text-align: center;
-    padding-top: 20px;
+    padding-top: 100px;
+    padding-bottom: 80px;
     gap: 48px;
+    /* keep min-height so bg image still fills screen */
+    min-height: 100vh;
   }
 
-  .vz-hero .vz-left { align-items: center; }
+  .vz-hero .vz-left {
+    align-items: center;
+    position: relative;
+    z-index: 5;
+  }
 
-  .vz-hero .vz-desc { max-width: 560px; text-align: center; }
+  .vz-hero .vz-desc {
+    max-width: 560px;
+    text-align: center;
+  }
 
-  .vz-hero .vz-stats { justify-content: center; }
+  .vz-hero .vz-stats {
+    justify-content: center;
+  }
 
-  .vz-hero .vz-actions { justify-content: center; }
+  .vz-hero .vz-actions {
+    justify-content: center;
+  }
 
   .vz-hero .vz-right {
     max-width: 400px;
     margin: 0 auto;
   }
-}
 
-@media (max-width: 768px) {
-  .vz-bg-image {
-    object-position: 70% center;
-    opacity: 0.45;
+  /* Overlay — softer vertical gradient for tablet so bg image shows below */
+  .vz-hero .vz-overlay {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(255,255,255,0.96) 0%,
+        rgba(255,255,255,0.88) 45%,
+        rgba(255,255,255,0.60) 70%,
+        rgba(255,255,255,0.20) 100%
+      ) !important;
   }
 
-  .vz-hero .vz-overlay {
-    background: rgba(255,255,255,0.88);
+  /* Background image — show fully on tablet, positioned to peep beneath content */
+  .vz-bg-image {
+    object-position: center bottom;
+    opacity: 0.90;
+  }
+
+  .vz-hero .vz-badge {
+    font-size: 10px !important;
+    padding: 7px 16px !important;
+  }
+
+  .vz-hero .vz-headline {
+    font-size: clamp(38px, 6vw, 60px) !important;
+  }
+
+  .vz-hero .vz-stat {
+    padding: 0 20px 0 0;
+  }
+
+  .vz-hero .vz-stat-divider {
+    margin-right: 20px;
+  }
+}
+
+
+/* ══════════════════════════════════════════
+   PHONE — ≤ 768px
+══════════════════════════════════════════ */
+@media (max-width: 768px) {
+
+  /* Hero fills screen fully so image is always visible */
+  .vz-hero {
+    min-height: 100svh;
+  }
+
+  .vz-hero .vz-wrap {
+    padding: 0 20px;
   }
 
   .vz-hero .vz-inner {
     grid-template-columns: 1fr;
-    padding-top: 110px;
-    padding-bottom: 60px;
-    min-height: auto;
+    padding-top: 96px;
+    padding-bottom: 64px;
+    min-height: 100svh;
+    gap: 0;
+    /* Stack content at top; bg image peeks at bottom */
+    align-items: flex-start;
   }
 
   .vz-hero .vz-left {
+    align-items: center;
+    text-align: center;
     position: relative;
     z-index: 5;
+    width: 100%;
+  }
+
+  /* ── BACKGROUND IMAGE: show on mobile, positioned bottom-right ── */
+  .vz-bg-image {
+    object-fit: cover;
+    /* Shift focal point so wind turbines + solar panels are visible */
+    object-position: 65% bottom;
+    opacity: 0.55;
+    /* Ensure full coverage */
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Overlay — top heavy white, fades out toward bottom so image shows */
+  .vz-hero .vz-overlay {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(255,255,255,0.97) 0%,
+        rgba(255,255,255,0.95) 30%,
+        rgba(255,255,255,0.82) 52%,
+        rgba(255,255,255,0.45) 72%,
+        rgba(255,255,255,0.10) 100%
+      ) !important;
+  }
+
+  /* Logo */
+  .vz-hero .vz-top-logo {
+    margin-bottom: 16px;
   }
 
   .vz-hero .vz-top-logo img {
     width: 160px;
   }
 
+  /* Badge */
+  .vz-hero .vz-badge {
+    font-size: 9.5px !important;
+    padding: 6px 14px !important;
+    letter-spacing: 0.12em !important;
+    gap: 8px !important;
+  }
+
+  /* Headline */
   .vz-hero .vz-headline {
-    font-size: clamp(42px, 12vw, 58px) !important;
-    line-height: 0.95 !important;
+    font-size: clamp(36px, 11.5vw, 54px) !important;
+    line-height: 0.97 !important;
+    margin-top: -8px !important;
+    text-align: center;
   }
 
+  /* Description */
   .vz-hero .vz-desc {
-    font-size: 15px !important;
-    line-height: 1.7 !important;
+    font-size: 14.5px !important;
+    line-height: 1.72 !important;
+    margin: 14px 0 20px !important;
     max-width: 100%;
+    text-align: center;
   }
 
+  /* Buttons — full width, proper touch target */
   .vz-hero .vz-actions {
-    width: 100%;
     flex-direction: column;
     align-items: stretch;
+    gap: 12px;
+    width: 100%;
   }
 
   .vz-hero .vz-btn-primary,
   .vz-hero .vz-btn-outline {
-    width: 100%;
-    justify-content: center;
+    width: 100% !important;
+    justify-content: center !important;
+    padding: 15px 24px !important;
+    min-height: 52px !important;
+    font-size: 14.5px !important;
+    border-radius: 14px !important;
   }
 
+  /* Stats row */
   .vz-hero .vz-stats {
+    margin-top: 24px;
+    justify-content: center;
     flex-wrap: wrap;
-    gap: 18px;
+    gap: 0;
+    row-gap: 0;
+    /* Give slight frosted card so stats stay readable over image */
+    background: rgba(255, 255, 255, 0.70);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(0, 150, 180, 0.12);
+    border-radius: 16px;
+    padding: 14px 16px;
+    width: 100%;
+  }
+
+  .vz-hero .vz-stat {
+    padding: 8px 14px;
+    gap: 10px;
+    flex: 1 1 auto;
+    justify-content: center;
+    min-width: 90px;
   }
 
   .vz-hero .vz-stat-divider {
+    width: 1px;
+    height: 32px;
+    background: rgba(13, 31, 60, 0.10);
+    margin: 0;
+    align-self: center;
+    flex-shrink: 0;
+  }
+
+  .vz-hero .vz-stat-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 9px;
+
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  .vz-hero .vz-stat-val {
+    font-size: 18px !important;
+  }
+
+  .vz-hero .vz-stat-lbl {
+    font-size: 10px !important;
+  }
+
+  /* Hide scroll indicator on mobile — not needed */
+  .vz-hero .vz-scroll {
     display: none;
+  }
+}
+
+
+/* ══════════════════════════════════════════
+   SMALL PHONE — ≤ 480px
+══════════════════════════════════════════ */
+@media (max-width: 480px) {
+
+  .vz-hero .vz-wrap {
+    padding: 0 16px;
+  }
+
+  .vz-hero .vz-inner {
+    padding-top: 88px;
+    padding-bottom: 56px;
+  }
+
+  .vz-hero .vz-top-logo img {
+    width: 140px;
+  }
+
+  .vz-hero .vz-badge {
+    font-size: 9px !important;
+    padding: 5px 12px !important;
+    gap: 7px !important;
+    letter-spacing: 0.10em !important;
+  }
+
+  .vz-hero .vz-dot-pulse {
+    width: 7px;
+    height: 7px;
+  }
+
+  .vz-hero .vz-headline {
+    font-size: clamp(34px, 10.5vw, 46px) !important;
+    line-height: 0.97 !important;
+    margin-top: -6px !important;
+  }
+
+  .vz-hero .vz-desc {
+    font-size: 14px !important;
+    margin: 12px 0 18px !important;
+    line-height: 1.70 !important;
+  }
+
+  .vz-hero .vz-btn-primary,
+  .vz-hero .vz-btn-outline {
+    padding: 14px 20px !important;
+    min-height: 50px !important;
+    font-size: 14px !important;
+  }
+
+  /* Stats — 3 items in a row, compact */
+  .vz-hero .vz-stats {
+    padding: 12px 10px;
+    gap: 0;
+    border-radius: 14px;
+  }
+
+  .vz-hero .vz-stat {
+    padding: 6px 10px;
+    gap: 8px;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-width: 0;
+    flex: 1;
+  }
+
+  .vz-hero .vz-stat-divider {
+    height: 28px;
+  }
+
+  .vz-hero .vz-stat-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+
+    svg {
+      width: 13px;
+      height: 13px;
+    }
+  }
+
+  .vz-hero .vz-stat-val {
+    font-size: 15px !important;
+    letter-spacing: -0.01em !important;
+  }
+
+  .vz-hero .vz-stat-lbl {
+    font-size: 9px !important;
+    white-space: nowrap;
+  }
+
+  /* Overlay slightly more opaque so headline is crystal clear */
+  .vz-hero .vz-overlay {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(255,255,255,0.98) 0%,
+        rgba(255,255,255,0.95) 35%,
+        rgba(255,255,255,0.78) 56%,
+        rgba(255,255,255,0.35) 76%,
+        rgba(255,255,255,0.05) 100%
+      ) !important;
+  }
+
+  /* Background image — shift slightly higher so wind turbines show */
+  .vz-bg-image {
+    object-position: 60% 85%;
+    opacity: 0.60;
+  }
+}
+
+
+/* ══════════════════════════════════════════
+   EXTRA SMALL — ≤ 360px  (Galaxy A / Redmi)
+══════════════════════════════════════════ */
+@media (max-width: 360px) {
+
+  .vz-hero .vz-wrap {
+    padding: 0 14px;
+  }
+
+  .vz-hero .vz-inner {
+    padding-top: 80px;
+    padding-bottom: 48px;
+  }
+
+  .vz-hero .vz-top-logo img {
+    width: 124px;
+  }
+
+  .vz-hero .vz-headline {
+    font-size: 32px !important;
+  }
+
+  .vz-hero .vz-stats {
+    padding: 10px 8px;
+  }
+
+  .vz-hero .vz-stat {
+    padding: 4px 8px;
+    gap: 6px;
+  }
+
+  .vz-hero .vz-stat-val {
+    font-size: 14px !important;
+  }
+
+  .vz-hero .vz-stat-lbl {
+    font-size: 8.5px !important;
   }
 }
