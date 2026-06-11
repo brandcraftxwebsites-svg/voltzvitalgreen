@@ -1,3 +1,7 @@
+/* ════════════════════════════════════════
+   CONTACT SECTION
+════════════════════════════════════════ */
+
 .contact-section {
   background: var(--off-white);
   position: relative;
@@ -6,8 +10,10 @@
   &::before {
     content: '';
     position: absolute;
-    bottom: -200px; left: -200px;
-    width: 500px; height: 500px;
+    bottom: -200px;
+    left: -200px;
+    width: 500px;
+    height: 500px;
     background: radial-gradient(circle, rgba(27,159,191,.07), transparent 70%);
     pointer-events: none;
   }
@@ -20,7 +26,10 @@
   align-items: start;
 }
 
-/* ── Info side ── */
+/* ════════════════════════════════════════
+   INFO SIDE
+════════════════════════════════════════ */
+
 .contact-info {
   padding-top: 1rem;
 
@@ -43,25 +52,104 @@
   background: var(--white);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-sm);
-  transition: var(--transition);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: default;
 
-  &:hover { transform: translateX(6px); box-shadow: var(--shadow-md); }
+  &:hover {
+    transform: translateX(6px);
+    box-shadow: var(--shadow-md);
+
+    .info-icon {
+      transform: scale(1.07);
+
+      svg .svg-draw {
+        animation: svgDraw 0.7s ease forwards;
+      }
+    }
+  }
 }
 
+/* ════════════════════════════════════════
+   ICON WRAPPER
+════════════════════════════════════════ */
+
 .info-icon {
-  width: 44px; height: 44px;
+  width: 52px;
+  height: 52px;
   flex-shrink: 0;
-  background: linear-gradient(135deg, var(--teal), var(--green));
-  border-radius: var(--radius-sm);
+  border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.2rem;
+  position: relative;
+  transition: transform 0.3s ease;
+  overflow: visible;
+
+  svg {
+    width: 23px;
+    height: 23px;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* Color variants */
+  &.loc-icon  { background: linear-gradient(145deg, #22b883, #0d7a5a); }
+  &.mail-icon { background: linear-gradient(145deg, #4a9eeb, #1565c0); }
+  &.ph-icon   { background: linear-gradient(145deg, #9c83f0, #5e35b1); }
 }
+
+/* ── SVG stroke draw-on animation ── */
+.svg-draw {
+  stroke-dasharray: 120;
+  stroke-dashoffset: 120;
+  animation: svgDraw 1s ease forwards;
+}
+
+.svg-draw--delay {
+  animation-delay: 0.25s;
+}
+
+@keyframes svgDraw {
+  to { stroke-dashoffset: 0; }
+}
+
+/* ── Phone dot pulse ── */
+.svg-pulse-dot {
+  transform-origin: 18.5px 5.5px;
+  animation: pulseDot 2.2s ease-in-out infinite;
+}
+
+@keyframes pulseDot {
+  0%, 100% { opacity: 1;   transform: scale(1); }
+  50%       { opacity: 0.3; transform: scale(1.6); }
+}
+
+/* ── Ping ring around icon ── */
+.ping-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 14px;
+  z-index: 1;
+  animation: pingRing 3s ease-out infinite;
+
+  &--delay1 { animation-delay: 1s; }
+  &--delay2 { animation-delay: 2s; }
+}
+
+@keyframes pingRing {
+  0%   { box-shadow: 0 0 0 0   rgba(255,255,255,0.45); }
+  65%  { box-shadow: 0 0 0 10px rgba(255,255,255,0); }
+  100% { box-shadow: 0 0 0 0   rgba(255,255,255,0); }
+}
+
+/* ════════════════════════════════════════
+   INFO TEXT
+════════════════════════════════════════ */
 
 .info-text {
   display: flex;
   flex-direction: column;
+  gap: 0.2rem;
 
   .info-title {
     font-size: .72rem;
@@ -69,14 +157,19 @@
     letter-spacing: .1em;
     text-transform: uppercase;
     color: var(--gray-400);
-    margin-bottom: .2rem;
   }
+
   .info-val {
     font-size: .92rem;
     font-weight: 500;
     color: var(--text-dark);
+    line-height: 1.45;
   }
 }
+
+/* ════════════════════════════════════════
+   SOCIAL STRIP
+════════════════════════════════════════ */
 
 .social-strip {
   display: flex;
@@ -89,7 +182,8 @@
 }
 
 .social-btn {
-  width: 36px; height: 36px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   background: var(--navy);
   color: var(--white);
@@ -99,12 +193,15 @@
   font-size: .85rem;
   font-weight: 700;
   text-decoration: none;
-  transition: var(--transition);
+  transition: background 0.25s ease, transform 0.25s ease;
 
   &:hover { background: var(--teal); transform: translateY(-2px); }
 }
 
-/* ── Form ── */
+/* ════════════════════════════════════════
+   FORM CARD
+════════════════════════════════════════ */
+
 .form-card {
   background: var(--white);
   border-radius: var(--radius-lg);
@@ -118,6 +215,7 @@
     color: var(--navy);
     margin-bottom: .35rem;
   }
+
   p {
     font-size: .88rem;
     color: var(--gray-400);
@@ -146,7 +244,9 @@
     color: var(--gray-600);
   }
 
-  input, select, textarea {
+  input,
+  select,
+  textarea {
     width: 100%;
     padding: .85rem 1.1rem;
     border: 1.5px solid var(--gray-100);
@@ -156,7 +256,7 @@
     color: var(--text-dark);
     background: var(--off-white);
     outline: none;
-    transition: var(--transition);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
     resize: none;
 
     &::placeholder { color: var(--gray-400); }
@@ -169,6 +269,10 @@
   }
 }
 
+/* ════════════════════════════════════════
+   SUBMIT BUTTON
+════════════════════════════════════════ */
+
 .submit-btn {
   width: 100%;
   padding: 1rem 2rem;
@@ -180,27 +284,72 @@
   font-size: 1rem;
   font-weight: 700;
   cursor: pointer;
-  transition: var(--transition);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: .75rem;
   letter-spacing: .04em;
 
-  svg { width: 18px; height: 18px; }
+  svg {
+    width: 18px;
+    height: 18px;
+    transition: transform 0.25s ease;
+  }
 
   &:hover:not(:disabled) {
     transform: translateY(-2px);
     box-shadow: 0 8px 24px rgba(13,34,64,.25);
+
+    svg { transform: translateX(3px) rotate(-5deg); }
   }
 
   &:disabled {
     background: var(--green);
     cursor: not-allowed;
+    opacity: 0.85;
   }
 }
 
+/* ════════════════════════════════════════
+   RESPONSIVE
+════════════════════════════════════════ */
+
 @media (max-width: 900px) {
-  .contact-wrapper { grid-template-columns: 1fr; gap: 3rem; }
-  .form-row { grid-template-columns: 1fr; }
+  .contact-wrapper {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-card {
+    padding: 1.5rem;
+  }
+
+  .info-card {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .info-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 11px;
+
+    svg { width: 20px; height: 20px; }
+  }
+
+  .info-text .info-val {
+    font-size: .85rem;
+  }
+
+  .submit-btn {
+    font-size: .92rem;
+    padding: .9rem 1.5rem;
+  }
 }
