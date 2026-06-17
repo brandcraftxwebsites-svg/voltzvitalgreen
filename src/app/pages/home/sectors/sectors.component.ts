@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, OnDestroy } from '@angular/core';
+import { Component, AfterViewInit, OnDestroy, NgZone } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -11,7 +11,7 @@ import { CommonModule } from '@angular/common';
 export class SectorsComponent implements AfterViewInit, OnDestroy {
 
   private observer: IntersectionObserver | null = null;
-
+  constructor(private ngZone: NgZone) { }
   sectors = [
     {
       title: 'Environmental Consulting',
@@ -54,14 +54,14 @@ export class SectorsComponent implements AfterViewInit, OnDestroy {
       theme: 'cyan'
     },
 
-{
-  title: 'Liquid & Solid Waste Management',
-  desc: 'Comprehensive waste characterisation, segregation, treatment, and disposal solutions for industrial and urban generators aligned with circular economy and zero-waste principles.',
-  color: '#f43f5e',
-  gradient: 'rgba(244,63,94,.1)',
-  paths: ['M3 6h18', 'M8 6V4h8v2', 'M19 6l-1 14H6L5 6', 'M10 11v6', 'M14 11v6'],
-  theme: 'rose'
-},
+    {
+      title: 'Liquid & Solid Waste Management',
+      desc: 'Comprehensive waste characterisation, segregation, treatment, and disposal solutions for industrial and urban generators aligned with circular economy and zero-waste principles.',
+      color: '#f43f5e',
+      gradient: 'rgba(244,63,94,.1)',
+      paths: ['M3 6h18', 'M8 6V4h8v2', 'M19 6l-1 14H6L5 6', 'M10 11v6', 'M14 11v6'],
+      theme: 'rose'
+    },
 
     {
       title: 'Sustainability Reporting',
@@ -74,28 +74,33 @@ export class SectorsComponent implements AfterViewInit, OnDestroy {
   ];
 
   ngAfterViewInit(): void {
-    // Only activate on touch/mobile — desktop keeps pure CSS hover
     const isTouchDevice = window.matchMedia('(hover: none)').matches;
-
     if (!isTouchDevice) return;
 
-    this.observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            // Keep card open once it has been seen — don't remove class on scroll out
-          }
-        });
-      },
-      {
-        threshold: 0.25,      // Card is 25% visible before triggering
-        rootMargin: '0px 0px -40px 0px'  // Trigger slightly before fully in view
-      }
-    );
+    // Run outside Angular's zone so scroll-triggered intersection events
+    // don't fire change detection on every tick — this was the source
+    // of the mobile stutter/glitch
+    this.ngZone.runOutsideAngular(() => {
+      this.observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              // Card is permanently open now — stop watching it so it
+              // can never be re-triggered or affected by later scrolling
+              this.observer!.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.25,
+          rootMargin: '0px 0px -40px 0px'
+        }
+      );
 
-    const cards = document.querySelectorAll('.sector-card');
-    cards.forEach(card => this.observer!.observe(card));
+      const cards = document.querySelectorAll('.sector-card');
+      cards.forEach(card => this.observer!.observe(card));
+    });
   }
 
   ngOnDestroy(): void {
