@@ -5,112 +5,217 @@
 // ═══════════════════════════════════════════════════════════════════════════════
 
 // ─── Premium Palette ──────────────────────────────────────────────────────────
-$em-core:   #00c97a;
-$em-deep:   #007a49;
+$em-core: #00c97a;
+$em-deep: #007a49;
 $em-bright: #4dffa8;
 
-$sa-core:   #0ea5e9;
-$sa-deep:   #0369a1;
+$sa-core: #0ea5e9;
+$sa-deep: #0369a1;
 $sa-bright: #7dd3fc;
 
-$in-core:   #6366f1;
-$in-deep:   #3730a3;
+$in-core: #6366f1;
+$in-deep: #3730a3;
 $in-bright: #a5b4fc;
 
-$am-core:   #f59e0b;
-$am-deep:   #b45309;
+$am-core: #f59e0b;
+$am-deep: #b45309;
 $am-bright: #fcd34d;
 
-$cy-core:   #06b6d4;
-$cy-deep:   #0e7490;
+$cy-core: #06b6d4;
+$cy-deep: #0e7490;
 $cy-bright: #67e8f9;
 
-$li-core:   #22c55e;
-$li-deep:   #15803d;
+$li-core: #22c55e;
+$li-deep: #15803d;
 $li-bright: #86efac;
 
-$card-bg:        #0d1117;
+$ro-core: #f43f5e;
+$ro-deep: #9f1239;
+$ro-bright: #fda4af;
+
+$card-bg: #0d1117;
 $card-bg-raised: #111827;
-$card-border:    rgba(255, 255, 255, .07);
-$card-border-h:  rgba(255, 255, 255, .13);
+$card-border: rgba(255, 255, 255, .07);
+$card-border-h: rgba(255, 255, 255, .13);
 
 // ─── Keyframes ────────────────────────────────────────────────────────────────
 @keyframes svgNodePulse {
-  0%, 100% { r: 1.5; opacity: .4; }
-  50%       { r: 3;   opacity: .9; }
+
+  0%,
+  100% {
+    r: 1.5;
+    opacity: .4;
+  }
+
+  50% {
+    r: 3;
+    opacity: .9;
+  }
 }
 
 @keyframes svgLineDrift {
-  0%   { stroke-dashoffset: 0; }
-  100% { stroke-dashoffset: -120; }
+  0% {
+    stroke-dashoffset: 0;
+  }
+
+  100% {
+    stroke-dashoffset: -120;
+  }
 }
 
 @keyframes blobFloat {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  33%       { transform: translate(-10px, 14px) scale(1.08); }
-  66%       { transform: translate(8px, -8px) scale(.96); }
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  33% {
+    transform: translate(-10px, 14px) scale(1.08);
+  }
+
+  66% {
+    transform: translate(8px, -8px) scale(.96);
+  }
 }
 
 @keyframes topBarReveal {
-  from { transform: scaleX(0); opacity: 0; }
-  to   { transform: scaleX(1); opacity: 1; }
+  from {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+
+  to {
+    transform: scaleX(1);
+    opacity: 1;
+  }
 }
 
 @keyframes shimmerSweep {
-  0%   { left: -80%; }
-  100% { left: 160%; }
+  0% {
+    left: -80%;
+  }
+
+  100% {
+    left: 160%;
+  }
 }
 
 @keyframes iconLift {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50%       { transform: translateY(-3px) rotate(-4deg); }
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-3px) rotate(-4deg);
+  }
 }
 
 @keyframes arrowNudge {
-  0%, 100% { transform: translateX(0); }
-  50%       { transform: translateX(3px); }
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(3px);
+  }
 }
 
 @keyframes cardEntrance {
-  from { opacity: 0; transform: translateY(28px) scale(.97); }
-  to   { opacity: 1; transform: translateY(0) scale(1); }
+  from {
+    opacity: 0;
+    transform: translateY(28px) scale(.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 // Mobile scroll-trigger card pop animation
 @keyframes cardScrollPop {
-  0%   { opacity: 0; transform: translateY(32px) scale(.96); }
-  60%  { opacity: 1; transform: translateY(-4px) scale(1.01); }
-  100% { opacity: 1; transform: translateY(0) scale(1); }
+  0% {
+    opacity: 0;
+    transform: translateY(32px) scale(.96);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translateY(-4px) scale(1.01);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 // Mobile: description slide open
 @keyframes descReveal {
-  from { max-height: 0; opacity: 0; margin-top: 0; }
-  to   { max-height: 160px; opacity: 1; margin-top: 10px; }
+  from {
+    max-height: 0;
+    opacity: 0;
+    margin-top: 0;
+  }
+
+  to {
+    max-height: 160px;
+    opacity: 1;
+    margin-top: 10px;
+  }
 }
 
 // Mobile: arrow slide in
 @keyframes arrowReveal {
-  from { opacity: 0; transform: translateX(-8px); }
-  to   { opacity: 1; transform: translateX(0); }
+  from {
+    opacity: 0;
+    transform: translateX(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 // Mobile: top bar draw
 @keyframes topBarDraw {
-  from { transform: scaleX(0); opacity: 0; }
-  to   { transform: scaleX(1); opacity: 1; }
+  from {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+
+  to {
+    transform: scaleX(1);
+    opacity: 1;
+  }
 }
 
 // Mobile: blob fade in
 @keyframes blobReveal {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 // Mobile: mesh fade in
 @keyframes meshReveal {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 // ─── Section ──────────────────────────────────────────────────────────────────
@@ -124,14 +229,17 @@ $card-border-h:  rgba(255, 255, 255, .13);
     position: absolute;
     inset: 0;
     background-image:
-      linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+      linear-gradient(rgba(255, 255, 255, .025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, .025) 1px, transparent 1px);
     background-size: 64px 64px;
     pointer-events: none;
     z-index: 0;
   }
 
-  .container-custom { position: relative; z-index: 1; }
+  .container-custom {
+    position: relative;
+    z-index: 1;
+  }
 }
 
 // ─── Header ───────────────────────────────────────────────────────────────────
@@ -158,7 +266,13 @@ $card-border-h:  rgba(255, 255, 255, .13);
     }
   }
 
-  .section-sub { color: #94a3b8; }
+  .section-sub {
+    color: #94a3b8;
+    max-width: 560px;
+    margin: 0 auto;
+    text-align: center;
+
+  }
 }
 
 // ─── Grid ─────────────────────────────────────────────────────────────────────
@@ -167,8 +281,13 @@ $card-border-h:  rgba(255, 255, 255, .13);
   grid-template-columns: repeat(3, 1fr);
   gap: 18px;
 
-  @media (max-width: 992px) { grid-template-columns: repeat(2, 1fr); }
-  @media (max-width: 576px) { grid-template-columns: 1fr; }
+  @media (max-width: 992px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 576px) {
+    grid-template-columns: 1fr;
+  }
 }
 
 // ─── Base card ────────────────────────────────────────────────────────────────
@@ -187,20 +306,23 @@ $card-border-h:  rgba(255, 255, 255, .13);
   animation: cardEntrance .55s cubic-bezier(.4, 0, .2, 1) both;
 
   @for $i from 1 through 9 {
-    &.delay-#{$i} { animation-delay: #{($i - 1) * 80}ms; }
+    &.delay-#{$i} {
+      animation-delay: #{($i - 1) * 80}ms;
+    }
   }
 
-  transition:
-    transform .35s cubic-bezier(.4, 0, .2, 1),
-    box-shadow .35s ease,
-    border-color .3s ease,
-    background .3s ease;
+  transition: transform .35s cubic-bezier(.4, 0, .2, 1),
+  box-shadow .35s ease,
+  border-color .3s ease,
+  background .3s ease;
 
   // ── Top accent bar ──────────────────────────────────────────────────────────
   &::before {
     content: '';
     position: absolute;
-    top: 0; left: 0; right: 0;
+    top: 0;
+    left: 0;
+    right: 0;
     height: 2px;
     border-radius: 20px 20px 0 0;
     transform: scaleX(0);
@@ -217,12 +339,10 @@ $card-border-h:  rgba(255, 255, 255, .13);
     left: -80%;
     width: 50%;
     height: 100%;
-    background: linear-gradient(
-      108deg,
-      transparent 35%,
-      rgba(255, 255, 255, .055) 50%,
-      transparent 65%
-    );
+    background: linear-gradient(108deg,
+        transparent 35%,
+        rgba(255, 255, 255, .055) 50%,
+        transparent 65%);
     z-index: 4;
     pointer-events: none;
   }
@@ -245,16 +365,31 @@ $card-border-h:  rgba(255, 255, 255, .13);
       animation: svgLineDrift 8s linear infinite;
       stroke-width: .7;
 
-      &:nth-child(2) { animation-duration: 11s; animation-delay: -3s; }
-      &:nth-child(3) { animation-duration: 14s; animation-delay: -6s; }
+      &:nth-child(2) {
+        animation-duration: 11s;
+        animation-delay: -3s;
+      }
+
+      &:nth-child(3) {
+        animation-duration: 14s;
+        animation-delay: -6s;
+      }
     }
 
     .mesh-node {
       animation: svgNodePulse 3s ease-in-out infinite;
 
-      &:nth-child(2) { animation-delay: -1s; }
-      &:nth-child(3) { animation-delay: -2s; }
-      &:nth-child(4) { animation-delay: -.5s; }
+      &:nth-child(2) {
+        animation-delay: -1s;
+      }
+
+      &:nth-child(3) {
+        animation-delay: -2s;
+      }
+
+      &:nth-child(4) {
+        animation-delay: -.5s;
+      }
     }
 
     .mesh-arc {
@@ -288,14 +423,24 @@ $card-border-h:  rgba(255, 255, 255, .13);
     border-color: $card-border-h;
     background: $card-bg-raised;
 
-    &::before { animation: topBarReveal .4s cubic-bezier(.4, 0, .2, 1) forwards; }
-    &::after  { animation: shimmerSweep .65s ease forwards; }
+    &::before {
+      animation: topBarReveal .4s cubic-bezier(.4, 0, .2, 1) forwards;
+    }
 
-    .card-blob { opacity: 1; }
+    &::after {
+      animation: shimmerSweep .65s ease forwards;
+    }
+
+    .card-blob {
+      opacity: 1;
+    }
 
     .card-svg-mesh {
       opacity: 1;
-      .mesh-arc { stroke-dashoffset: 0; }
+
+      .mesh-arc {
+        stroke-dashoffset: 0;
+      }
     }
 
     .sector-body p {
@@ -307,10 +452,15 @@ $card-border-h:  rgba(255, 255, 255, .13);
     .sector-arrow {
       opacity: 1;
       transform: translateX(0);
-      svg { animation: arrowNudge 1s ease-in-out infinite; }
+
+      svg {
+        animation: arrowNudge 1s ease-in-out infinite;
+      }
     }
 
-    .sector-icon { animation: iconLift 2.4s ease-in-out infinite; }
+    .sector-icon {
+      animation: iconLift 2.4s ease-in-out infinite;
+    }
   }
 
   // ── Mobile scroll-triggered state (JS adds .is-visible) ────────────────────
@@ -334,7 +484,11 @@ $card-border-h:  rgba(255, 255, 255, .13);
 
     .card-svg-mesh {
       animation: meshReveal .5s .2s ease forwards;
-      .mesh-arc { stroke-dashoffset: 0; transition-delay: .35s; }
+
+      .mesh-arc {
+        stroke-dashoffset: 0;
+        transition-delay: .35s;
+      }
     }
 
     .sector-body p {
@@ -343,7 +497,10 @@ $card-border-h:  rgba(255, 255, 255, .13);
 
     .sector-arrow {
       animation: arrowReveal .35s .4s ease both;
-      svg { animation: arrowNudge 1.2s .75s ease-in-out infinite; }
+
+      svg {
+        animation: arrowNudge 1.2s .75s ease-in-out infinite;
+      }
     }
 
     .sector-icon {
@@ -355,21 +512,44 @@ $card-border-h:  rgba(255, 255, 255, .13);
 // ─── Color themes ─────────────────────────────────────────────────────────────
 
 .sector-card-green {
-  &::before { background: linear-gradient(90deg, $em-deep, $em-core 50%, $em-bright); }
-  .card-blob { background: radial-gradient(circle, rgba($em-core, .45), transparent 70%); }
-  .card-svg-mesh {
-    .mesh-line { stroke: rgba($em-core, .22); }
-    .mesh-node { fill: $em-core; }
-    .mesh-arc  { stroke: rgba($em-bright, .35); }
+  &::before {
+    background: linear-gradient(90deg, $em-deep, $em-core 50%, $em-bright);
   }
+
+  .card-blob {
+    background: radial-gradient(circle, rgba($em-core, .45), transparent 70%);
+  }
+
+  .card-svg-mesh {
+    .mesh-line {
+      stroke: rgba($em-core, .22);
+    }
+
+    .mesh-node {
+      fill: $em-core;
+    }
+
+    .mesh-arc {
+      stroke: rgba($em-bright, .35);
+    }
+  }
+
   .sector-icon {
     background: linear-gradient(135deg, rgba($em-core, .12), rgba($em-bright, .2));
     border: 1px solid rgba($em-core, .2);
     box-shadow: 0 0 18px rgba($em-core, .12);
   }
-  .sector-arrow { color: $em-core; }
-  .sector-body h3 { color: #e2faf0; }
-  &:hover, &.is-visible {
+
+  .sector-arrow {
+    color: $em-core;
+  }
+
+  .sector-body h3 {
+    color: #e2faf0;
+  }
+
+  &:hover,
+  &.is-visible {
     border-color: rgba($em-core, .3);
     box-shadow:
       0 0 0 1px rgba($em-core, .12),
@@ -379,21 +559,44 @@ $card-border-h:  rgba(255, 255, 255, .13);
 }
 
 .sector-card-teal {
-  &::before { background: linear-gradient(90deg, $sa-deep, $sa-core 50%, $sa-bright); }
-  .card-blob { background: radial-gradient(circle, rgba($sa-core, .4), transparent 70%); }
-  .card-svg-mesh {
-    .mesh-line { stroke: rgba($sa-core, .22); }
-    .mesh-node { fill: $sa-core; }
-    .mesh-arc  { stroke: rgba($sa-bright, .35); }
+  &::before {
+    background: linear-gradient(90deg, $sa-deep, $sa-core 50%, $sa-bright);
   }
+
+  .card-blob {
+    background: radial-gradient(circle, rgba($sa-core, .4), transparent 70%);
+  }
+
+  .card-svg-mesh {
+    .mesh-line {
+      stroke: rgba($sa-core, .22);
+    }
+
+    .mesh-node {
+      fill: $sa-core;
+    }
+
+    .mesh-arc {
+      stroke: rgba($sa-bright, .35);
+    }
+  }
+
   .sector-icon {
     background: linear-gradient(135deg, rgba($sa-core, .12), rgba($sa-bright, .2));
     border: 1px solid rgba($sa-core, .2);
     box-shadow: 0 0 18px rgba($sa-core, .12);
   }
-  .sector-arrow { color: $sa-core; }
-  .sector-body h3 { color: #e0f5ff; }
-  &:hover, &.is-visible {
+
+  .sector-arrow {
+    color: $sa-core;
+  }
+
+  .sector-body h3 {
+    color: #e0f5ff;
+  }
+
+  &:hover,
+  &.is-visible {
     border-color: rgba($sa-core, .3);
     box-shadow:
       0 0 0 1px rgba($sa-core, .12),
@@ -403,21 +606,44 @@ $card-border-h:  rgba(255, 255, 255, .13);
 }
 
 .sector-card-navy {
-  &::before { background: linear-gradient(90deg, $in-deep, $in-core 50%, $in-bright); }
-  .card-blob { background: radial-gradient(circle, rgba($in-core, .4), transparent 70%); }
-  .card-svg-mesh {
-    .mesh-line { stroke: rgba($in-core, .22); }
-    .mesh-node { fill: $in-core; }
-    .mesh-arc  { stroke: rgba($in-bright, .35); }
+  &::before {
+    background: linear-gradient(90deg, $in-deep, $in-core 50%, $in-bright);
   }
+
+  .card-blob {
+    background: radial-gradient(circle, rgba($in-core, .4), transparent 70%);
+  }
+
+  .card-svg-mesh {
+    .mesh-line {
+      stroke: rgba($in-core, .22);
+    }
+
+    .mesh-node {
+      fill: $in-core;
+    }
+
+    .mesh-arc {
+      stroke: rgba($in-bright, .35);
+    }
+  }
+
   .sector-icon {
     background: linear-gradient(135deg, rgba($in-core, .12), rgba($in-bright, .2));
     border: 1px solid rgba($in-core, .2);
     box-shadow: 0 0 18px rgba($in-core, .12);
   }
-  .sector-arrow { color: $in-core; }
-  .sector-body h3 { color: #eef0ff; }
-  &:hover, &.is-visible {
+
+  .sector-arrow {
+    color: $in-core;
+  }
+
+  .sector-body h3 {
+    color: #eef0ff;
+  }
+
+  &:hover,
+  &.is-visible {
     border-color: rgba($in-core, .3);
     box-shadow:
       0 0 0 1px rgba($in-core, .12),
@@ -427,21 +653,44 @@ $card-border-h:  rgba(255, 255, 255, .13);
 }
 
 .sector-card-amber {
-  &::before { background: linear-gradient(90deg, $am-deep, $am-core 50%, $am-bright); }
-  .card-blob { background: radial-gradient(circle, rgba($am-core, .38), transparent 70%); }
-  .card-svg-mesh {
-    .mesh-line { stroke: rgba($am-core, .22); }
-    .mesh-node { fill: $am-core; }
-    .mesh-arc  { stroke: rgba($am-bright, .35); }
+  &::before {
+    background: linear-gradient(90deg, $am-deep, $am-core 50%, $am-bright);
   }
+
+  .card-blob {
+    background: radial-gradient(circle, rgba($am-core, .38), transparent 70%);
+  }
+
+  .card-svg-mesh {
+    .mesh-line {
+      stroke: rgba($am-core, .22);
+    }
+
+    .mesh-node {
+      fill: $am-core;
+    }
+
+    .mesh-arc {
+      stroke: rgba($am-bright, .35);
+    }
+  }
+
   .sector-icon {
     background: linear-gradient(135deg, rgba($am-core, .12), rgba($am-bright, .2));
     border: 1px solid rgba($am-core, .2);
     box-shadow: 0 0 18px rgba($am-core, .12);
   }
-  .sector-arrow { color: $am-core; }
-  .sector-body h3 { color: #fffbeb; }
-  &:hover, &.is-visible {
+
+  .sector-arrow {
+    color: $am-core;
+  }
+
+  .sector-body h3 {
+    color: #fffbeb;
+  }
+
+  &:hover,
+  &.is-visible {
     border-color: rgba($am-core, .3);
     box-shadow:
       0 0 0 1px rgba($am-core, .12),
@@ -451,21 +700,44 @@ $card-border-h:  rgba(255, 255, 255, .13);
 }
 
 .sector-card-cyan {
-  &::before { background: linear-gradient(90deg, $cy-deep, $cy-core 50%, $cy-bright); }
-  .card-blob { background: radial-gradient(circle, rgba($cy-core, .4), transparent 70%); }
-  .card-svg-mesh {
-    .mesh-line { stroke: rgba($cy-core, .22); }
-    .mesh-node { fill: $cy-core; }
-    .mesh-arc  { stroke: rgba($cy-bright, .35); }
+  &::before {
+    background: linear-gradient(90deg, $cy-deep, $cy-core 50%, $cy-bright);
   }
+
+  .card-blob {
+    background: radial-gradient(circle, rgba($cy-core, .4), transparent 70%);
+  }
+
+  .card-svg-mesh {
+    .mesh-line {
+      stroke: rgba($cy-core, .22);
+    }
+
+    .mesh-node {
+      fill: $cy-core;
+    }
+
+    .mesh-arc {
+      stroke: rgba($cy-bright, .35);
+    }
+  }
+
   .sector-icon {
     background: linear-gradient(135deg, rgba($cy-core, .12), rgba($cy-bright, .2));
     border: 1px solid rgba($cy-core, .2);
     box-shadow: 0 0 18px rgba($cy-core, .12);
   }
-  .sector-arrow { color: $cy-core; }
-  .sector-body h3 { color: #cffafe; }
-  &:hover, &.is-visible {
+
+  .sector-arrow {
+    color: $cy-core;
+  }
+
+  .sector-body h3 {
+    color: #cffafe;
+  }
+
+  &:hover,
+  &.is-visible {
     border-color: rgba($cy-core, .3);
     box-shadow:
       0 0 0 1px rgba($cy-core, .12),
@@ -475,25 +747,95 @@ $card-border-h:  rgba(255, 255, 255, .13);
 }
 
 .sector-card-lime {
-  &::before { background: linear-gradient(90deg, $li-deep, $li-core 50%, $li-bright); }
-  .card-blob { background: radial-gradient(circle, rgba($li-core, .4), transparent 70%); }
-  .card-svg-mesh {
-    .mesh-line { stroke: rgba($li-core, .22); }
-    .mesh-node { fill: $li-core; }
-    .mesh-arc  { stroke: rgba($li-bright, .35); }
+  &::before {
+    background: linear-gradient(90deg, $li-deep, $li-core 50%, $li-bright);
   }
+
+  .card-blob {
+    background: radial-gradient(circle, rgba($li-core, .4), transparent 70%);
+  }
+
+  .card-svg-mesh {
+    .mesh-line {
+      stroke: rgba($li-core, .22);
+    }
+
+    .mesh-node {
+      fill: $li-core;
+    }
+
+    .mesh-arc {
+      stroke: rgba($li-bright, .35);
+    }
+  }
+
   .sector-icon {
     background: linear-gradient(135deg, rgba($li-core, .12), rgba($li-bright, .2));
     border: 1px solid rgba($li-core, .2);
     box-shadow: 0 0 18px rgba($li-core, .12);
   }
-  .sector-arrow { color: $li-core; }
-  .sector-body h3 { color: #f0fdf4; }
-  &:hover, &.is-visible {
+
+  .sector-arrow {
+    color: $li-core;
+  }
+
+  .sector-body h3 {
+    color: #f0fdf4;
+  }
+
+  &:hover,
+  &.is-visible {
     border-color: rgba($li-core, .3);
     box-shadow:
       0 0 0 1px rgba($li-core, .12),
       0 20px 60px rgba($li-core, .15),
+      0 4px 20px rgba(0, 0, 0, .3);
+  }
+}
+
+.sector-card-rose {
+  &::before {
+    background: linear-gradient(90deg, $ro-deep, $ro-core 50%, $ro-bright);
+  }
+
+  .card-blob {
+    background: radial-gradient(circle, rgba($ro-core, .4), transparent 70%);
+  }
+
+  .card-svg-mesh {
+    .mesh-line {
+      stroke: rgba($ro-core, .22);
+    }
+
+    .mesh-node {
+      fill: $ro-core;
+    }
+
+    .mesh-arc {
+      stroke: rgba($ro-bright, .35);
+    }
+  }
+
+  .sector-icon {
+    background: linear-gradient(135deg, rgba($ro-core, .12), rgba($ro-bright, .2));
+    border: 1px solid rgba($ro-core, .2);
+    box-shadow: 0 0 18px rgba($ro-core, .12);
+  }
+
+  .sector-arrow {
+    color: $ro-core;
+  }
+
+  .sector-body h3 {
+    color: #fff1f2;
+  }
+
+  &:hover,
+  &.is-visible {
+    border-color: rgba($ro-core, .3);
+    box-shadow:
+      0 0 0 1px rgba($ro-core, .12),
+      0 20px 60px rgba($ro-core, .15),
       0 4px 20px rgba(0, 0, 0, .3);
   }
 }
@@ -536,8 +878,8 @@ $card-border-h:  rgba(255, 255, 255, .13);
     overflow: hidden;
     transition:
       max-height .42s cubic-bezier(.4, 0, .2, 1),
-      opacity    .32s ease,
-      margin     .32s ease;
+      opacity .32s ease,
+      margin .32s ease;
     margin-top: 0;
   }
 }
@@ -569,6 +911,7 @@ $card-border-h:  rgba(255, 255, 255, .13);
 
 // ─── Reduced motion ───────────────────────────────────────────────────────────
 @media (prefers-reduced-motion: reduce) {
+
   .sector-card,
   .sector-card::before,
   .sector-card::after,
@@ -581,11 +924,29 @@ $card-border-h:  rgba(255, 255, 255, .13);
   }
 
   .sector-card.is-visible {
-    .sector-body p { max-height: 160px; opacity: 1; margin-top: 10px; }
-    .sector-arrow  { opacity: 1; transform: translateX(0); }
-    &::before      { transform: scaleX(1); opacity: 1; }
-    .card-svg-mesh { opacity: 1; }
-    .card-blob     { opacity: 1; }
+    .sector-body p {
+      max-height: 160px;
+      opacity: 1;
+      margin-top: 10px;
+    }
+
+    .sector-arrow {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    &::before {
+      transform: scaleX(1);
+      opacity: 1;
+    }
+
+    .card-svg-mesh {
+      opacity: 1;
+    }
+
+    .card-blob {
+      opacity: 1;
+    }
   }
 }
 
@@ -593,7 +954,9 @@ $card-border-h:  rgba(255, 255, 255, .13);
 
 // Tablet
 @media (max-width: 992px) {
-  .sectors-grid { gap: 14px; }
+  .sectors-grid {
+    gap: 14px;
+  }
 
   .sector-card {
     min-height: 185px;
@@ -621,8 +984,14 @@ $card-border-h:  rgba(255, 255, 255, .13);
 
   .sectors-header {
     margin-bottom: 2rem;
-    .section-title { font-size: 1.6rem; }
-    .section-sub   { font-size: 0.9rem; }
+
+    .section-title {
+      font-size: 1.6rem;
+    }
+
+    .section-sub {
+      font-size: 0.9rem;
+    }
   }
 
   .sectors-grid {
@@ -635,8 +1004,13 @@ $card-border-h:  rgba(255, 255, 255, .13);
     padding: 1.2rem 1.1rem 1rem;
 
     // No translate lift on touch — feels laggy
-    &:hover       { transform: none; }
-    &.is-visible  { animation: cardScrollPop .6s cubic-bezier(.4, 0, .2, 1) both; }
+    &:hover {
+      transform: none;
+    }
+
+    &.is-visible {
+      animation: cardScrollPop .6s cubic-bezier(.4, 0, .2, 1) both;
+    }
   }
 
   .sector-icon {
@@ -647,8 +1021,13 @@ $card-border-h:  rgba(255, 255, 255, .13);
   }
 
   .sector-body {
-    h3 { font-size: 13.5px; }
-    p  { font-size: 12px; }
+    h3 {
+      font-size: 13.5px;
+    }
+
+    p {
+      font-size: 12px;
+    }
   }
 }
 
@@ -675,7 +1054,10 @@ $card-border-h:  rgba(255, 255, 255, .13);
     margin-bottom: 10px;
   }
 
-  .sector-body h3 { font-size: 14px; line-height: 1.3; }
+  .sector-body h3 {
+    font-size: 14px;
+    line-height: 1.3;
+  }
 
   .sector-arrow {
     padding-top: 10px;
@@ -692,14 +1074,38 @@ $card-border-h:  rgba(255, 255, 255, .13);
       border-color: $card-border;
       background: $card-bg;
 
-      &::before { animation: none; transform: scaleX(0); }
-      &::after  { animation: none; }
+      &::before {
+        animation: none;
+        transform: scaleX(0);
+      }
 
-      .card-blob      { opacity: 0; }
-      .card-svg-mesh  { opacity: 0; }
-      .sector-body p  { max-height: 0; opacity: 0; margin-top: 0; }
-      .sector-arrow   { opacity: 0; transform: translateX(-6px); }
-      .sector-icon    { animation: none; }
+      &::after {
+        animation: none;
+      }
+
+      .card-blob {
+        opacity: 0;
+      }
+
+      .card-svg-mesh {
+        opacity: 0;
+      }
+
+      .sector-body p {
+        max-height: 0;
+        opacity: 0;
+        margin-top: 0;
+      }
+
+      .sector-arrow {
+        opacity: 0;
+        transform: translateX(-6px);
+      }
+
+      .sector-icon {
+        animation: none;
+      }
     }
   }
 }
+

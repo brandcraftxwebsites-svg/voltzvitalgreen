@@ -24,8 +24,9 @@
   &:hover { transform: translateY(-4px); }
 
   &.primary-card {
-    background: linear-gradient(135deg, var(--navy), var(--navy-light));
-    color: var(--white);
+    background: var(--white);
+    box-shadow: var(--shadow-md);
+    color: var(--navy);
 
     h4 { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; margin: .75rem 0 .4rem; }
     p  { font-size: .9rem; opacity: .7; line-height: 1.6; }
