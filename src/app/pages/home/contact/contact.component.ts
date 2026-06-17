@@ -75,7 +75,7 @@ export class ContactComponent {
     setTimeout(() => this.toastVisible = false, 4000);
   }
 
-  onSubmit(): void {
+onSubmit(): void {
     if (!this.formData.name || !this.formData.email || !this.formData.message) {
       this.showToast('Please fill in all required fields.', 'error');
       return;
@@ -98,5 +98,11 @@ ${this.formData.message}`;
 
   this.submitted = true;
   this.showToast('Opening WhatsApp with your message!', 'success');
+
+  // Reset back to normal button state after a short delay,
+  // so the user can submit again without refreshing the page.
+  setTimeout(() => {
+    this.submitted = false;
+  }, 2000);
 }
 }
