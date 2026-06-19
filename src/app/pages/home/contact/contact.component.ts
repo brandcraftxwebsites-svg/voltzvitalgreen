@@ -75,14 +75,14 @@ export class ContactComponent {
     setTimeout(() => this.toastVisible = false, 4000);
   }
 
-onSubmit(): void {
+  onSubmit(): void {
     if (!this.formData.name || !this.formData.email || !this.formData.message) {
       this.showToast('Please fill in all required fields.', 'error');
       return;
     }
 
-  const msg =
-`*New Inquiry – Voltzvital*
+    const msg =
+      `*New Inquiry – Voltzvital*
 
 Name: ${this.formData.name}
 Email: ${this.formData.email}
@@ -92,17 +92,25 @@ Service: ${this.formData.service || 'Not selected'}
 *Message:*
 ${this.formData.message}`;
 
-  const encoded = encodeURIComponent(msg);
-  const url = `https://wa.me/${this.whatsappNumber}?text=${encoded}`;
-  window.open(url, '_blank');
+    const encoded = encodeURIComponent(msg);
+    const url = `https://wa.me/${this.whatsappNumber}?text=${encoded}`;
+    window.open(url, '_blank');
 
-  this.submitted = true;
-  this.showToast('Opening WhatsApp with your message!', 'success');
+    this.submitted = true;
+    this.showToast('Opening WhatsApp with your message!', 'success');
 
-  // Reset back to normal button state after a short delay,
-  // so the user can submit again without refreshing the page.
-  setTimeout(() => {
-    this.submitted = false;
-  }, 2000);
-}
+    this.formData = {
+      name: '',
+      email: '',
+      phone: '',
+      service: '',
+      message: ''
+    };
+
+    // Reset back to normal button state after a short delay,
+    // so the user can submit again without refreshing the page.
+    setTimeout(() => {
+      this.submitted = false;
+    }, 2000);
+  }
 }
