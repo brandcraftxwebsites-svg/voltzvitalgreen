@@ -807,11 +807,11 @@ $card-border-h: rgba(255, 255, 255, .13);
 
 @keyframes shimmerSweep {
   0% {
-    left: -80%;
+    transform: translateX(-160%);
   }
 
   100% {
-    left: 160%;
+    transform: translateX(320%);
   }
 }
 
@@ -1014,10 +1014,11 @@ $card-border-h: rgba(255, 255, 255, .13);
   display: flex;
   flex-direction: column;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   isolation: isolate;
   min-height: 210px;
   animation: cardEntrance .55s cubic-bezier(.4, 0, .2, 1) both;
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
 
   @for $i from 1 through 9 {
     &.delay-#{$i} {
@@ -1046,11 +1047,11 @@ $card-border-h: rgba(255, 255, 255, .13);
   }
 
   // ── Shimmer sweep ───────────────────────────────────────────────────────────
-  &::after {
+&::after {
     content: '';
     position: absolute;
     top: 0;
-    left: -80%;
+    left: 0;
     width: 50%;
     height: 100%;
     background: linear-gradient(108deg,
@@ -1822,50 +1823,71 @@ $card-border-h: rgba(255, 255, 255, .13);
     }
   }
 
-  // Every card is raised and fully open from first paint
-  .sector-card {
+.sector-card {
     border-color: $card-border-h;
     background: $card-bg-raised;
+    // Force GPU layer — Android skips animations without this
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
 
     &::before {
       animation: topBarDraw .5s cubic-bezier(.4, 0, .2, 1) both;
+      will-change: transform, opacity;
     }
 
     &::after {
       animation: shimmerSweep .7s .1s ease forwards;
+      will-change: left;
     }
 
     .card-blob {
       animation: blobReveal .6s ease forwards, blobFloat 10s .6s ease-in-out infinite;
+      will-change: transform, opacity;
+      // Android blur fix — filter: blur kills compositing on some devices
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
     }
 
     .card-svg-mesh {
       animation: meshReveal .5s .1s ease forwards;
+      will-change: opacity;
+      // Remove transition that fights animation on mobile
+      transition: none;
 
       .mesh-arc {
         stroke-dashoffset: 0;
-        transition-delay: .3s;
+        transition: none; // kills the transition conflict
+      }
+
+      .mesh-line {
+        will-change: stroke-dashoffset;
+      }
+
+      .mesh-node {
+        will-change: opacity;
       }
     }
 
-    // ← ADD transition: none — kills the conflict with animation on Android
     .sector-body p {
       transition: none;
       animation: descReveal .45s .15s cubic-bezier(.4, 0, .2, 1) both;
+      will-change: max-height, opacity;
     }
 
-    // ← ADD transition: none — same fix for arrow
     .sector-arrow {
       transition: none;
       animation: arrowReveal .35s .3s ease both;
+      will-change: opacity, transform;
 
       svg {
         animation: arrowNudge 1.2s .65s ease-in-out infinite;
+        will-change: transform;
       }
     }
 
     .sector-icon {
       animation: iconLift 2.4s .2s ease-in-out infinite;
+      will-change: transform;
     }
   }
 
