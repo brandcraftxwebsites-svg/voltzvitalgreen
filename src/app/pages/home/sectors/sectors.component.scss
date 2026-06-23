@@ -1675,17 +1675,17 @@ $card-border-h: rgba(255, 255, 255, .13);
   .sector-card {
     min-height: 185px;
 
-    // Touch: description always visible (no hover)
-    .sector-body p {
-      max-height: 130px;
-      opacity: 1;
-      margin-top: 8px;
-    }
+    // // Touch: description always visible (no hover)
+    // .sector-body p {
+    //   max-height: 130px;
+    //   opacity: 1;
+    //   margin-top: 8px;
+    // }
 
-    .sector-arrow {
-      opacity: 1;
-      transform: translateX(0);
-    }
+    // .sector-arrow {
+    //   opacity: 1;
+    //   transform: translateX(0);
+    // }
   }
 }
 
@@ -1779,47 +1779,155 @@ $card-border-h: rgba(255, 255, 255, .13);
   }
 }
 
-// Touch devices: disable hover-only states, rely purely on .is-visible
+// ─── Touch devices: always open, all animations on load ───────────────────────
 @media (hover: none) {
+
+  // Kill all hover-triggered changes — touch has no hover
+  .sector-card:hover {
+    transform: none;
+    box-shadow: none;
+    border-color: $card-border;
+    background: $card-bg;
+
+    &::before {
+      animation: none;
+      transform: scaleX(0);
+    }
+
+    &::after {
+      animation: none;
+    }
+
+    .card-blob {
+      opacity: 0;
+    }
+
+    .card-svg-mesh {
+      opacity: 0;
+    }
+
+    .sector-body p {
+      max-height: 0;
+      opacity: 0;
+      margin-top: 0;
+    }
+
+    .sector-arrow {
+      opacity: 0;
+      transform: translateX(-6px);
+    }
+
+    .sector-icon {
+      animation: none;
+    }
+  }
+
+  // Every card is raised and fully open from first paint
   .sector-card {
-    &:hover {
-      transform: none;
-      box-shadow: none;
-      border-color: $card-border;
-      background: $card-bg;
+    border-color: $card-border-h;
+    background: $card-bg-raised;
+
+    &::before {
+      animation: topBarDraw .5s cubic-bezier(.4, 0, .2, 1) both;
+    }
+
+    &::after {
+      animation: shimmerSweep .7s .1s ease forwards;
+    }
+
+    .card-blob {
+      animation: blobReveal .6s ease forwards, blobFloat 10s .6s ease-in-out infinite;
+    }
+
+    .card-svg-mesh {
+      animation: meshReveal .5s .1s ease forwards;
+
+      .mesh-arc {
+        stroke-dashoffset: 0;
+        transition-delay: .3s;
+      }
+    }
+
+    .sector-body p {
+      animation: descReveal .45s .15s cubic-bezier(.4, 0, .2, 1) both;
+    }
+
+    .sector-arrow {
+      animation: arrowReveal .35s .3s ease both;
+
+      svg {
+        animation: arrowNudge 1.2s .65s ease-in-out infinite;
+      }
+    }
+
+    .sector-icon {
+      animation: iconLift 2.4s .2s ease-in-out infinite;
+    }
+  }
+
+  // Color-themed box-shadow also needs to apply on touch (not just :hover / .is-visible)
+  .sector-card-green {
+    box-shadow: 0 0 0 1px rgba($em-core, .12), 0 20px 60px rgba($em-core, .15), 0 4px 20px rgba(0, 0, 0, .3);
+  }
+
+  .sector-card-teal {
+    box-shadow: 0 0 0 1px rgba($sa-core, .12), 0 20px 60px rgba($sa-core, .15), 0 4px 20px rgba(0, 0, 0, .3);
+  }
+
+  .sector-card-navy {
+    box-shadow: 0 0 0 1px rgba($in-core, .12), 0 20px 60px rgba($in-core, .15), 0 4px 20px rgba(0, 0, 0, .3);
+  }
+
+  .sector-card-amber {
+    box-shadow: 0 0 0 1px rgba($am-core, .12), 0 20px 60px rgba($am-core, .15), 0 4px 20px rgba(0, 0, 0, .3);
+  }
+
+  .sector-card-cyan {
+    box-shadow: 0 0 0 1px rgba($cy-core, .12), 0 20px 60px rgba($cy-core, .15), 0 4px 20px rgba(0, 0, 0, .3);
+  }
+
+  .sector-card-lime {
+    box-shadow: 0 0 0 1px rgba($li-core, .12), 0 20px 60px rgba($li-core, .15), 0 4px 20px rgba(0, 0, 0, .3);
+  }
+
+  .sector-card-rose {
+    box-shadow: 0 0 0 1px rgba($ro-core, .12), 0 20px 60px rgba($ro-core, .15), 0 4px 20px rgba(0, 0, 0, .3);
+  }
+
+  // Stagger sub-animations per card using delay-N
+  @for $i from 1 through 9 {
+    .sector-card.delay-#{$i} {
+      $base: (
+        $i - 1) * 100ms;
 
       &::before {
-        animation: none;
-        transform: scaleX(0);
+        animation-delay: $base;
       }
 
       &::after {
-        animation: none;
+        animation-delay: $base + 80ms;
       }
 
       .card-blob {
-        opacity: 0;
+        animation-delay: $base,
+          $base + 600ms;
       }
 
       .card-svg-mesh {
-        opacity: 0;
+        animation-delay: $base + 80ms;
       }
 
       .sector-body p {
-        max-height: 0;
-        opacity: 0;
-        margin-top: 0;
+        animation-delay: $base + 120ms;
       }
 
       .sector-arrow {
-        opacity: 0;
-        transform: translateX(-6px);
+        animation-delay: $base + 250ms;
       }
 
       .sector-icon {
-        animation: none;
+        animation-delay: $base + 150ms;
       }
     }
   }
 }
-

@@ -146,34 +146,61 @@ export class SectorsComponent implements AfterViewInit, OnDestroy {
   ];
 
   ngAfterViewInit(): void {
-    const isTouchDevice = window.matchMedia('(hover: none)').matches;
-    if (!isTouchDevice) return;
+  // Touch devices: cards are always open via CSS — IntersectionObserver not needed.
+  // Observer is only used on desktop (hover-capable) devices for the .is-visible
+  // scroll-pop entrance on non-hovered cards, if you ever want that.
+  const isTouchDevice = window.matchMedia('(hover: none)').matches;
+  if (isTouchDevice) return;
 
-    // Run outside Angular's zone so scroll-triggered intersection events
-    // don't fire change detection on every tick — this was the source
-    // of the mobile stutter/glitch
-    this.ngZone.runOutsideAngular(() => {
-      this.observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('is-visible');
-              // Card is permanently open now — stop watching it so it
-              // can never be re-triggered or affected by later scrolling
-              this.observer!.unobserve(entry.target);
-            }
-          });
-        },
-        {
-          threshold: 0.25,
-          rootMargin: '0px 0px -40px 0px'
-        }
-      );
+  this.ngZone.runOutsideAngular(() => {
+    this.observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            this.observer!.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.25,
+        rootMargin: '0px 0px -40px 0px'
+      }
+    );
 
-      const cards = document.querySelectorAll('.sector-card');
-      cards.forEach(card => this.observer!.observe(card));
-    });
-  }
+    const cards = document.querySelectorAll('.sector-card');
+    cards.forEach(card => this.observer!.observe(card));
+  });
+}
+  // ngAfterViewInit(): void {
+  //   const isTouchDevice = window.matchMedia('(hover: none)').matches;
+  //   if (!isTouchDevice) return;
+
+  //   // Run outside Angular's zone so scroll-triggered intersection events
+  //   // don't fire change detection on every tick — this was the source
+  //   // of the mobile stutter/glitch
+  //   this.ngZone.runOutsideAngular(() => {
+  //     this.observer = new IntersectionObserver(
+  //       (entries) => {
+  //         entries.forEach(entry => {
+  //           if (entry.isIntersecting) {
+  //             entry.target.classList.add('is-visible');
+  //             // Card is permanently open now — stop watching it so it
+  //             // can never be re-triggered or affected by later scrolling
+  //             this.observer!.unobserve(entry.target);
+  //           }
+  //         });
+  //       },
+  //       {
+  //         threshold: 0.25,
+  //         rootMargin: '0px 0px -40px 0px'
+  //       }
+  //     );
+
+  //     const cards = document.querySelectorAll('.sector-card');
+  //     cards.forEach(card => this.observer!.observe(card));
+  //   });
+  // }
 
   ngOnDestroy(): void {
     if (this.observer) {
