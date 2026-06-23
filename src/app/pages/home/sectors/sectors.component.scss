@@ -878,7 +878,7 @@ $card-border-h: rgba(255, 255, 255, .13);
   }
 
   to {
-    max-height: 160px;
+    max-height: 300px; // ← was 160px
     opacity: 1;
     margin-top: 10px;
   }
@@ -1757,7 +1757,7 @@ $card-border-h: rgba(255, 255, 255, .13);
     padding: 1.1rem 1rem 0.9rem;
 
     .sector-body p {
-      max-height: 200px;
+      max-height: 300px; // ← was 200px
       font-size: 12.5px;
     }
   }
@@ -1848,11 +1848,15 @@ $card-border-h: rgba(255, 255, 255, .13);
       }
     }
 
+    // ← ADD transition: none — kills the conflict with animation on Android
     .sector-body p {
+      transition: none;
       animation: descReveal .45s .15s cubic-bezier(.4, 0, .2, 1) both;
     }
 
+    // ← ADD transition: none — same fix for arrow
     .sector-arrow {
+      transition: none;
       animation: arrowReveal .35s .3s ease both;
 
       svg {
@@ -1918,10 +1922,12 @@ $card-border-h: rgba(255, 255, 255, .13);
       }
 
       .sector-body p {
+        transition: none; // ← ADD
         animation-delay: $base + 120ms;
       }
 
       .sector-arrow {
+        transition: none; // ← ADD
         animation-delay: $base + 250ms;
       }
 
