@@ -1,717 +1,3 @@
-// @import '../../../../assets/styles/variables';
-
-// // ═══════════════════════════════════════════════════════════════════════════════
-// // PREMIUM SECTOR CARDS — Environmental & Sustainability Consulting
-// // ═══════════════════════════════════════════════════════════════════════════════
-
-// // ─── Premium Palette ──────────────────────────────────────────────────────────
-// $em-core: #00c97a;
-// $em-deep: #007a49;
-// $em-bright: #4dffa8;
-
-// $sa-core: #0ea5e9;
-// $sa-deep: #0369a1;
-// $sa-bright: #7dd3fc;
-
-// $in-core: #6366f1;
-// $in-deep: #3730a3;
-// $in-bright: #a5b4fc;
-
-// $am-core: #f59e0b;
-// $am-deep: #b45309;
-// $am-bright: #fcd34d;
-
-// $cy-core: #06b6d4;
-// $cy-deep: #0e7490;
-// $cy-bright: #67e8f9;
-
-// $li-core: #22c55e;
-// $li-deep: #15803d;
-// $li-bright: #86efac;
-
-// $ro-core: #f43f5e;
-// $ro-deep: #9f1239;
-// $ro-bright: #fda4af;
-
-// $card-bg: #0d1117;
-// $card-bg-raised: #111827;
-// $card-border: rgba(255, 255, 255, .07);
-// $card-border-h: rgba(255, 255, 255, .13);
-
-// // ─── Keyframes ────────────────────────────────────────────────────────────────
-// @keyframes svgNodePulse {
-//   0%, 100% { r: 1.5; opacity: .4; }
-//   50% { r: 3; opacity: .9; }
-// }
-
-// @keyframes svgLineDrift {
-//   0% { stroke-dashoffset: 0; }
-//   100% { stroke-dashoffset: -120; }
-// }
-
-// @keyframes blobFloat {
-//   0%, 100% { transform: translate(0, 0) scale(1); }
-//   33% { transform: translate(-10px, 14px) scale(1.08); }
-//   66% { transform: translate(8px, -8px) scale(.96); }
-// }
-
-// @keyframes topBarReveal {
-//   from { transform: scaleX(0); opacity: 0; }
-//   to { transform: scaleX(1); opacity: 1; }
-// }
-
-// @keyframes shimmerSweep {
-//   0% { left: -80%; }
-//   100% { left: 160%; }
-// }
-
-// @keyframes iconLift {
-//   0%, 100% { transform: translateY(0) rotate(0deg); }
-//   50% { transform: translateY(-3px) rotate(-4deg); }
-// }
-
-// @keyframes arrowNudge {
-//   0%, 100% { transform: translateX(0); }
-//   50% { transform: translateX(3px); }
-// }
-
-// @keyframes cardEntrance {
-//   from { opacity: 0; transform: translateY(28px) scale(.97); }
-//   to { opacity: 1; transform: translateY(0) scale(1); }
-// }
-
-// @keyframes cardScrollPop {
-//   0% { opacity: 0; transform: translateY(32px) scale(.96); }
-//   60% { opacity: 1; transform: translateY(-4px) scale(1.01); }
-//   100% { opacity: 1; transform: translateY(0) scale(1); }
-// }
-
-// @keyframes descReveal {
-//   from { max-height: 0; opacity: 0; margin-top: 0; }
-//   to { max-height: 160px; opacity: 1; margin-top: 10px; }
-// }
-
-// @keyframes arrowReveal {
-//   from { opacity: 0; transform: translateX(-8px); }
-//   to { opacity: 1; transform: translateX(0); }
-// }
-
-// @keyframes topBarDraw {
-//   from { transform: scaleX(0); opacity: 0; }
-//   to { transform: scaleX(1); opacity: 1; }
-// }
-
-// @keyframes blobReveal {
-//   from { opacity: 0; }
-//   to { opacity: 1; }
-// }
-
-// @keyframes meshReveal {
-//   from { opacity: 0; }
-//   to { opacity: 1; }
-// }
-
-// // ─── Section ──────────────────────────────────────────────────────────────────
-// .sectors-section {
-//   background: #080c12;
-//   position: relative;
-//   overflow: hidden;
-
-//   &::before {
-//     content: '';
-//     position: absolute;
-//     inset: 0;
-//     background-image:
-//       linear-gradient(rgba(255, 255, 255, .025) 1px, transparent 1px),
-//       linear-gradient(90deg, rgba(255, 255, 255, .025) 1px, transparent 1px);
-//     background-size: 64px 64px;
-//     pointer-events: none;
-//     z-index: 0;
-//   }
-
-//   .container-custom {
-//     position: relative;
-//     z-index: 1;
-//   }
-// }
-
-// // ─── Header ───────────────────────────────────────────────────────────────────
-// .sectors-header {
-//   text-align: center;
-//   margin-bottom: 3rem;
-
-//   .section-label {
-//     color: $em-core;
-//     letter-spacing: .12em;
-//     font-size: 11px;
-//     font-weight: 700;
-//     text-transform: uppercase;
-//   }
-
-//   .section-title {
-//     color: #f1f5f9;
-
-//     span {
-//       background: linear-gradient(135deg, $em-core, $sa-core);
-//       -webkit-background-clip: text;
-//       -webkit-text-fill-color: transparent;
-//       background-clip: text;
-//     }
-//   }
-
-//   .section-sub {
-//     color: #94a3b8;
-//     max-width: 560px;
-//     margin: 0 auto;
-//     text-align: center;
-//   }
-// }
-
-// // ─── Grid ─────────────────────────────────────────────────────────────────────
-// .sectors-grid {
-//   display: grid;
-//   grid-template-columns: repeat(3, 1fr);
-//   gap: 18px;
-
-//   @media (max-width: 992px) {
-//     grid-template-columns: repeat(2, 1fr);
-//   }
-
-//   @media (max-width: 576px) {
-//     grid-template-columns: 1fr;
-//   }
-// }
-
-// // ─── Base card ────────────────────────────────────────────────────────────────
-// .sector-card {
-//   background: $card-bg;
-//   border: 1px solid $card-border;
-//   border-radius: 20px;
-//   padding: 1.6rem 1.4rem 1.3rem;
-//   cursor: pointer;
-//   display: flex;
-//   flex-direction: column;
-//   position: relative;
-//   overflow: hidden;
-//   isolation: isolate;
-//   min-height: 210px;
-//   animation: cardEntrance .55s cubic-bezier(.4, 0, .2, 1) both;
-
-//   @for $i from 1 through 9 {
-//     &.delay-#{$i} {
-//       animation-delay: #{($i - 1) * 80}ms;
-//     }
-//   }
-
-//   transition: transform .35s cubic-bezier(.4, 0, .2, 1),
-//     box-shadow .35s ease,
-//     border-color .3s ease,
-//     background .3s ease;
-
-//   &::before {
-//     content: '';
-//     position: absolute;
-//     top: 0; left: 0; right: 0;
-//     height: 2px;
-//     border-radius: 20px 20px 0 0;
-//     transform: scaleX(0);
-//     transform-origin: left;
-//     transition: transform .4s cubic-bezier(.4, 0, .2, 1);
-//     z-index: 5;
-//   }
-
-//   &::after {
-//     content: '';
-//     position: absolute;
-//     top: 0; left: -80%;
-//     width: 50%;
-//     height: 100%;
-//     background: linear-gradient(108deg,
-//       transparent 35%,
-//       rgba(255, 255, 255, .055) 50%,
-//       transparent 65%);
-//     z-index: 4;
-//     pointer-events: none;
-//   }
-
-//   .card-svg-mesh {
-//     position: absolute;
-//     inset: 0;
-//     width: 100%; height: 100%;
-//     z-index: 1;
-//     opacity: 0;
-//     transition: opacity .5s ease;
-//     pointer-events: none;
-//     overflow: visible;
-
-//     .mesh-line {
-//       stroke-dasharray: 120;
-//       stroke-dashoffset: 0;
-//       animation: svgLineDrift 8s linear infinite;
-//       stroke-width: .7;
-
-//       &:nth-child(2) { animation-duration: 11s; animation-delay: -3s; }
-//       &:nth-child(3) { animation-duration: 14s; animation-delay: -6s; }
-//     }
-
-//     .mesh-node {
-//       animation: svgNodePulse 3s ease-in-out infinite;
-
-//       &:nth-child(2) { animation-delay: -1s; }
-//       &:nth-child(3) { animation-delay: -2s; }
-//       &:nth-child(4) { animation-delay: -.5s; }
-//     }
-
-//     .mesh-arc {
-//       stroke-dasharray: 400;
-//       stroke-dashoffset: 400;
-//       stroke-width: .6;
-//       fill: none;
-//       transition: stroke-dashoffset .8s cubic-bezier(.4, 0, .2, 1);
-//     }
-//   }
-
-//   .card-blob {
-//     position: absolute;
-//     width: 180px; height: 180px;
-//     border-radius: 50%;
-//     top: -70px; right: -55px;
-//     opacity: 0;
-//     filter: blur(55px);
-//     pointer-events: none;
-//     z-index: 1;
-//     transition: opacity .45s ease;
-//     animation: blobFloat 10s ease-in-out infinite;
-//   }
-
-//   // ── Desktop hover ───────────────────────────────────────────────────────────
-//   &:hover {
-//     transform: translateY(-8px);
-//     border-color: $card-border-h;
-//     background: $card-bg-raised;
-
-//     &::before { animation: topBarReveal .4s cubic-bezier(.4, 0, .2, 1) forwards; }
-//     &::after { animation: shimmerSweep .65s ease forwards; }
-
-//     .card-blob { opacity: 1; }
-
-//     .card-svg-mesh {
-//       opacity: 1;
-//       .mesh-arc { stroke-dashoffset: 0; }
-//     }
-
-//     .sector-body p { max-height: 140px; opacity: 1; margin-top: 10px; }
-
-//     .sector-arrow {
-//       opacity: 1;
-//       transform: translateX(0);
-//       svg { animation: arrowNudge 1s ease-in-out infinite; }
-//     }
-
-//     .sector-icon { animation: iconLift 2.4s ease-in-out infinite; }
-//   }
-
-//   // ── .is-visible — kept for desktop scroll if needed ─────────────────────────
-//   &.is-visible {
-//     animation: cardScrollPop .6s cubic-bezier(.4, 0, .2, 1) both;
-//     border-color: $card-border-h;
-//     background: $card-bg-raised;
-
-//     &::before { animation: topBarDraw .5s .15s cubic-bezier(.4, 0, .2, 1) both; }
-//     &::after { animation: shimmerSweep .7s .2s ease forwards; }
-
-//     .card-blob {
-//       animation: blobReveal .6s .1s ease forwards, blobFloat 10s .7s ease-in-out infinite;
-//     }
-
-//     .card-svg-mesh {
-//       animation: meshReveal .5s .2s ease forwards;
-//       .mesh-arc { stroke-dashoffset: 0; transition-delay: .35s; }
-//     }
-
-//     .sector-body p { animation: descReveal .45s .25s cubic-bezier(.4, 0, .2, 1) both; }
-
-//     .sector-arrow {
-//       animation: arrowReveal .35s .4s ease both;
-//       svg { animation: arrowNudge 1.2s .75s ease-in-out infinite; }
-//     }
-
-//     .sector-icon { animation: iconLift 2.4s .3s ease-in-out infinite; }
-//   }
-// }
-
-// // ─── Color themes ─────────────────────────────────────────────────────────────
-
-// .sector-card-green {
-//   &::before { background: linear-gradient(90deg, $em-deep, $em-core 50%, $em-bright); }
-//   .card-blob { background: radial-gradient(circle, rgba($em-core, .45), transparent 70%); }
-//   .card-svg-mesh {
-//     .mesh-line { stroke: rgba($em-core, .22); }
-//     .mesh-node { fill: $em-core; }
-//     .mesh-arc { stroke: rgba($em-bright, .35); }
-//   }
-//   .sector-icon {
-//     background: linear-gradient(135deg, rgba($em-core, .12), rgba($em-bright, .2));
-//     border: 1px solid rgba($em-core, .2);
-//     box-shadow: 0 0 18px rgba($em-core, .12);
-//   }
-//   .sector-arrow { color: $em-core; }
-//   .sector-body h3 { color: #e2faf0; }
-//   &:hover, &.is-visible {
-//     border-color: rgba($em-core, .3);
-//     box-shadow: 0 0 0 1px rgba($em-core, .12), 0 20px 60px rgba($em-core, .15), 0 4px 20px rgba(0,0,0,.3);
-//   }
-// }
-
-// .sector-card-teal {
-//   &::before { background: linear-gradient(90deg, $sa-deep, $sa-core 50%, $sa-bright); }
-//   .card-blob { background: radial-gradient(circle, rgba($sa-core, .4), transparent 70%); }
-//   .card-svg-mesh {
-//     .mesh-line { stroke: rgba($sa-core, .22); }
-//     .mesh-node { fill: $sa-core; }
-//     .mesh-arc { stroke: rgba($sa-bright, .35); }
-//   }
-//   .sector-icon {
-//     background: linear-gradient(135deg, rgba($sa-core, .12), rgba($sa-bright, .2));
-//     border: 1px solid rgba($sa-core, .2);
-//     box-shadow: 0 0 18px rgba($sa-core, .12);
-//   }
-//   .sector-arrow { color: $sa-core; }
-//   .sector-body h3 { color: #e0f5ff; }
-//   &:hover, &.is-visible {
-//     border-color: rgba($sa-core, .3);
-//     box-shadow: 0 0 0 1px rgba($sa-core, .12), 0 20px 60px rgba($sa-core, .15), 0 4px 20px rgba(0,0,0,.3);
-//   }
-// }
-
-// .sector-card-navy {
-//   &::before { background: linear-gradient(90deg, $in-deep, $in-core 50%, $in-bright); }
-//   .card-blob { background: radial-gradient(circle, rgba($in-core, .4), transparent 70%); }
-//   .card-svg-mesh {
-//     .mesh-line { stroke: rgba($in-core, .22); }
-//     .mesh-node { fill: $in-core; }
-//     .mesh-arc { stroke: rgba($in-bright, .35); }
-//   }
-//   .sector-icon {
-//     background: linear-gradient(135deg, rgba($in-core, .12), rgba($in-bright, .2));
-//     border: 1px solid rgba($in-core, .2);
-//     box-shadow: 0 0 18px rgba($in-core, .12);
-//   }
-//   .sector-arrow { color: $in-core; }
-//   .sector-body h3 { color: #eef0ff; }
-//   &:hover, &.is-visible {
-//     border-color: rgba($in-core, .3);
-//     box-shadow: 0 0 0 1px rgba($in-core, .12), 0 20px 60px rgba($in-core, .15), 0 4px 20px rgba(0,0,0,.3);
-//   }
-// }
-
-// .sector-card-amber {
-//   &::before { background: linear-gradient(90deg, $am-deep, $am-core 50%, $am-bright); }
-//   .card-blob { background: radial-gradient(circle, rgba($am-core, .38), transparent 70%); }
-//   .card-svg-mesh {
-//     .mesh-line { stroke: rgba($am-core, .22); }
-//     .mesh-node { fill: $am-core; }
-//     .mesh-arc { stroke: rgba($am-bright, .35); }
-//   }
-//   .sector-icon {
-//     background: linear-gradient(135deg, rgba($am-core, .12), rgba($am-bright, .2));
-//     border: 1px solid rgba($am-core, .2);
-//     box-shadow: 0 0 18px rgba($am-core, .12);
-//   }
-//   .sector-arrow { color: $am-core; }
-//   .sector-body h3 { color: #fffbeb; }
-//   &:hover, &.is-visible {
-//     border-color: rgba($am-core, .3);
-//     box-shadow: 0 0 0 1px rgba($am-core, .12), 0 20px 60px rgba($am-core, .15), 0 4px 20px rgba(0,0,0,.3);
-//   }
-// }
-
-// .sector-card-cyan {
-//   &::before { background: linear-gradient(90deg, $cy-deep, $cy-core 50%, $cy-bright); }
-//   .card-blob { background: radial-gradient(circle, rgba($cy-core, .4), transparent 70%); }
-//   .card-svg-mesh {
-//     .mesh-line { stroke: rgba($cy-core, .22); }
-//     .mesh-node { fill: $cy-core; }
-//     .mesh-arc { stroke: rgba($cy-bright, .35); }
-//   }
-//   .sector-icon {
-//     background: linear-gradient(135deg, rgba($cy-core, .12), rgba($cy-bright, .2));
-//     border: 1px solid rgba($cy-core, .2);
-//     box-shadow: 0 0 18px rgba($cy-core, .12);
-//   }
-//   .sector-arrow { color: $cy-core; }
-//   .sector-body h3 { color: #cffafe; }
-//   &:hover, &.is-visible {
-//     border-color: rgba($cy-core, .3);
-//     box-shadow: 0 0 0 1px rgba($cy-core, .12), 0 20px 60px rgba($cy-core, .15), 0 4px 20px rgba(0,0,0,.3);
-//   }
-// }
-
-// .sector-card-lime {
-//   &::before { background: linear-gradient(90deg, $li-deep, $li-core 50%, $li-bright); }
-//   .card-blob { background: radial-gradient(circle, rgba($li-core, .4), transparent 70%); }
-//   .card-svg-mesh {
-//     .mesh-line { stroke: rgba($li-core, .22); }
-//     .mesh-node { fill: $li-core; }
-//     .mesh-arc { stroke: rgba($li-bright, .35); }
-//   }
-//   .sector-icon {
-//     background: linear-gradient(135deg, rgba($li-core, .12), rgba($li-bright, .2));
-//     border: 1px solid rgba($li-core, .2);
-//     box-shadow: 0 0 18px rgba($li-core, .12);
-//   }
-//   .sector-arrow { color: $li-core; }
-//   .sector-body h3 { color: #f0fdf4; }
-//   &:hover, &.is-visible {
-//     border-color: rgba($li-core, .3);
-//     box-shadow: 0 0 0 1px rgba($li-core, .12), 0 20px 60px rgba($li-core, .15), 0 4px 20px rgba(0,0,0,.3);
-//   }
-// }
-
-// .sector-card-rose {
-//   &::before { background: linear-gradient(90deg, $ro-deep, $ro-core 50%, $ro-bright); }
-//   .card-blob { background: radial-gradient(circle, rgba($ro-core, .4), transparent 70%); }
-//   .card-svg-mesh {
-//     .mesh-line { stroke: rgba($ro-core, .22); }
-//     .mesh-node { fill: $ro-core; }
-//     .mesh-arc { stroke: rgba($ro-bright, .35); }
-//   }
-//   .sector-icon {
-//     background: linear-gradient(135deg, rgba($ro-core, .12), rgba($ro-bright, .2));
-//     border: 1px solid rgba($ro-core, .2);
-//     box-shadow: 0 0 18px rgba($ro-core, .12);
-//   }
-//   .sector-arrow { color: $ro-core; }
-//   .sector-body h3 { color: #fff1f2; }
-//   &:hover, &.is-visible {
-//     border-color: rgba($ro-core, .3);
-//     box-shadow: 0 0 0 1px rgba($ro-core, .12), 0 20px 60px rgba($ro-core, .15), 0 4px 20px rgba(0,0,0,.3);
-//   }
-// }
-
-// // ─── Icon box ─────────────────────────────────────────────────────────────────
-// .sector-icon {
-//   width: 48px; height: 48px;
-//   border-radius: 13px;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   margin-bottom: 16px;
-//   flex-shrink: 0;
-//   position: relative;
-//   z-index: 3;
-//   transition: transform .3s ease, box-shadow .3s ease;
-// }
-
-// // ─── Card body ────────────────────────────────────────────────────────────────
-// .sector-body {
-//   position: relative;
-//   z-index: 3;
-//   flex: 1;
-
-//   h3 {
-//     font-size: 14.5px;
-//     font-weight: 650;
-//     line-height: 1.35;
-//     margin: 0;
-//     letter-spacing: .01em;
-//   }
-
-//   p {
-//     font-size: 12.5px;
-//     line-height: 1.7;
-//     color: #64748b;
-//     max-height: 0;
-//     opacity: 0;
-//     overflow: hidden;
-//     transition:
-//       max-height .42s cubic-bezier(.4, 0, .2, 1),
-//       opacity .32s ease,
-//       margin .32s ease;
-//     margin-top: 0;
-//   }
-// }
-
-// // ─── Arrow CTA ────────────────────────────────────────────────────────────────
-// .sector-arrow {
-//   display: flex;
-//   align-items: center;
-//   gap: 5px;
-//   opacity: 0;
-//   transform: translateX(-6px);
-//   transition: opacity .28s ease, transform .28s ease;
-//   margin-top: auto;
-//   padding-top: 12px;
-//   font-size: 11px;
-//   font-weight: 700;
-//   letter-spacing: .04em;
-//   text-transform: uppercase;
-//   position: relative;
-//   z-index: 3;
-
-//   svg {
-//     width: 13px; height: 13px;
-//     display: block;
-//     color: inherit;
-//   }
-// }
-
-// // ─── Reduced motion ───────────────────────────────────────────────────────────
-// @media (prefers-reduced-motion: reduce) {
-//   .sector-card,
-//   .sector-card::before,
-//   .sector-card::after,
-//   .card-blob,
-//   .sector-icon,
-//   .card-svg-mesh *,
-//   .sector-arrow svg {
-//     animation: none !important;
-//     transition: opacity .2s ease, border-color .2s ease !important;
-//   }
-
-//   .sector-card.is-visible {
-//     .sector-body p { max-height: 160px; opacity: 1; margin-top: 10px; }
-//     .sector-arrow { opacity: 1; transform: translateX(0); }
-//     &::before { transform: scaleX(1); opacity: 1; }
-//     .card-svg-mesh { opacity: 1; }
-//     .card-blob { opacity: 1; }
-//   }
-// }
-
-// // ─── Responsive ───────────────────────────────────────────────────────────────
-
-// @media (max-width: 992px) {
-//   .sectors-grid { gap: 14px; }
-//   .sector-card { min-height: 185px; }
-// }
-
-// @media (max-width: 768px) {
-//   .sectors-section { padding-top: 3rem; padding-bottom: 3rem; }
-
-//   .sectors-header {
-//     margin-bottom: 2rem;
-//     .section-title { font-size: 1.6rem; }
-//     .section-sub { font-size: 0.9rem; }
-//   }
-
-//   .sectors-grid {
-//     grid-template-columns: repeat(2, 1fr);
-//     gap: 12px;
-//   }
-
-//   .sector-card {
-//     min-height: 170px;
-//     padding: 1.2rem 1.1rem 1rem;
-//     &:hover { transform: none; }
-//   }
-
-//   .sector-icon { width: 42px; height: 42px; border-radius: 11px; margin-bottom: 12px; }
-
-//   .sector-body {
-//     h3 { font-size: 13.5px; }
-//     p { font-size: 12px; }
-//   }
-// }
-
-// @media (max-width: 480px) {
-//   .sectors-grid { grid-template-columns: 1fr; gap: 10px; }
-
-//   .sector-card {
-//     min-height: unset;
-//     padding: 1.1rem 1rem 0.9rem;
-
-//     .sector-body p { font-size: 12.5px; }
-//   }
-
-//   .sector-icon { width: 40px; height: 40px; margin-bottom: 10px; }
-//   .sector-body h3 { font-size: 14px; line-height: 1.3; }
-//   .sector-arrow { padding-top: 10px; font-size: 10.5px; }
-// }
-
-// // ─── Touch devices: cards always open + sub-animations on load ────────────────
-// // No scroll trigger. No cardScrollPop. Cards render fully open immediately.
-// // Sub-animations fire once via CSS animation on page load using delay-N classes.
-// @media (hover: none) {
-//   .sector-card {
-//     // Kill hover states — touch has no hover
-//     &:hover {
-//       transform: none;
-//       box-shadow: none;
-//       border-color: $card-border;
-//       background: $card-bg;
-
-//       &::before { animation: none; transform: scaleX(0); }
-//       &::after { animation: none; }
-//       .card-blob { opacity: 0; }
-//       .card-svg-mesh { opacity: 0; }
-//       .sector-body p { max-height: 0; opacity: 0; margin-top: 0; }
-//       .sector-arrow { opacity: 0; transform: translateX(-6px); }
-//       .sector-icon { animation: none; }
-//     }
-
-//     // ── Always-open state ──────────────────────────────────────────────────────
-//     // Card is raised and open from the moment it renders.
-//     // Each sub-animation fires once with a staggered delay matching delay-N.
-//     border-color: $card-border-h;
-//     background: $card-bg-raised;
-
-//     // Top bar draws in
-//     &::before {
-//       animation: topBarDraw .5s cubic-bezier(.4, 0, .2, 1) both;
-//     }
-
-//     // Shimmer sweeps once
-//     &::after {
-//       animation: shimmerSweep .7s .1s ease forwards;
-//     }
-
-//     // Blob fades in then floats forever
-//     .card-blob {
-//       animation: blobReveal .6s ease forwards, blobFloat 10s .6s ease-in-out infinite;
-//     }
-
-//     // Mesh fades in
-//     .card-svg-mesh {
-//       animation: meshReveal .5s .1s ease forwards;
-//       .mesh-arc { stroke-dashoffset: 0; transition-delay: .3s; }
-//     }
-
-//     // Description slides open
-//     .sector-body p {
-//       animation: descReveal .45s .15s cubic-bezier(.4, 0, .2, 1) both;
-//     }
-
-//     // Arrow slides in then nudges forever
-//     .sector-arrow {
-//       animation: arrowReveal .35s .3s ease both;
-//       svg { animation: arrowNudge 1.2s .65s ease-in-out infinite; }
-//     }
-
-//     // Icon lifts forever
-//     .sector-icon {
-//       animation: iconLift 2.4s .2s ease-in-out infinite;
-//     }
-//   }
-
-//   // Stagger each card's sub-animations using existing delay-N classes
-//   @for $i from 1 through 9 {
-//     .sector-card.delay-#{$i} {
-//       $base: ($i - 1) * 100ms;
-
-//       &::before { animation-delay: $base; }
-//       &::after  { animation-delay: $base + 80ms; }
-
-//       .card-blob { animation-delay: $base, $base + 600ms; }
-//       .card-svg-mesh { animation-delay: $base + 80ms; }
-//       .sector-body p { animation-delay: $base + 120ms; }
-//       .sector-arrow { animation-delay: $base + 250ms; }
-//       .sector-icon { animation-delay: $base + 150ms; }
-//     }
-//   }
-// }
-
-
-
 @import '../../../../assets/styles/variables';
 
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -754,182 +40,75 @@ $card-border-h: rgba(255, 255, 255, .13);
 
 // ─── Keyframes ────────────────────────────────────────────────────────────────
 @keyframes svgNodePulse {
-
-  0%,
-  100% {
-    r: 1.5;
-    opacity: .4;
-  }
-
-  50% {
-    r: 3;
-    opacity: .9;
-  }
+  0%, 100% { r: 1.5; opacity: .4; }
+  50% { r: 3; opacity: .9; }
 }
 
 @keyframes svgLineDrift {
-  0% {
-    stroke-dashoffset: 0;
-  }
-
-  100% {
-    stroke-dashoffset: -120;
-  }
+  0% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: -120; }
 }
 
 @keyframes blobFloat {
-
-  0%,
-  100% {
-    transform: translate(0, 0) scale(1);
-  }
-
-  33% {
-    transform: translate(-10px, 14px) scale(1.08);
-  }
-
-  66% {
-    transform: translate(8px, -8px) scale(.96);
-  }
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(-10px, 14px) scale(1.08); }
+  66% { transform: translate(8px, -8px) scale(.96); }
 }
 
 @keyframes topBarReveal {
-  from {
-    transform: scaleX(0);
-    opacity: 0;
-  }
-
-  to {
-    transform: scaleX(1);
-    opacity: 1;
-  }
+  from { transform: scaleX(0); opacity: 0; }
+  to { transform: scaleX(1); opacity: 1; }
 }
 
 @keyframes shimmerSweep {
-  0% {
-    transform: translateX(-160%);
-  }
-
-  100% {
-    transform: translateX(320%);
-  }
+  0% { left: -80%; }
+  100% { left: 160%; }
 }
 
 @keyframes iconLift {
-
-  0%,
-  100% {
-    transform: translateY(0) rotate(0deg);
-  }
-
-  50% {
-    transform: translateY(-3px) rotate(-4deg);
-  }
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-3px) rotate(-4deg); }
 }
 
 @keyframes arrowNudge {
-
-  0%,
-  100% {
-    transform: translateX(0);
-  }
-
-  50% {
-    transform: translateX(3px);
-  }
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(3px); }
 }
 
 @keyframes cardEntrance {
-  from {
-    opacity: 0;
-    transform: translateY(28px) scale(.97);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+  from { opacity: 0; transform: translateY(28px) scale(.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
-// Mobile scroll-trigger card pop animation
 @keyframes cardScrollPop {
-  0% {
-    opacity: 0;
-    transform: translateY(32px) scale(.96);
-  }
-
-  60% {
-    opacity: 1;
-    transform: translateY(-4px) scale(1.01);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+  0% { opacity: 0; transform: translateY(32px) scale(.96); }
+  60% { opacity: 1; transform: translateY(-4px) scale(1.01); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
 }
 
-// Mobile: description slide open
 @keyframes descReveal {
-  from {
-    max-height: 0;
-    opacity: 0;
-    margin-top: 0;
-  }
-
-  to {
-    max-height: 300px; // ← was 160px
-    opacity: 1;
-    margin-top: 10px;
-  }
+  from { max-height: 0; opacity: 0; margin-top: 0; }
+  to { max-height: 160px; opacity: 1; margin-top: 10px; }
 }
 
-// Mobile: arrow slide in
 @keyframes arrowReveal {
-  from {
-    opacity: 0;
-    transform: translateX(-8px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+  from { opacity: 0; transform: translateX(-8px); }
+  to { opacity: 1; transform: translateX(0); }
 }
 
-// Mobile: top bar draw
 @keyframes topBarDraw {
-  from {
-    transform: scaleX(0);
-    opacity: 0;
-  }
-
-  to {
-    transform: scaleX(1);
-    opacity: 1;
-  }
+  from { transform: scaleX(0); opacity: 0; }
+  to { transform: scaleX(1); opacity: 1; }
 }
 
-// Mobile: blob fade in
 @keyframes blobReveal {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
-// Mobile: mesh fade in
 @keyframes meshReveal {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 // ─── Section ──────────────────────────────────────────────────────────────────
@@ -985,7 +164,6 @@ $card-border-h: rgba(255, 255, 255, .13);
     max-width: 560px;
     margin: 0 auto;
     text-align: center;
-
   }
 }
 
@@ -1014,11 +192,10 @@ $card-border-h: rgba(255, 255, 255, .13);
   display: flex;
   flex-direction: column;
   position: relative;
-  overflow: visible;
+  overflow: hidden;
   isolation: isolate;
   min-height: 210px;
   animation: cardEntrance .55s cubic-bezier(.4, 0, .2, 1) both;
-  -webkit-mask-image: -webkit-radial-gradient(white, black);
 
   @for $i from 1 through 9 {
     &.delay-#{$i} {
@@ -1027,17 +204,14 @@ $card-border-h: rgba(255, 255, 255, .13);
   }
 
   transition: transform .35s cubic-bezier(.4, 0, .2, 1),
-  box-shadow .35s ease,
-  border-color .3s ease,
-  background .3s ease;
+    box-shadow .35s ease,
+    border-color .3s ease,
+    background .3s ease;
 
-  // ── Top accent bar ──────────────────────────────────────────────────────────
   &::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
+    top: 0; left: 0; right: 0;
     height: 2px;
     border-radius: 20px 20px 0 0;
     transform: scaleX(0);
@@ -1046,28 +220,24 @@ $card-border-h: rgba(255, 255, 255, .13);
     z-index: 5;
   }
 
-  // ── Shimmer sweep ───────────────────────────────────────────────────────────
-&::after {
+  &::after {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 0; left: -80%;
     width: 50%;
     height: 100%;
     background: linear-gradient(108deg,
-        transparent 35%,
-        rgba(255, 255, 255, .055) 50%,
-        transparent 65%);
+      transparent 35%,
+      rgba(255, 255, 255, .055) 50%,
+      transparent 65%);
     z-index: 4;
     pointer-events: none;
   }
 
-  // ── SVG mesh canvas ─────────────────────────────────────────────────────────
   .card-svg-mesh {
     position: absolute;
     inset: 0;
-    width: 100%;
-    height: 100%;
+    width: 100%; height: 100%;
     z-index: 1;
     opacity: 0;
     transition: opacity .5s ease;
@@ -1080,31 +250,16 @@ $card-border-h: rgba(255, 255, 255, .13);
       animation: svgLineDrift 8s linear infinite;
       stroke-width: .7;
 
-      &:nth-child(2) {
-        animation-duration: 11s;
-        animation-delay: -3s;
-      }
-
-      &:nth-child(3) {
-        animation-duration: 14s;
-        animation-delay: -6s;
-      }
+      &:nth-child(2) { animation-duration: 11s; animation-delay: -3s; }
+      &:nth-child(3) { animation-duration: 14s; animation-delay: -6s; }
     }
 
     .mesh-node {
       animation: svgNodePulse 3s ease-in-out infinite;
 
-      &:nth-child(2) {
-        animation-delay: -1s;
-      }
-
-      &:nth-child(3) {
-        animation-delay: -2s;
-      }
-
-      &:nth-child(4) {
-        animation-delay: -.5s;
-      }
+      &:nth-child(2) { animation-delay: -1s; }
+      &:nth-child(3) { animation-delay: -2s; }
+      &:nth-child(4) { animation-delay: -.5s; }
     }
 
     .mesh-arc {
@@ -1116,14 +271,11 @@ $card-border-h: rgba(255, 255, 255, .13);
     }
   }
 
-  // ── Ambient glow blob ───────────────────────────────────────────────────────
   .card-blob {
     position: absolute;
-    width: 180px;
-    height: 180px;
+    width: 180px; height: 180px;
     border-radius: 50%;
-    top: -70px;
-    right: -55px;
+    top: -70px; right: -55px;
     opacity: 0;
     filter: blur(55px);
     pointer-events: none;
@@ -1138,60 +290,35 @@ $card-border-h: rgba(255, 255, 255, .13);
     border-color: $card-border-h;
     background: $card-bg-raised;
 
-    &::before {
-      animation: topBarReveal .4s cubic-bezier(.4, 0, .2, 1) forwards;
-    }
+    &::before { animation: topBarReveal .4s cubic-bezier(.4, 0, .2, 1) forwards; }
+    &::after { animation: shimmerSweep .65s ease forwards; }
 
-    &::after {
-      animation: shimmerSweep .65s ease forwards;
-    }
-
-    .card-blob {
-      opacity: 1;
-    }
+    .card-blob { opacity: 1; }
 
     .card-svg-mesh {
       opacity: 1;
-
-      .mesh-arc {
-        stroke-dashoffset: 0;
-      }
+      .mesh-arc { stroke-dashoffset: 0; }
     }
 
-    .sector-body p {
-      max-height: 140px;
-      opacity: 1;
-      margin-top: 10px;
-    }
+    .sector-body p { max-height: 140px; opacity: 1; margin-top: 10px; }
 
     .sector-arrow {
       opacity: 1;
       transform: translateX(0);
-
-      svg {
-        animation: arrowNudge 1s ease-in-out infinite;
-      }
+      svg { animation: arrowNudge 1s ease-in-out infinite; }
     }
 
-    .sector-icon {
-      animation: iconLift 2.4s ease-in-out infinite;
-    }
+    .sector-icon { animation: iconLift 2.4s ease-in-out infinite; }
   }
 
-  // ── Mobile scroll-triggered state (JS adds .is-visible) ────────────────────
-  // All the same animations that hover triggers, but fired by IntersectionObserver
+  // ── .is-visible — kept for desktop scroll if needed ─────────────────────────
   &.is-visible {
     animation: cardScrollPop .6s cubic-bezier(.4, 0, .2, 1) both;
     border-color: $card-border-h;
     background: $card-bg-raised;
 
-    &::before {
-      animation: topBarDraw .5s .15s cubic-bezier(.4, 0, .2, 1) both;
-    }
-
-    &::after {
-      animation: shimmerSweep .7s .2s ease forwards;
-    }
+    &::before { animation: topBarDraw .5s .15s cubic-bezier(.4, 0, .2, 1) both; }
+    &::after { animation: shimmerSweep .7s .2s ease forwards; }
 
     .card-blob {
       animation: blobReveal .6s .1s ease forwards, blobFloat 10s .7s ease-in-out infinite;
@@ -1199,366 +326,172 @@ $card-border-h: rgba(255, 255, 255, .13);
 
     .card-svg-mesh {
       animation: meshReveal .5s .2s ease forwards;
-
-      .mesh-arc {
-        stroke-dashoffset: 0;
-        transition-delay: .35s;
-      }
+      .mesh-arc { stroke-dashoffset: 0; transition-delay: .35s; }
     }
 
-    .sector-body p {
-      animation: descReveal .45s .25s cubic-bezier(.4, 0, .2, 1) both;
-    }
+    .sector-body p { animation: descReveal .45s .25s cubic-bezier(.4, 0, .2, 1) both; }
 
     .sector-arrow {
       animation: arrowReveal .35s .4s ease both;
-
-      svg {
-        animation: arrowNudge 1.2s .75s ease-in-out infinite;
-      }
+      svg { animation: arrowNudge 1.2s .75s ease-in-out infinite; }
     }
 
-    .sector-icon {
-      animation: iconLift 2.4s .3s ease-in-out infinite;
-    }
+    .sector-icon { animation: iconLift 2.4s .3s ease-in-out infinite; }
   }
 }
 
 // ─── Color themes ─────────────────────────────────────────────────────────────
 
 .sector-card-green {
-  &::before {
-    background: linear-gradient(90deg, $em-deep, $em-core 50%, $em-bright);
-  }
-
-  .card-blob {
-    background: radial-gradient(circle, rgba($em-core, .45), transparent 70%);
-  }
-
+  &::before { background: linear-gradient(90deg, $em-deep, $em-core 50%, $em-bright); }
+  .card-blob { background: radial-gradient(circle, rgba($em-core, .45), transparent 70%); }
   .card-svg-mesh {
-    .mesh-line {
-      stroke: rgba($em-core, .22);
-    }
-
-    .mesh-node {
-      fill: $em-core;
-    }
-
-    .mesh-arc {
-      stroke: rgba($em-bright, .35);
-    }
+    .mesh-line { stroke: rgba($em-core, .22); }
+    .mesh-node { fill: $em-core; }
+    .mesh-arc { stroke: rgba($em-bright, .35); }
   }
-
   .sector-icon {
     background: linear-gradient(135deg, rgba($em-core, .12), rgba($em-bright, .2));
     border: 1px solid rgba($em-core, .2);
     box-shadow: 0 0 18px rgba($em-core, .12);
   }
-
-  .sector-arrow {
-    color: $em-core;
-  }
-
-  .sector-body h3 {
-    color: #e2faf0;
-  }
-
-  &:hover,
-  &.is-visible {
+  .sector-arrow { color: $em-core; }
+  .sector-body h3 { color: #e2faf0; }
+  &:hover, &.is-visible {
     border-color: rgba($em-core, .3);
-    box-shadow:
-      0 0 0 1px rgba($em-core, .12),
-      0 20px 60px rgba($em-core, .15),
-      0 4px 20px rgba(0, 0, 0, .3);
+    box-shadow: 0 0 0 1px rgba($em-core, .12), 0 20px 60px rgba($em-core, .15), 0 4px 20px rgba(0,0,0,.3);
   }
 }
 
 .sector-card-teal {
-  &::before {
-    background: linear-gradient(90deg, $sa-deep, $sa-core 50%, $sa-bright);
-  }
-
-  .card-blob {
-    background: radial-gradient(circle, rgba($sa-core, .4), transparent 70%);
-  }
-
+  &::before { background: linear-gradient(90deg, $sa-deep, $sa-core 50%, $sa-bright); }
+  .card-blob { background: radial-gradient(circle, rgba($sa-core, .4), transparent 70%); }
   .card-svg-mesh {
-    .mesh-line {
-      stroke: rgba($sa-core, .22);
-    }
-
-    .mesh-node {
-      fill: $sa-core;
-    }
-
-    .mesh-arc {
-      stroke: rgba($sa-bright, .35);
-    }
+    .mesh-line { stroke: rgba($sa-core, .22); }
+    .mesh-node { fill: $sa-core; }
+    .mesh-arc { stroke: rgba($sa-bright, .35); }
   }
-
   .sector-icon {
     background: linear-gradient(135deg, rgba($sa-core, .12), rgba($sa-bright, .2));
     border: 1px solid rgba($sa-core, .2);
     box-shadow: 0 0 18px rgba($sa-core, .12);
   }
-
-  .sector-arrow {
-    color: $sa-core;
-  }
-
-  .sector-body h3 {
-    color: #e0f5ff;
-  }
-
-  &:hover,
-  &.is-visible {
+  .sector-arrow { color: $sa-core; }
+  .sector-body h3 { color: #e0f5ff; }
+  &:hover, &.is-visible {
     border-color: rgba($sa-core, .3);
-    box-shadow:
-      0 0 0 1px rgba($sa-core, .12),
-      0 20px 60px rgba($sa-core, .15),
-      0 4px 20px rgba(0, 0, 0, .3);
+    box-shadow: 0 0 0 1px rgba($sa-core, .12), 0 20px 60px rgba($sa-core, .15), 0 4px 20px rgba(0,0,0,.3);
   }
 }
 
 .sector-card-navy {
-  &::before {
-    background: linear-gradient(90deg, $in-deep, $in-core 50%, $in-bright);
-  }
-
-  .card-blob {
-    background: radial-gradient(circle, rgba($in-core, .4), transparent 70%);
-  }
-
+  &::before { background: linear-gradient(90deg, $in-deep, $in-core 50%, $in-bright); }
+  .card-blob { background: radial-gradient(circle, rgba($in-core, .4), transparent 70%); }
   .card-svg-mesh {
-    .mesh-line {
-      stroke: rgba($in-core, .22);
-    }
-
-    .mesh-node {
-      fill: $in-core;
-    }
-
-    .mesh-arc {
-      stroke: rgba($in-bright, .35);
-    }
+    .mesh-line { stroke: rgba($in-core, .22); }
+    .mesh-node { fill: $in-core; }
+    .mesh-arc { stroke: rgba($in-bright, .35); }
   }
-
   .sector-icon {
     background: linear-gradient(135deg, rgba($in-core, .12), rgba($in-bright, .2));
     border: 1px solid rgba($in-core, .2);
     box-shadow: 0 0 18px rgba($in-core, .12);
   }
-
-  .sector-arrow {
-    color: $in-core;
-  }
-
-  .sector-body h3 {
-    color: #eef0ff;
-  }
-
-  &:hover,
-  &.is-visible {
+  .sector-arrow { color: $in-core; }
+  .sector-body h3 { color: #eef0ff; }
+  &:hover, &.is-visible {
     border-color: rgba($in-core, .3);
-    box-shadow:
-      0 0 0 1px rgba($in-core, .12),
-      0 20px 60px rgba($in-core, .15),
-      0 4px 20px rgba(0, 0, 0, .3);
+    box-shadow: 0 0 0 1px rgba($in-core, .12), 0 20px 60px rgba($in-core, .15), 0 4px 20px rgba(0,0,0,.3);
   }
 }
 
 .sector-card-amber {
-  &::before {
-    background: linear-gradient(90deg, $am-deep, $am-core 50%, $am-bright);
-  }
-
-  .card-blob {
-    background: radial-gradient(circle, rgba($am-core, .38), transparent 70%);
-  }
-
+  &::before { background: linear-gradient(90deg, $am-deep, $am-core 50%, $am-bright); }
+  .card-blob { background: radial-gradient(circle, rgba($am-core, .38), transparent 70%); }
   .card-svg-mesh {
-    .mesh-line {
-      stroke: rgba($am-core, .22);
-    }
-
-    .mesh-node {
-      fill: $am-core;
-    }
-
-    .mesh-arc {
-      stroke: rgba($am-bright, .35);
-    }
+    .mesh-line { stroke: rgba($am-core, .22); }
+    .mesh-node { fill: $am-core; }
+    .mesh-arc { stroke: rgba($am-bright, .35); }
   }
-
   .sector-icon {
     background: linear-gradient(135deg, rgba($am-core, .12), rgba($am-bright, .2));
     border: 1px solid rgba($am-core, .2);
     box-shadow: 0 0 18px rgba($am-core, .12);
   }
-
-  .sector-arrow {
-    color: $am-core;
-  }
-
-  .sector-body h3 {
-    color: #fffbeb;
-  }
-
-  &:hover,
-  &.is-visible {
+  .sector-arrow { color: $am-core; }
+  .sector-body h3 { color: #fffbeb; }
+  &:hover, &.is-visible {
     border-color: rgba($am-core, .3);
-    box-shadow:
-      0 0 0 1px rgba($am-core, .12),
-      0 20px 60px rgba($am-core, .15),
-      0 4px 20px rgba(0, 0, 0, .3);
+    box-shadow: 0 0 0 1px rgba($am-core, .12), 0 20px 60px rgba($am-core, .15), 0 4px 20px rgba(0,0,0,.3);
   }
 }
 
 .sector-card-cyan {
-  &::before {
-    background: linear-gradient(90deg, $cy-deep, $cy-core 50%, $cy-bright);
-  }
-
-  .card-blob {
-    background: radial-gradient(circle, rgba($cy-core, .4), transparent 70%);
-  }
-
+  &::before { background: linear-gradient(90deg, $cy-deep, $cy-core 50%, $cy-bright); }
+  .card-blob { background: radial-gradient(circle, rgba($cy-core, .4), transparent 70%); }
   .card-svg-mesh {
-    .mesh-line {
-      stroke: rgba($cy-core, .22);
-    }
-
-    .mesh-node {
-      fill: $cy-core;
-    }
-
-    .mesh-arc {
-      stroke: rgba($cy-bright, .35);
-    }
+    .mesh-line { stroke: rgba($cy-core, .22); }
+    .mesh-node { fill: $cy-core; }
+    .mesh-arc { stroke: rgba($cy-bright, .35); }
   }
-
   .sector-icon {
     background: linear-gradient(135deg, rgba($cy-core, .12), rgba($cy-bright, .2));
     border: 1px solid rgba($cy-core, .2);
     box-shadow: 0 0 18px rgba($cy-core, .12);
   }
-
-  .sector-arrow {
-    color: $cy-core;
-  }
-
-  .sector-body h3 {
-    color: #cffafe;
-  }
-
-  &:hover,
-  &.is-visible {
+  .sector-arrow { color: $cy-core; }
+  .sector-body h3 { color: #cffafe; }
+  &:hover, &.is-visible {
     border-color: rgba($cy-core, .3);
-    box-shadow:
-      0 0 0 1px rgba($cy-core, .12),
-      0 20px 60px rgba($cy-core, .15),
-      0 4px 20px rgba(0, 0, 0, .3);
+    box-shadow: 0 0 0 1px rgba($cy-core, .12), 0 20px 60px rgba($cy-core, .15), 0 4px 20px rgba(0,0,0,.3);
   }
 }
 
 .sector-card-lime {
-  &::before {
-    background: linear-gradient(90deg, $li-deep, $li-core 50%, $li-bright);
-  }
-
-  .card-blob {
-    background: radial-gradient(circle, rgba($li-core, .4), transparent 70%);
-  }
-
+  &::before { background: linear-gradient(90deg, $li-deep, $li-core 50%, $li-bright); }
+  .card-blob { background: radial-gradient(circle, rgba($li-core, .4), transparent 70%); }
   .card-svg-mesh {
-    .mesh-line {
-      stroke: rgba($li-core, .22);
-    }
-
-    .mesh-node {
-      fill: $li-core;
-    }
-
-    .mesh-arc {
-      stroke: rgba($li-bright, .35);
-    }
+    .mesh-line { stroke: rgba($li-core, .22); }
+    .mesh-node { fill: $li-core; }
+    .mesh-arc { stroke: rgba($li-bright, .35); }
   }
-
   .sector-icon {
     background: linear-gradient(135deg, rgba($li-core, .12), rgba($li-bright, .2));
     border: 1px solid rgba($li-core, .2);
     box-shadow: 0 0 18px rgba($li-core, .12);
   }
-
-  .sector-arrow {
-    color: $li-core;
-  }
-
-  .sector-body h3 {
-    color: #f0fdf4;
-  }
-
-  &:hover,
-  &.is-visible {
+  .sector-arrow { color: $li-core; }
+  .sector-body h3 { color: #f0fdf4; }
+  &:hover, &.is-visible {
     border-color: rgba($li-core, .3);
-    box-shadow:
-      0 0 0 1px rgba($li-core, .12),
-      0 20px 60px rgba($li-core, .15),
-      0 4px 20px rgba(0, 0, 0, .3);
+    box-shadow: 0 0 0 1px rgba($li-core, .12), 0 20px 60px rgba($li-core, .15), 0 4px 20px rgba(0,0,0,.3);
   }
 }
 
 .sector-card-rose {
-  &::before {
-    background: linear-gradient(90deg, $ro-deep, $ro-core 50%, $ro-bright);
-  }
-
-  .card-blob {
-    background: radial-gradient(circle, rgba($ro-core, .4), transparent 70%);
-  }
-
+  &::before { background: linear-gradient(90deg, $ro-deep, $ro-core 50%, $ro-bright); }
+  .card-blob { background: radial-gradient(circle, rgba($ro-core, .4), transparent 70%); }
   .card-svg-mesh {
-    .mesh-line {
-      stroke: rgba($ro-core, .22);
-    }
-
-    .mesh-node {
-      fill: $ro-core;
-    }
-
-    .mesh-arc {
-      stroke: rgba($ro-bright, .35);
-    }
+    .mesh-line { stroke: rgba($ro-core, .22); }
+    .mesh-node { fill: $ro-core; }
+    .mesh-arc { stroke: rgba($ro-bright, .35); }
   }
-
   .sector-icon {
     background: linear-gradient(135deg, rgba($ro-core, .12), rgba($ro-bright, .2));
     border: 1px solid rgba($ro-core, .2);
     box-shadow: 0 0 18px rgba($ro-core, .12);
   }
-
-  .sector-arrow {
-    color: $ro-core;
-  }
-
-  .sector-body h3 {
-    color: #fff1f2;
-  }
-
-  &:hover,
-  &.is-visible {
+  .sector-arrow { color: $ro-core; }
+  .sector-body h3 { color: #fff1f2; }
+  &:hover, &.is-visible {
     border-color: rgba($ro-core, .3);
-    box-shadow:
-      0 0 0 1px rgba($ro-core, .12),
-      0 20px 60px rgba($ro-core, .15),
-      0 4px 20px rgba(0, 0, 0, .3);
+    box-shadow: 0 0 0 1px rgba($ro-core, .12), 0 20px 60px rgba($ro-core, .15), 0 4px 20px rgba(0,0,0,.3);
   }
 }
 
 // ─── Icon box ─────────────────────────────────────────────────────────────────
 .sector-icon {
-  width: 48px;
-  height: 48px;
+  width: 48px; height: 48px;
   border-radius: 13px;
   display: flex;
   align-items: center;
@@ -1617,8 +550,7 @@ $card-border-h: rgba(255, 255, 255, .13);
   z-index: 3;
 
   svg {
-    width: 13px;
-    height: 13px;
+    width: 13px; height: 13px;
     display: block;
     color: inherit;
   }
@@ -1626,7 +558,6 @@ $card-border-h: rgba(255, 255, 255, .13);
 
 // ─── Reduced motion ───────────────────────────────────────────────────────────
 @media (prefers-reduced-motion: reduce) {
-
   .sector-card,
   .sector-card::before,
   .sector-card::after,
@@ -1639,74 +570,28 @@ $card-border-h: rgba(255, 255, 255, .13);
   }
 
   .sector-card.is-visible {
-    .sector-body p {
-      max-height: 160px;
-      opacity: 1;
-      margin-top: 10px;
-    }
-
-    .sector-arrow {
-      opacity: 1;
-      transform: translateX(0);
-    }
-
-    &::before {
-      transform: scaleX(1);
-      opacity: 1;
-    }
-
-    .card-svg-mesh {
-      opacity: 1;
-    }
-
-    .card-blob {
-      opacity: 1;
-    }
+    .sector-body p { max-height: 160px; opacity: 1; margin-top: 10px; }
+    .sector-arrow { opacity: 1; transform: translateX(0); }
+    &::before { transform: scaleX(1); opacity: 1; }
+    .card-svg-mesh { opacity: 1; }
+    .card-blob { opacity: 1; }
   }
 }
 
 // ─── Responsive ───────────────────────────────────────────────────────────────
 
-// Tablet
 @media (max-width: 992px) {
-  .sectors-grid {
-    gap: 14px;
-  }
-
-  .sector-card {
-    min-height: 185px;
-
-    // // Touch: description always visible (no hover)
-    // .sector-body p {
-    //   max-height: 130px;
-    //   opacity: 1;
-    //   margin-top: 8px;
-    // }
-
-    // .sector-arrow {
-    //   opacity: 1;
-    //   transform: translateX(0);
-    // }
-  }
+  .sectors-grid { gap: 14px; }
+  .sector-card { min-height: 185px; }
 }
 
-// Tablet mid
 @media (max-width: 768px) {
-  .sectors-section {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
-  }
+  .sectors-section { padding-top: 3rem; padding-bottom: 3rem; }
 
   .sectors-header {
     margin-bottom: 2rem;
-
-    .section-title {
-      font-size: 1.6rem;
-    }
-
-    .section-sub {
-      font-size: 0.9rem;
-    }
+    .section-title { font-size: 1.6rem; }
+    .section-sub { font-size: 0.9rem; }
   }
 
   .sectors-grid {
@@ -1717,245 +602,1360 @@ $card-border-h: rgba(255, 255, 255, .13);
   .sector-card {
     min-height: 170px;
     padding: 1.2rem 1.1rem 1rem;
-
-    // No translate lift on touch — feels laggy
-    &:hover {
-      transform: none;
-    }
-
-    &.is-visible {
-      animation: cardScrollPop .6s cubic-bezier(.4, 0, .2, 1) both;
-    }
+    &:hover { transform: none; }
   }
 
-  .sector-icon {
-    width: 42px;
-    height: 42px;
-    border-radius: 11px;
-    margin-bottom: 12px;
-  }
+  .sector-icon { width: 42px; height: 42px; border-radius: 11px; margin-bottom: 12px; }
 
   .sector-body {
-    h3 {
-      font-size: 13.5px;
-    }
-
-    p {
-      font-size: 12px;
-    }
+    h3 { font-size: 13.5px; }
+    p { font-size: 12px; }
   }
 }
 
-// Mobile
 @media (max-width: 480px) {
-  .sectors-grid {
-    grid-template-columns: 1fr;
-    gap: 10px;
-  }
+  .sectors-grid { grid-template-columns: 1fr; gap: 10px; }
 
   .sector-card {
     min-height: unset;
     padding: 1.1rem 1rem 0.9rem;
 
-    .sector-body p {
-      max-height: 300px; // ← was 200px
-      font-size: 12.5px;
-    }
+    .sector-body p { font-size: 12.5px; }
   }
 
-  .sector-icon {
-    width: 40px;
-    height: 40px;
-    margin-bottom: 10px;
-  }
-
-  .sector-body h3 {
-    font-size: 14px;
-    line-height: 1.3;
-  }
-
-  .sector-arrow {
-    padding-top: 10px;
-    font-size: 10.5px;
-  }
+  .sector-icon { width: 40px; height: 40px; margin-bottom: 10px; }
+  .sector-body h3 { font-size: 14px; line-height: 1.3; }
+  .sector-arrow { padding-top: 10px; font-size: 10.5px; }
 }
 
-// ─── Touch devices: always open, all animations on load ───────────────────────
+// ─── Touch devices: cards always open + sub-animations on load ────────────────
+// No scroll trigger. No cardScrollPop. Cards render fully open immediately.
+// Sub-animations fire once via CSS animation on page load using delay-N classes.
 @media (hover: none) {
+  .sector-card {
+    // Kill hover states — touch has no hover
+    &:hover {
+      transform: none;
+      box-shadow: none;
+      border-color: $card-border;
+      background: $card-bg;
 
-  // Kill all hover-triggered changes — touch has no hover
-  .sector-card:hover {
-    transform: none;
-    box-shadow: none;
-    border-color: $card-border;
-    background: $card-bg;
-
-    &::before {
-      animation: none;
-      transform: scaleX(0);
+      &::before { animation: none; transform: scaleX(0); }
+      &::after { animation: none; }
+      .card-blob { opacity: 0; }
+      .card-svg-mesh { opacity: 0; }
+      .sector-body p { max-height: 0; opacity: 0; margin-top: 0; }
+      .sector-arrow { opacity: 0; transform: translateX(-6px); }
+      .sector-icon { animation: none; }
     }
 
-    &::after {
-      animation: none;
-    }
-
-    .card-blob {
-      opacity: 0;
-    }
-
-    .card-svg-mesh {
-      opacity: 0;
-    }
-
-    .sector-body p {
-      max-height: 0;
-      opacity: 0;
-      margin-top: 0;
-    }
-
-    .sector-arrow {
-      opacity: 0;
-      transform: translateX(-6px);
-    }
-
-    .sector-icon {
-      animation: none;
-    }
-  }
-
-.sector-card {
+    // ── Always-open state ──────────────────────────────────────────────────────
+    // Card is raised and open from the moment it renders.
+    // Each sub-animation fires once with a staggered delay matching delay-N.
     border-color: $card-border-h;
     background: $card-bg-raised;
-    // Force GPU layer — Android skips animations without this
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
 
+    // Top bar draws in
     &::before {
       animation: topBarDraw .5s cubic-bezier(.4, 0, .2, 1) both;
-      will-change: transform, opacity;
     }
 
+    // Shimmer sweeps once
     &::after {
       animation: shimmerSweep .7s .1s ease forwards;
-      will-change: left;
     }
 
+    // Blob fades in then floats forever
     .card-blob {
       animation: blobReveal .6s ease forwards, blobFloat 10s .6s ease-in-out infinite;
-      will-change: transform, opacity;
-      // Android blur fix — filter: blur kills compositing on some devices
-      -webkit-transform: translateZ(0);
-      transform: translateZ(0);
     }
 
+    // Mesh fades in
     .card-svg-mesh {
       animation: meshReveal .5s .1s ease forwards;
-      will-change: opacity;
-      // Remove transition that fights animation on mobile
-      transition: none;
-
-      .mesh-arc {
-        stroke-dashoffset: 0;
-        transition: none; // kills the transition conflict
-      }
-
-      .mesh-line {
-        will-change: stroke-dashoffset;
-      }
-
-      .mesh-node {
-        will-change: opacity;
-      }
+      .mesh-arc { stroke-dashoffset: 0; transition-delay: .3s; }
     }
 
+    // Description slides open
     .sector-body p {
-      transition: none;
       animation: descReveal .45s .15s cubic-bezier(.4, 0, .2, 1) both;
-      will-change: max-height, opacity;
     }
 
+    // Arrow slides in then nudges forever
     .sector-arrow {
-      transition: none;
       animation: arrowReveal .35s .3s ease both;
-      will-change: opacity, transform;
-
-      svg {
-        animation: arrowNudge 1.2s .65s ease-in-out infinite;
-        will-change: transform;
-      }
+      svg { animation: arrowNudge 1.2s .65s ease-in-out infinite; }
     }
 
+    // Icon lifts forever
     .sector-icon {
       animation: iconLift 2.4s .2s ease-in-out infinite;
-      will-change: transform;
     }
   }
 
-  // Color-themed box-shadow also needs to apply on touch (not just :hover / .is-visible)
-  .sector-card-green {
-    box-shadow: 0 0 0 1px rgba($em-core, .12), 0 20px 60px rgba($em-core, .15), 0 4px 20px rgba(0, 0, 0, .3);
-  }
-
-  .sector-card-teal {
-    box-shadow: 0 0 0 1px rgba($sa-core, .12), 0 20px 60px rgba($sa-core, .15), 0 4px 20px rgba(0, 0, 0, .3);
-  }
-
-  .sector-card-navy {
-    box-shadow: 0 0 0 1px rgba($in-core, .12), 0 20px 60px rgba($in-core, .15), 0 4px 20px rgba(0, 0, 0, .3);
-  }
-
-  .sector-card-amber {
-    box-shadow: 0 0 0 1px rgba($am-core, .12), 0 20px 60px rgba($am-core, .15), 0 4px 20px rgba(0, 0, 0, .3);
-  }
-
-  .sector-card-cyan {
-    box-shadow: 0 0 0 1px rgba($cy-core, .12), 0 20px 60px rgba($cy-core, .15), 0 4px 20px rgba(0, 0, 0, .3);
-  }
-
-  .sector-card-lime {
-    box-shadow: 0 0 0 1px rgba($li-core, .12), 0 20px 60px rgba($li-core, .15), 0 4px 20px rgba(0, 0, 0, .3);
-  }
-
-  .sector-card-rose {
-    box-shadow: 0 0 0 1px rgba($ro-core, .12), 0 20px 60px rgba($ro-core, .15), 0 4px 20px rgba(0, 0, 0, .3);
-  }
-
-  // Stagger sub-animations per card using delay-N
+  // Stagger each card's sub-animations using existing delay-N classes
   @for $i from 1 through 9 {
     .sector-card.delay-#{$i} {
-      $base: (
-        $i - 1) * 100ms;
+      $base: ($i - 1) * 100ms;
 
-      &::before {
-        animation-delay: $base;
-      }
+      &::before { animation-delay: $base; }
+      &::after  { animation-delay: $base + 80ms; }
 
-      &::after {
-        animation-delay: $base + 80ms;
-      }
-
-      .card-blob {
-        animation-delay: $base,
-          $base + 600ms;
-      }
-
-      .card-svg-mesh {
-        animation-delay: $base + 80ms;
-      }
-
-      .sector-body p {
-        transition: none; // ← ADD
-        animation-delay: $base + 120ms;
-      }
-
-      .sector-arrow {
-        transition: none; // ← ADD
-        animation-delay: $base + 250ms;
-      }
-
-      .sector-icon {
-        animation-delay: $base + 150ms;
-      }
+      .card-blob { animation-delay: $base, $base + 600ms; }
+      .card-svg-mesh { animation-delay: $base + 80ms; }
+      .sector-body p { animation-delay: $base + 120ms; }
+      .sector-arrow { animation-delay: $base + 250ms; }
+      .sector-icon { animation-delay: $base + 150ms; }
     }
   }
 }
+
+
+
+// @import '../../../../assets/styles/variables';
+
+// // ═══════════════════════════════════════════════════════════════════════════════
+// // PREMIUM SECTOR CARDS — Environmental & Sustainability Consulting
+// // ═══════════════════════════════════════════════════════════════════════════════
+
+// // ─── Premium Palette ──────────────────────────────────────────────────────────
+// $em-core: #00c97a;
+// $em-deep: #007a49;
+// $em-bright: #4dffa8;
+
+// $sa-core: #0ea5e9;
+// $sa-deep: #0369a1;
+// $sa-bright: #7dd3fc;
+
+// $in-core: #6366f1;
+// $in-deep: #3730a3;
+// $in-bright: #a5b4fc;
+
+// $am-core: #f59e0b;
+// $am-deep: #b45309;
+// $am-bright: #fcd34d;
+
+// $cy-core: #06b6d4;
+// $cy-deep: #0e7490;
+// $cy-bright: #67e8f9;
+
+// $li-core: #22c55e;
+// $li-deep: #15803d;
+// $li-bright: #86efac;
+
+// $ro-core: #f43f5e;
+// $ro-deep: #9f1239;
+// $ro-bright: #fda4af;
+
+// $card-bg: #0d1117;
+// $card-bg-raised: #111827;
+// $card-border: rgba(255, 255, 255, .07);
+// $card-border-h: rgba(255, 255, 255, .13);
+
+// // ─── Keyframes ────────────────────────────────────────────────────────────────
+// @keyframes svgNodePulse {
+
+//   0%,
+//   100% {
+//     r: 1.5;
+//     opacity: .4;
+//   }
+
+//   50% {
+//     r: 3;
+//     opacity: .9;
+//   }
+// }
+
+// @keyframes svgLineDrift {
+//   0% {
+//     stroke-dashoffset: 0;
+//   }
+
+//   100% {
+//     stroke-dashoffset: -120;
+//   }
+// }
+
+// @keyframes blobFloat {
+
+//   0%,
+//   100% {
+//     transform: translate(0, 0) scale(1);
+//   }
+
+//   33% {
+//     transform: translate(-10px, 14px) scale(1.08);
+//   }
+
+//   66% {
+//     transform: translate(8px, -8px) scale(.96);
+//   }
+// }
+
+// @keyframes topBarReveal {
+//   from {
+//     transform: scaleX(0);
+//     opacity: 0;
+//   }
+
+//   to {
+//     transform: scaleX(1);
+//     opacity: 1;
+//   }
+// }
+
+// @keyframes shimmerSweep {
+//   0% {
+//     transform: translateX(-160%);
+//   }
+
+//   100% {
+//     transform: translateX(320%);
+//   }
+// }
+
+// @keyframes iconLift {
+
+//   0%,
+//   100% {
+//     transform: translateY(0) rotate(0deg);
+//   }
+
+//   50% {
+//     transform: translateY(-3px) rotate(-4deg);
+//   }
+// }
+
+// @keyframes arrowNudge {
+
+//   0%,
+//   100% {
+//     transform: translateX(0);
+//   }
+
+//   50% {
+//     transform: translateX(3px);
+//   }
+// }
+
+// @keyframes cardEntrance {
+//   from {
+//     opacity: 0;
+//     transform: translateY(28px) scale(.97);
+//   }
+
+//   to {
+//     opacity: 1;
+//     transform: translateY(0) scale(1);
+//   }
+// }
+
+// // Mobile scroll-trigger card pop animation
+// @keyframes cardScrollPop {
+//   0% {
+//     opacity: 0;
+//     transform: translateY(32px) scale(.96);
+//   }
+
+//   60% {
+//     opacity: 1;
+//     transform: translateY(-4px) scale(1.01);
+//   }
+
+//   100% {
+//     opacity: 1;
+//     transform: translateY(0) scale(1);
+//   }
+// }
+
+// // Mobile: description slide open
+// @keyframes descReveal {
+//   from {
+//     max-height: 0;
+//     opacity: 0;
+//     margin-top: 0;
+//   }
+
+//   to {
+//     max-height: 300px; // ← was 160px
+//     opacity: 1;
+//     margin-top: 10px;
+//   }
+// }
+
+// // Mobile: arrow slide in
+// @keyframes arrowReveal {
+//   from {
+//     opacity: 0;
+//     transform: translateX(-8px);
+//   }
+
+//   to {
+//     opacity: 1;
+//     transform: translateX(0);
+//   }
+// }
+
+// // Mobile: top bar draw
+// @keyframes topBarDraw {
+//   from {
+//     transform: scaleX(0);
+//     opacity: 0;
+//   }
+
+//   to {
+//     transform: scaleX(1);
+//     opacity: 1;
+//   }
+// }
+
+// // Mobile: blob fade in
+// @keyframes blobReveal {
+//   from {
+//     opacity: 0;
+//   }
+
+//   to {
+//     opacity: 1;
+//   }
+// }
+
+// // Mobile: mesh fade in
+// @keyframes meshReveal {
+//   from {
+//     opacity: 0;
+//   }
+
+//   to {
+//     opacity: 1;
+//   }
+// }
+
+// // ─── Section ──────────────────────────────────────────────────────────────────
+// .sectors-section {
+//   background: #080c12;
+//   position: relative;
+//   overflow: hidden;
+
+//   &::before {
+//     content: '';
+//     position: absolute;
+//     inset: 0;
+//     background-image:
+//       linear-gradient(rgba(255, 255, 255, .025) 1px, transparent 1px),
+//       linear-gradient(90deg, rgba(255, 255, 255, .025) 1px, transparent 1px);
+//     background-size: 64px 64px;
+//     pointer-events: none;
+//     z-index: 0;
+//   }
+
+//   .container-custom {
+//     position: relative;
+//     z-index: 1;
+//   }
+// }
+
+// // ─── Header ───────────────────────────────────────────────────────────────────
+// .sectors-header {
+//   text-align: center;
+//   margin-bottom: 3rem;
+
+//   .section-label {
+//     color: $em-core;
+//     letter-spacing: .12em;
+//     font-size: 11px;
+//     font-weight: 700;
+//     text-transform: uppercase;
+//   }
+
+//   .section-title {
+//     color: #f1f5f9;
+
+//     span {
+//       background: linear-gradient(135deg, $em-core, $sa-core);
+//       -webkit-background-clip: text;
+//       -webkit-text-fill-color: transparent;
+//       background-clip: text;
+//     }
+//   }
+
+//   .section-sub {
+//     color: #94a3b8;
+//     max-width: 560px;
+//     margin: 0 auto;
+//     text-align: center;
+
+//   }
+// }
+
+// // ─── Grid ─────────────────────────────────────────────────────────────────────
+// .sectors-grid {
+//   display: grid;
+//   grid-template-columns: repeat(3, 1fr);
+//   gap: 18px;
+
+//   @media (max-width: 992px) {
+//     grid-template-columns: repeat(2, 1fr);
+//   }
+
+//   @media (max-width: 576px) {
+//     grid-template-columns: 1fr;
+//   }
+// }
+
+// // ─── Base card ────────────────────────────────────────────────────────────────
+// .sector-card {
+//   background: $card-bg;
+//   border: 1px solid $card-border;
+//   border-radius: 20px;
+//   padding: 1.6rem 1.4rem 1.3rem;
+//   cursor: pointer;
+//   display: flex;
+//   flex-direction: column;
+//   position: relative;
+//   overflow: visible;
+//   isolation: isolate;
+//   min-height: 210px;
+//   animation: cardEntrance .55s cubic-bezier(.4, 0, .2, 1) both;
+//   -webkit-mask-image: -webkit-radial-gradient(white, black);
+
+//   @for $i from 1 through 9 {
+//     &.delay-#{$i} {
+//       animation-delay: #{($i - 1) * 80}ms;
+//     }
+//   }
+
+//   transition: transform .35s cubic-bezier(.4, 0, .2, 1),
+//   box-shadow .35s ease,
+//   border-color .3s ease,
+//   background .3s ease;
+
+//   // ── Top accent bar ──────────────────────────────────────────────────────────
+//   &::before {
+//     content: '';
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     right: 0;
+//     height: 2px;
+//     border-radius: 20px 20px 0 0;
+//     transform: scaleX(0);
+//     transform-origin: left;
+//     transition: transform .4s cubic-bezier(.4, 0, .2, 1);
+//     z-index: 5;
+//   }
+
+//   // ── Shimmer sweep ───────────────────────────────────────────────────────────
+// &::after {
+//     content: '';
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     width: 50%;
+//     height: 100%;
+//     background: linear-gradient(108deg,
+//         transparent 35%,
+//         rgba(255, 255, 255, .055) 50%,
+//         transparent 65%);
+//     z-index: 4;
+//     pointer-events: none;
+//   }
+
+//   // ── SVG mesh canvas ─────────────────────────────────────────────────────────
+//   .card-svg-mesh {
+//     position: absolute;
+//     inset: 0;
+//     width: 100%;
+//     height: 100%;
+//     z-index: 1;
+//     opacity: 0;
+//     transition: opacity .5s ease;
+//     pointer-events: none;
+//     overflow: visible;
+
+//     .mesh-line {
+//       stroke-dasharray: 120;
+//       stroke-dashoffset: 0;
+//       animation: svgLineDrift 8s linear infinite;
+//       stroke-width: .7;
+
+//       &:nth-child(2) {
+//         animation-duration: 11s;
+//         animation-delay: -3s;
+//       }
+
+//       &:nth-child(3) {
+//         animation-duration: 14s;
+//         animation-delay: -6s;
+//       }
+//     }
+
+//     .mesh-node {
+//       animation: svgNodePulse 3s ease-in-out infinite;
+
+//       &:nth-child(2) {
+//         animation-delay: -1s;
+//       }
+
+//       &:nth-child(3) {
+//         animation-delay: -2s;
+//       }
+
+//       &:nth-child(4) {
+//         animation-delay: -.5s;
+//       }
+//     }
+
+//     .mesh-arc {
+//       stroke-dasharray: 400;
+//       stroke-dashoffset: 400;
+//       stroke-width: .6;
+//       fill: none;
+//       transition: stroke-dashoffset .8s cubic-bezier(.4, 0, .2, 1);
+//     }
+//   }
+
+//   // ── Ambient glow blob ───────────────────────────────────────────────────────
+//   .card-blob {
+//     position: absolute;
+//     width: 180px;
+//     height: 180px;
+//     border-radius: 50%;
+//     top: -70px;
+//     right: -55px;
+//     opacity: 0;
+//     filter: blur(55px);
+//     pointer-events: none;
+//     z-index: 1;
+//     transition: opacity .45s ease;
+//     animation: blobFloat 10s ease-in-out infinite;
+//   }
+
+//   // ── Desktop hover ───────────────────────────────────────────────────────────
+//   &:hover {
+//     transform: translateY(-8px);
+//     border-color: $card-border-h;
+//     background: $card-bg-raised;
+
+//     &::before {
+//       animation: topBarReveal .4s cubic-bezier(.4, 0, .2, 1) forwards;
+//     }
+
+//     &::after {
+//       animation: shimmerSweep .65s ease forwards;
+//     }
+
+//     .card-blob {
+//       opacity: 1;
+//     }
+
+//     .card-svg-mesh {
+//       opacity: 1;
+
+//       .mesh-arc {
+//         stroke-dashoffset: 0;
+//       }
+//     }
+
+//     .sector-body p {
+//       max-height: 140px;
+//       opacity: 1;
+//       margin-top: 10px;
+//     }
+
+//     .sector-arrow {
+//       opacity: 1;
+//       transform: translateX(0);
+
+//       svg {
+//         animation: arrowNudge 1s ease-in-out infinite;
+//       }
+//     }
+
+//     .sector-icon {
+//       animation: iconLift 2.4s ease-in-out infinite;
+//     }
+//   }
+
+//   // ── Mobile scroll-triggered state (JS adds .is-visible) ────────────────────
+//   // All the same animations that hover triggers, but fired by IntersectionObserver
+//   &.is-visible {
+//     animation: cardScrollPop .6s cubic-bezier(.4, 0, .2, 1) both;
+//     border-color: $card-border-h;
+//     background: $card-bg-raised;
+
+//     &::before {
+//       animation: topBarDraw .5s .15s cubic-bezier(.4, 0, .2, 1) both;
+//     }
+
+//     &::after {
+//       animation: shimmerSweep .7s .2s ease forwards;
+//     }
+
+//     .card-blob {
+//       animation: blobReveal .6s .1s ease forwards, blobFloat 10s .7s ease-in-out infinite;
+//     }
+
+//     .card-svg-mesh {
+//       animation: meshReveal .5s .2s ease forwards;
+
+//       .mesh-arc {
+//         stroke-dashoffset: 0;
+//         transition-delay: .35s;
+//       }
+//     }
+
+//     .sector-body p {
+//       animation: descReveal .45s .25s cubic-bezier(.4, 0, .2, 1) both;
+//     }
+
+//     .sector-arrow {
+//       animation: arrowReveal .35s .4s ease both;
+
+//       svg {
+//         animation: arrowNudge 1.2s .75s ease-in-out infinite;
+//       }
+//     }
+
+//     .sector-icon {
+//       animation: iconLift 2.4s .3s ease-in-out infinite;
+//     }
+//   }
+// }
+
+// // ─── Color themes ─────────────────────────────────────────────────────────────
+
+// .sector-card-green {
+//   &::before {
+//     background: linear-gradient(90deg, $em-deep, $em-core 50%, $em-bright);
+//   }
+
+//   .card-blob {
+//     background: radial-gradient(circle, rgba($em-core, .45), transparent 70%);
+//   }
+
+//   .card-svg-mesh {
+//     .mesh-line {
+//       stroke: rgba($em-core, .22);
+//     }
+
+//     .mesh-node {
+//       fill: $em-core;
+//     }
+
+//     .mesh-arc {
+//       stroke: rgba($em-bright, .35);
+//     }
+//   }
+
+//   .sector-icon {
+//     background: linear-gradient(135deg, rgba($em-core, .12), rgba($em-bright, .2));
+//     border: 1px solid rgba($em-core, .2);
+//     box-shadow: 0 0 18px rgba($em-core, .12);
+//   }
+
+//   .sector-arrow {
+//     color: $em-core;
+//   }
+
+//   .sector-body h3 {
+//     color: #e2faf0;
+//   }
+
+//   &:hover,
+//   &.is-visible {
+//     border-color: rgba($em-core, .3);
+//     box-shadow:
+//       0 0 0 1px rgba($em-core, .12),
+//       0 20px 60px rgba($em-core, .15),
+//       0 4px 20px rgba(0, 0, 0, .3);
+//   }
+// }
+
+// .sector-card-teal {
+//   &::before {
+//     background: linear-gradient(90deg, $sa-deep, $sa-core 50%, $sa-bright);
+//   }
+
+//   .card-blob {
+//     background: radial-gradient(circle, rgba($sa-core, .4), transparent 70%);
+//   }
+
+//   .card-svg-mesh {
+//     .mesh-line {
+//       stroke: rgba($sa-core, .22);
+//     }
+
+//     .mesh-node {
+//       fill: $sa-core;
+//     }
+
+//     .mesh-arc {
+//       stroke: rgba($sa-bright, .35);
+//     }
+//   }
+
+//   .sector-icon {
+//     background: linear-gradient(135deg, rgba($sa-core, .12), rgba($sa-bright, .2));
+//     border: 1px solid rgba($sa-core, .2);
+//     box-shadow: 0 0 18px rgba($sa-core, .12);
+//   }
+
+//   .sector-arrow {
+//     color: $sa-core;
+//   }
+
+//   .sector-body h3 {
+//     color: #e0f5ff;
+//   }
+
+//   &:hover,
+//   &.is-visible {
+//     border-color: rgba($sa-core, .3);
+//     box-shadow:
+//       0 0 0 1px rgba($sa-core, .12),
+//       0 20px 60px rgba($sa-core, .15),
+//       0 4px 20px rgba(0, 0, 0, .3);
+//   }
+// }
+
+// .sector-card-navy {
+//   &::before {
+//     background: linear-gradient(90deg, $in-deep, $in-core 50%, $in-bright);
+//   }
+
+//   .card-blob {
+//     background: radial-gradient(circle, rgba($in-core, .4), transparent 70%);
+//   }
+
+//   .card-svg-mesh {
+//     .mesh-line {
+//       stroke: rgba($in-core, .22);
+//     }
+
+//     .mesh-node {
+//       fill: $in-core;
+//     }
+
+//     .mesh-arc {
+//       stroke: rgba($in-bright, .35);
+//     }
+//   }
+
+//   .sector-icon {
+//     background: linear-gradient(135deg, rgba($in-core, .12), rgba($in-bright, .2));
+//     border: 1px solid rgba($in-core, .2);
+//     box-shadow: 0 0 18px rgba($in-core, .12);
+//   }
+
+//   .sector-arrow {
+//     color: $in-core;
+//   }
+
+//   .sector-body h3 {
+//     color: #eef0ff;
+//   }
+
+//   &:hover,
+//   &.is-visible {
+//     border-color: rgba($in-core, .3);
+//     box-shadow:
+//       0 0 0 1px rgba($in-core, .12),
+//       0 20px 60px rgba($in-core, .15),
+//       0 4px 20px rgba(0, 0, 0, .3);
+//   }
+// }
+
+// .sector-card-amber {
+//   &::before {
+//     background: linear-gradient(90deg, $am-deep, $am-core 50%, $am-bright);
+//   }
+
+//   .card-blob {
+//     background: radial-gradient(circle, rgba($am-core, .38), transparent 70%);
+//   }
+
+//   .card-svg-mesh {
+//     .mesh-line {
+//       stroke: rgba($am-core, .22);
+//     }
+
+//     .mesh-node {
+//       fill: $am-core;
+//     }
+
+//     .mesh-arc {
+//       stroke: rgba($am-bright, .35);
+//     }
+//   }
+
+//   .sector-icon {
+//     background: linear-gradient(135deg, rgba($am-core, .12), rgba($am-bright, .2));
+//     border: 1px solid rgba($am-core, .2);
+//     box-shadow: 0 0 18px rgba($am-core, .12);
+//   }
+
+//   .sector-arrow {
+//     color: $am-core;
+//   }
+
+//   .sector-body h3 {
+//     color: #fffbeb;
+//   }
+
+//   &:hover,
+//   &.is-visible {
+//     border-color: rgba($am-core, .3);
+//     box-shadow:
+//       0 0 0 1px rgba($am-core, .12),
+//       0 20px 60px rgba($am-core, .15),
+//       0 4px 20px rgba(0, 0, 0, .3);
+//   }
+// }
+
+// .sector-card-cyan {
+//   &::before {
+//     background: linear-gradient(90deg, $cy-deep, $cy-core 50%, $cy-bright);
+//   }
+
+//   .card-blob {
+//     background: radial-gradient(circle, rgba($cy-core, .4), transparent 70%);
+//   }
+
+//   .card-svg-mesh {
+//     .mesh-line {
+//       stroke: rgba($cy-core, .22);
+//     }
+
+//     .mesh-node {
+//       fill: $cy-core;
+//     }
+
+//     .mesh-arc {
+//       stroke: rgba($cy-bright, .35);
+//     }
+//   }
+
+//   .sector-icon {
+//     background: linear-gradient(135deg, rgba($cy-core, .12), rgba($cy-bright, .2));
+//     border: 1px solid rgba($cy-core, .2);
+//     box-shadow: 0 0 18px rgba($cy-core, .12);
+//   }
+
+//   .sector-arrow {
+//     color: $cy-core;
+//   }
+
+//   .sector-body h3 {
+//     color: #cffafe;
+//   }
+
+//   &:hover,
+//   &.is-visible {
+//     border-color: rgba($cy-core, .3);
+//     box-shadow:
+//       0 0 0 1px rgba($cy-core, .12),
+//       0 20px 60px rgba($cy-core, .15),
+//       0 4px 20px rgba(0, 0, 0, .3);
+//   }
+// }
+
+// .sector-card-lime {
+//   &::before {
+//     background: linear-gradient(90deg, $li-deep, $li-core 50%, $li-bright);
+//   }
+
+//   .card-blob {
+//     background: radial-gradient(circle, rgba($li-core, .4), transparent 70%);
+//   }
+
+//   .card-svg-mesh {
+//     .mesh-line {
+//       stroke: rgba($li-core, .22);
+//     }
+
+//     .mesh-node {
+//       fill: $li-core;
+//     }
+
+//     .mesh-arc {
+//       stroke: rgba($li-bright, .35);
+//     }
+//   }
+
+//   .sector-icon {
+//     background: linear-gradient(135deg, rgba($li-core, .12), rgba($li-bright, .2));
+//     border: 1px solid rgba($li-core, .2);
+//     box-shadow: 0 0 18px rgba($li-core, .12);
+//   }
+
+//   .sector-arrow {
+//     color: $li-core;
+//   }
+
+//   .sector-body h3 {
+//     color: #f0fdf4;
+//   }
+
+//   &:hover,
+//   &.is-visible {
+//     border-color: rgba($li-core, .3);
+//     box-shadow:
+//       0 0 0 1px rgba($li-core, .12),
+//       0 20px 60px rgba($li-core, .15),
+//       0 4px 20px rgba(0, 0, 0, .3);
+//   }
+// }
+
+// .sector-card-rose {
+//   &::before {
+//     background: linear-gradient(90deg, $ro-deep, $ro-core 50%, $ro-bright);
+//   }
+
+//   .card-blob {
+//     background: radial-gradient(circle, rgba($ro-core, .4), transparent 70%);
+//   }
+
+//   .card-svg-mesh {
+//     .mesh-line {
+//       stroke: rgba($ro-core, .22);
+//     }
+
+//     .mesh-node {
+//       fill: $ro-core;
+//     }
+
+//     .mesh-arc {
+//       stroke: rgba($ro-bright, .35);
+//     }
+//   }
+
+//   .sector-icon {
+//     background: linear-gradient(135deg, rgba($ro-core, .12), rgba($ro-bright, .2));
+//     border: 1px solid rgba($ro-core, .2);
+//     box-shadow: 0 0 18px rgba($ro-core, .12);
+//   }
+
+//   .sector-arrow {
+//     color: $ro-core;
+//   }
+
+//   .sector-body h3 {
+//     color: #fff1f2;
+//   }
+
+//   &:hover,
+//   &.is-visible {
+//     border-color: rgba($ro-core, .3);
+//     box-shadow:
+//       0 0 0 1px rgba($ro-core, .12),
+//       0 20px 60px rgba($ro-core, .15),
+//       0 4px 20px rgba(0, 0, 0, .3);
+//   }
+// }
+
+// // ─── Icon box ─────────────────────────────────────────────────────────────────
+// .sector-icon {
+//   width: 48px;
+//   height: 48px;
+//   border-radius: 13px;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   margin-bottom: 16px;
+//   flex-shrink: 0;
+//   position: relative;
+//   z-index: 3;
+//   transition: transform .3s ease, box-shadow .3s ease;
+// }
+
+// // ─── Card body ────────────────────────────────────────────────────────────────
+// .sector-body {
+//   position: relative;
+//   z-index: 3;
+//   flex: 1;
+
+//   h3 {
+//     font-size: 14.5px;
+//     font-weight: 650;
+//     line-height: 1.35;
+//     margin: 0;
+//     letter-spacing: .01em;
+//   }
+
+//   p {
+//     font-size: 12.5px;
+//     line-height: 1.7;
+//     color: #64748b;
+//     max-height: 0;
+//     opacity: 0;
+//     overflow: hidden;
+//     transition:
+//       max-height .42s cubic-bezier(.4, 0, .2, 1),
+//       opacity .32s ease,
+//       margin .32s ease;
+//     margin-top: 0;
+//   }
+// }
+
+// // ─── Arrow CTA ────────────────────────────────────────────────────────────────
+// .sector-arrow {
+//   display: flex;
+//   align-items: center;
+//   gap: 5px;
+//   opacity: 0;
+//   transform: translateX(-6px);
+//   transition: opacity .28s ease, transform .28s ease;
+//   margin-top: auto;
+//   padding-top: 12px;
+//   font-size: 11px;
+//   font-weight: 700;
+//   letter-spacing: .04em;
+//   text-transform: uppercase;
+//   position: relative;
+//   z-index: 3;
+
+//   svg {
+//     width: 13px;
+//     height: 13px;
+//     display: block;
+//     color: inherit;
+//   }
+// }
+
+// // ─── Reduced motion ───────────────────────────────────────────────────────────
+// @media (prefers-reduced-motion: reduce) {
+
+//   .sector-card,
+//   .sector-card::before,
+//   .sector-card::after,
+//   .card-blob,
+//   .sector-icon,
+//   .card-svg-mesh *,
+//   .sector-arrow svg {
+//     animation: none !important;
+//     transition: opacity .2s ease, border-color .2s ease !important;
+//   }
+
+//   .sector-card.is-visible {
+//     .sector-body p {
+//       max-height: 160px;
+//       opacity: 1;
+//       margin-top: 10px;
+//     }
+
+//     .sector-arrow {
+//       opacity: 1;
+//       transform: translateX(0);
+//     }
+
+//     &::before {
+//       transform: scaleX(1);
+//       opacity: 1;
+//     }
+
+//     .card-svg-mesh {
+//       opacity: 1;
+//     }
+
+//     .card-blob {
+//       opacity: 1;
+//     }
+//   }
+// }
+
+// // ─── Responsive ───────────────────────────────────────────────────────────────
+
+// // Tablet
+// @media (max-width: 992px) {
+//   .sectors-grid {
+//     gap: 14px;
+//   }
+
+//   .sector-card {
+//     min-height: 185px;
+
+//     // // Touch: description always visible (no hover)
+//     // .sector-body p {
+//     //   max-height: 130px;
+//     //   opacity: 1;
+//     //   margin-top: 8px;
+//     // }
+
+//     // .sector-arrow {
+//     //   opacity: 1;
+//     //   transform: translateX(0);
+//     // }
+//   }
+// }
+
+// // Tablet mid
+// @media (max-width: 768px) {
+//   .sectors-section {
+//     padding-top: 3rem;
+//     padding-bottom: 3rem;
+//   }
+
+//   .sectors-header {
+//     margin-bottom: 2rem;
+
+//     .section-title {
+//       font-size: 1.6rem;
+//     }
+
+//     .section-sub {
+//       font-size: 0.9rem;
+//     }
+//   }
+
+//   .sectors-grid {
+//     grid-template-columns: repeat(2, 1fr);
+//     gap: 12px;
+//   }
+
+//   .sector-card {
+//     min-height: 170px;
+//     padding: 1.2rem 1.1rem 1rem;
+
+//     // No translate lift on touch — feels laggy
+//     &:hover {
+//       transform: none;
+//     }
+
+//     &.is-visible {
+//       animation: cardScrollPop .6s cubic-bezier(.4, 0, .2, 1) both;
+//     }
+//   }
+
+//   .sector-icon {
+//     width: 42px;
+//     height: 42px;
+//     border-radius: 11px;
+//     margin-bottom: 12px;
+//   }
+
+//   .sector-body {
+//     h3 {
+//       font-size: 13.5px;
+//     }
+
+//     p {
+//       font-size: 12px;
+//     }
+//   }
+// }
+
+// // Mobile
+// @media (max-width: 480px) {
+//   .sectors-grid {
+//     grid-template-columns: 1fr;
+//     gap: 10px;
+//   }
+
+//   .sector-card {
+//     min-height: unset;
+//     padding: 1.1rem 1rem 0.9rem;
+
+//     .sector-body p {
+//       max-height: 300px; // ← was 200px
+//       font-size: 12.5px;
+//     }
+//   }
+
+//   .sector-icon {
+//     width: 40px;
+//     height: 40px;
+//     margin-bottom: 10px;
+//   }
+
+//   .sector-body h3 {
+//     font-size: 14px;
+//     line-height: 1.3;
+//   }
+
+//   .sector-arrow {
+//     padding-top: 10px;
+//     font-size: 10.5px;
+//   }
+// }
+
+// // ─── Touch devices: always open, all animations on load ───────────────────────
+// @media (hover: none) {
+
+//   // Kill all hover-triggered changes — touch has no hover
+//   .sector-card:hover {
+//     transform: none;
+//     box-shadow: none;
+//     border-color: $card-border;
+//     background: $card-bg;
+
+//     &::before {
+//       animation: none;
+//       transform: scaleX(0);
+//     }
+
+//     &::after {
+//       animation: none;
+//     }
+
+//     .card-blob {
+//       opacity: 0;
+//     }
+
+//     .card-svg-mesh {
+//       opacity: 0;
+//     }
+
+//     .sector-body p {
+//       max-height: 0;
+//       opacity: 0;
+//       margin-top: 0;
+//     }
+
+//     .sector-arrow {
+//       opacity: 0;
+//       transform: translateX(-6px);
+//     }
+
+//     .sector-icon {
+//       animation: none;
+//     }
+//   }
+
+// .sector-card {
+//     border-color: $card-border-h;
+//     background: $card-bg-raised;
+//     // Force GPU layer — Android skips animations without this
+//     -webkit-transform: translateZ(0);
+//     transform: translateZ(0);
+
+//     &::before {
+//       animation: topBarDraw .5s cubic-bezier(.4, 0, .2, 1) both;
+//       will-change: transform, opacity;
+//     }
+
+//     &::after {
+//       animation: shimmerSweep .7s .1s ease forwards;
+//       will-change: left;
+//     }
+
+//     .card-blob {
+//       animation: blobReveal .6s ease forwards, blobFloat 10s .6s ease-in-out infinite;
+//       will-change: transform, opacity;
+//       // Android blur fix — filter: blur kills compositing on some devices
+//       -webkit-transform: translateZ(0);
+//       transform: translateZ(0);
+//     }
+
+//     .card-svg-mesh {
+//       animation: meshReveal .5s .1s ease forwards;
+//       will-change: opacity;
+//       // Remove transition that fights animation on mobile
+//       transition: none;
+
+//       .mesh-arc {
+//         stroke-dashoffset: 0;
+//         transition: none; // kills the transition conflict
+//       }
+
+//       .mesh-line {
+//         will-change: stroke-dashoffset;
+//       }
+
+//       .mesh-node {
+//         will-change: opacity;
+//       }
+//     }
+
+//     .sector-body p {
+//       transition: none;
+//       animation: descReveal .45s .15s cubic-bezier(.4, 0, .2, 1) both;
+//       will-change: max-height, opacity;
+//     }
+
+//     .sector-arrow {
+//       transition: none;
+//       animation: arrowReveal .35s .3s ease both;
+//       will-change: opacity, transform;
+
+//       svg {
+//         animation: arrowNudge 1.2s .65s ease-in-out infinite;
+//         will-change: transform;
+//       }
+//     }
+
+//     .sector-icon {
+//       animation: iconLift 2.4s .2s ease-in-out infinite;
+//       will-change: transform;
+//     }
+//   }
+
+//   // Color-themed box-shadow also needs to apply on touch (not just :hover / .is-visible)
+//   .sector-card-green {
+//     box-shadow: 0 0 0 1px rgba($em-core, .12), 0 20px 60px rgba($em-core, .15), 0 4px 20px rgba(0, 0, 0, .3);
+//   }
+
+//   .sector-card-teal {
+//     box-shadow: 0 0 0 1px rgba($sa-core, .12), 0 20px 60px rgba($sa-core, .15), 0 4px 20px rgba(0, 0, 0, .3);
+//   }
+
+//   .sector-card-navy {
+//     box-shadow: 0 0 0 1px rgba($in-core, .12), 0 20px 60px rgba($in-core, .15), 0 4px 20px rgba(0, 0, 0, .3);
+//   }
+
+//   .sector-card-amber {
+//     box-shadow: 0 0 0 1px rgba($am-core, .12), 0 20px 60px rgba($am-core, .15), 0 4px 20px rgba(0, 0, 0, .3);
+//   }
+
+//   .sector-card-cyan {
+//     box-shadow: 0 0 0 1px rgba($cy-core, .12), 0 20px 60px rgba($cy-core, .15), 0 4px 20px rgba(0, 0, 0, .3);
+//   }
+
+//   .sector-card-lime {
+//     box-shadow: 0 0 0 1px rgba($li-core, .12), 0 20px 60px rgba($li-core, .15), 0 4px 20px rgba(0, 0, 0, .3);
+//   }
+
+//   .sector-card-rose {
+//     box-shadow: 0 0 0 1px rgba($ro-core, .12), 0 20px 60px rgba($ro-core, .15), 0 4px 20px rgba(0, 0, 0, .3);
+//   }
+
+//   // Stagger sub-animations per card using delay-N
+//   @for $i from 1 through 9 {
+//     .sector-card.delay-#{$i} {
+//       $base: (
+//         $i - 1) * 100ms;
+
+//       &::before {
+//         animation-delay: $base;
+//       }
+
+//       &::after {
+//         animation-delay: $base + 80ms;
+//       }
+
+//       .card-blob {
+//         animation-delay: $base,
+//           $base + 600ms;
+//       }
+
+//       .card-svg-mesh {
+//         animation-delay: $base + 80ms;
+//       }
+
+//       .sector-body p {
+//         transition: none; // ← ADD
+//         animation-delay: $base + 120ms;
+//       }
+
+//       .sector-arrow {
+//         transition: none; // ← ADD
+//         animation-delay: $base + 250ms;
+//       }
+
+//       .sector-icon {
+//         animation-delay: $base + 150ms;
+//       }
+//     }
+//   }
+// }
