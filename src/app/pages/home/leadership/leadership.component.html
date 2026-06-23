@@ -5,6 +5,135 @@
       <span class="section-label">The Founders</span>
       <h2 class="section-title">Leadership <span>Team</span></h2>
       <p class="section-sub">
+        Guided by experienced leaders bringing strategic vision and operational
+        expertise to steer VoltZVital towards sustainable excellence.
+      </p>
+    </div>
+
+    <div class="leaders-grid">
+      <div
+        class="leader-card reveal"
+        [class.delay-1]="i === 0"
+        [class.delay-2]="i === 1"
+        [class.delay-3]="i === 2"
+        *ngFor="let leader of leaders; let i = index"
+        (click)="openModal(leader)"
+      >
+        <!-- SVG Avatar -->
+        <div class="avatar-wrap">
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" class="avatar-svg">
+            <defs>
+              <radialGradient [id]="'rg-' + i" cx="35%" cy="35%">
+                <stop offset="0%" [attr.stop-color]="leader.colorLight"/>
+                <stop offset="100%" [attr.stop-color]="leader.color"/>
+              </radialGradient>
+              <clipPath [id]="'cp-' + i">
+                <circle cx="50" cy="50" r="50"/>
+              </clipPath>
+            </defs>
+            <circle cx="50" cy="50" r="50" [attr.fill]="'url(#rg-' + i + ')'"/>
+            <circle cx="50" cy="50" r="48" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="1.5"/>
+            <!-- Person silhouette shapes -->
+            <circle cx="50" cy="36" r="14" fill="rgba(255,255,255,0.18)"/>
+            <ellipse cx="50" cy="72" rx="21" ry="14" fill="rgba(255,255,255,0.18)"/>
+            <!-- Initials -->
+            <text
+              x="50" y="55"
+              text-anchor="middle"
+              font-family="var(--font-display), Inter, system-ui, sans-serif"
+              font-size="19"
+              font-weight="800"
+              fill="#fff"
+              letter-spacing="1"
+            >{{ getInitials(leader.name) }}</text>
+          </svg>
+        </div>
+
+        <h3>{{ leader.name }}</h3>
+        <span class="card-role">{{ leader.designation }}</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Modal -->
+<div
+  class="modal-backdrop"
+  [class.open]="selectedLeader"
+  *ngIf="selectedLeader"
+  (click)="onBackdropClick($event)"
+>
+  <div class="modal-card">
+    <div class="modal-shimmer"></div>
+
+    <div class="modal-head">
+      <!-- SVG avatar in modal -->
+      <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" class="modal-avatar-svg">
+        <defs>
+          <radialGradient id="rg-modal" cx="35%" cy="35%">
+            <stop offset="0%" [attr.stop-color]="selectedLeader.colorLight"/>
+            <stop offset="100%" [attr.stop-color]="selectedLeader.color"/>
+          </radialGradient>
+        </defs>
+        <circle cx="30" cy="30" r="30" fill="url(#rg-modal)"/>
+        <circle cx="30" cy="30" r="28.5" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="1.5"/>
+        <circle cx="30" cy="22" r="8.5" fill="rgba(255,255,255,0.18)"/>
+        <ellipse cx="30" cy="43" rx="12.5" ry="8.5" fill="rgba(255,255,255,0.18)"/>
+        <text
+          x="30" y="33"
+          text-anchor="middle"
+          font-family="var(--font-display), Inter, system-ui, sans-serif"
+          font-size="11.5"
+          font-weight="800"
+          fill="#fff"
+          letter-spacing="0.8"
+        >{{ getInitials(selectedLeader.name) }}</text>
+      </svg>
+
+      <div class="modal-head-text">
+        <h2>{{ selectedLeader.name }}</h2>
+        <span class="modal-desg">{{ selectedLeader.designation }}</span>
+      </div>
+
+      <button class="close-btn" (click)="closeModal()" aria-label="Close">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2.5">
+          <path d="M18 6L6 18M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="modal-body">
+      <p *ngFor="let para of selectedLeader.bio" class="modal-para">{{ para }}</p>
+
+      <div class="modal-tags">
+        <span class="modal-tag" *ngFor="let tag of selectedLeader.tags">{{ tag }}</span>
+      </div>
+
+      <div class="modal-rule"></div>
+
+      <div class="modal-footer-note">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2">
+          <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+          <path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>
+        </svg>
+        VoltZVital Leadership · Founding Member
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- <section id="leadership" class="leadership-section section-pad">
+  <div class="container-custom">
+
+    <div class="leadership-header reveal">
+      <span class="section-label">The Founders</span>
+      <h2 class="section-title">Leadership <span>Team</span></h2>
+      <p class="section-sub">
         Guided by experienced leaders who bring together strategic vision and
         operational expertise to steer VoltZVital towards sustainable excellence.
       </p>
@@ -39,4 +168,4 @@
     </div>
 
   </div>
-</section>
+</section> -->

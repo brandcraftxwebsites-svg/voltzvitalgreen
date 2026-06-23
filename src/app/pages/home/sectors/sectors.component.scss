@@ -1,22 +1,20 @@
-@import '../../../../assets/styles/variables';
-
 // ─── Palette ──────────────────────────────────────────────────────────────────
-$em-core: #00c97a;  $em-deep: #007a49;  $em-bright: #4dffa8;
+$em-core: #059669;  $em-deep: #047857;  $em-bright: #34d399;
 $sa-core: #0ea5e9;  $sa-deep: #0369a1;  $sa-bright: #7dd3fc;
 $in-core: #6366f1;  $in-deep: #3730a3;  $in-bright: #a5b4fc;
 $am-core: #f59e0b;  $am-deep: #b45309;  $am-bright: #fcd34d;
 $cy-core: #06b6d4;  $cy-deep: #0e7490;  $cy-bright: #67e8f9;
 $li-core: #22c55e;  $li-deep: #15803d;  $li-bright: #86efac;
 $ro-core: #f43f5e;  $ro-deep: #9f1239;  $ro-bright: #fda4af;
+$pu-core: #a855f7;  $pu-deep: #7e22ce;  $pu-bright: #d8b4fe;
 
-$card-bg:       #0d1117;
-$card-bg-open:  #111827;
-$card-border:   rgba(255,255,255,.13);
+$card-bg:    #ffffff;
+$card-border: rgba(0,0,0,.08);
 
 // ─── Keyframes ────────────────────────────────────────────────────────────────
 @keyframes svgNodePulse {
-  0%, 100% { r: 1.5; opacity: .4; }
-  50%       { r: 3;   opacity: .9; }
+  0%, 100% { r: 1.5; opacity: .35; }
+  50%       { r: 3;   opacity: .85; }
 }
 
 @keyframes svgLineDrift {
@@ -24,29 +22,8 @@ $card-border:   rgba(255,255,255,.13);
   100% { stroke-dashoffset: -120; }
 }
 
-@keyframes blobFloat {
-  0%, 100% { transform: translate(0,0)       scale(1);    }
-  33%       { transform: translate(-10px,14px) scale(1.08); }
-  66%       { transform: translate(8px,-8px)   scale(.96);  }
-}
-
-@keyframes shimmerSweep {
-  0%   { left: -80%;  }
-  100% { left: 160%;  }
-}
-
-@keyframes iconLift {
-  0%, 100% { transform: translateY(0)    rotate(0deg);  }
-  50%       { transform: translateY(-3px) rotate(-4deg); }
-}
-
-@keyframes arrowNudge {
-  0%, 100% { transform: translateX(0);   }
-  50%       { transform: translateX(3px); }
-}
-
 @keyframes cardEntrance {
-  from { opacity: 0; transform: translateY(28px) scale(.97); }
+  from { opacity: 0; transform: translateY(24px) scale(.97); }
   to   { opacity: 1; transform: translateY(0)    scale(1);   }
 }
 
@@ -55,29 +32,24 @@ $card-border:   rgba(255,255,255,.13);
   to   { transform: scaleX(1); opacity: 1; }
 }
 
-@keyframes blobReveal {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
 @keyframes meshReveal {
   from { opacity: 0; }
   to   { opacity: 1; }
 }
 
-@keyframes descReveal {
-  from { max-height: 0;     opacity: 0; margin-top: 0;    }
-  to   { max-height: 220px; opacity: 1; margin-top: 10px; }
+@keyframes pointReveal {
+  from { max-height: 0; opacity: 0; }
+  to   { max-height: 300px; opacity: 1; }
 }
 
-@keyframes arrowReveal {
-  from { opacity: 0; transform: translateX(-8px); }
-  to   { opacity: 1; transform: translateX(0);    }
+@keyframes iconLift {
+  0%, 100% { transform: translateY(0)    rotate(0deg);  }
+  50%       { transform: translateY(-3px) rotate(-4deg); }
 }
 
 // ─── Section ──────────────────────────────────────────────────────────────────
 .sectors-section {
-  background: #080c12;
+  background: #f8fafc;
   position: relative;
   overflow: hidden;
 
@@ -86,8 +58,8 @@ $card-border:   rgba(255,255,255,.13);
     position: absolute;
     inset: 0;
     background-image:
-      linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+      linear-gradient(rgba(0,0,0,.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,0,0,.03) 1px, transparent 1px);
     background-size: 64px 64px;
     pointer-events: none;
     z-index: 0;
@@ -102,15 +74,25 @@ $card-border:   rgba(255,255,255,.13);
   margin-bottom: 3rem;
 
   .section-label {
+    display: inline-block;
     color: $em-core;
+    background: rgba($em-core, .1);
+    border: 1px solid rgba($em-core, .25);
+    border-radius: 99px;
+    padding: 4px 16px;
     letter-spacing: .12em;
     font-size: 11px;
     font-weight: 700;
     text-transform: uppercase;
+    margin-bottom: 1rem;
   }
 
   .section-title {
-    color: #f1f5f9;
+    color: #0f172a;
+    font-size: clamp(1.7rem, 3.5vw, 2.4rem);
+    font-weight: 750;
+    margin-bottom: .6rem;
+
     span {
       background: linear-gradient(135deg, $em-core, $sa-core);
       -webkit-background-clip: text;
@@ -120,9 +102,10 @@ $card-border:   rgba(255,255,255,.13);
   }
 
   .section-sub {
-    color: #94a3b8;
+    color: #64748b;
     max-width: 560px;
     margin: 0 auto;
+    font-size: 15px;
   }
 }
 
@@ -136,10 +119,9 @@ $card-border:   rgba(255,255,255,.13);
   @media (max-width: 576px)  { grid-template-columns: 1fr; gap: 10px; }
 }
 
-// ─── Card — ALWAYS OPEN ───────────────────────────────────────────────────────
-// No hover. No touch check. Cards are permanently open on every device.
+// ─── Card ─────────────────────────────────────────────────────────────────────
 .sector-card {
-  background: $card-bg-open;
+  background: $card-bg;
   border: 1px solid $card-border;
   border-radius: 20px;
   padding: 1.6rem 1.4rem 1.3rem;
@@ -148,42 +130,32 @@ $card-border:   rgba(255,255,255,.13);
   position: relative;
   overflow: hidden;
   isolation: isolate;
-  min-height: 210px;
-
-  // Card pops in on load
+  box-shadow: 0 2px 12px rgba(0,0,0,.06);
+  transition: box-shadow .25s ease, transform .2s ease;
   animation: cardEntrance .55s cubic-bezier(.4,0,.2,1) both;
-  @for $i from 1 through 9 {
-    &.delay-#{$i} { animation-delay: #{($i - 1) * 100}ms; }
+
+  &:hover {
+    box-shadow: 0 10px 36px rgba(0,0,0,.12);
+    transform: translateY(-4px);
   }
 
-  // ── Top accent bar — draws in once on load ─────────────────────────────────
+  @for $i from 1 through 9 {
+    &.delay-#{$i} { animation-delay: #{($i - 1) * 90}ms; }
+  }
+
+  // Top accent bar
   &::before {
     content: '';
     position: absolute;
     top: 0; left: 0; right: 0;
-    height: 2px;
+    height: 3px;
     border-radius: 20px 20px 0 0;
     transform-origin: left;
     z-index: 5;
-    animation: topBarDraw .5s cubic-bezier(.4,0,.2,1) both;
+    animation: topBarDraw .55s cubic-bezier(.4,0,.2,1) both;
   }
 
-  // ── Shimmer — sweeps once on load ─────────────────────────────────────────
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0; left: -80%;
-    width: 50%; height: 100%;
-    background: linear-gradient(108deg,
-      transparent 35%,
-      rgba(255,255,255,.055) 50%,
-      transparent 65%);
-    z-index: 4;
-    pointer-events: none;
-    animation: shimmerSweep .8s ease forwards;
-  }
-
-  // ── SVG mesh — fades in then drifts forever ────────────────────────────────
+  // SVG mesh
   .card-svg-mesh {
     position: absolute;
     inset: 0;
@@ -196,10 +168,10 @@ $card-border:   rgba(255,255,255,.13);
     .mesh-line {
       stroke-dasharray: 120;
       stroke-dashoffset: 0;
-      animation: svgLineDrift 8s linear infinite;
+      animation: svgLineDrift 9s linear infinite;
       stroke-width: .7;
-      &:nth-child(2) { animation-duration: 11s; animation-delay: -3s; }
-      &:nth-child(3) { animation-duration: 14s; animation-delay: -6s; }
+      &:nth-child(2) { animation-duration: 12s; animation-delay: -4s; }
+      &:nth-child(3) { animation-duration: 15s; animation-delay: -7s; }
     }
 
     .mesh-node {
@@ -209,7 +181,6 @@ $card-border:   rgba(255,255,255,.13);
       &:nth-child(4) { animation-delay: -.5s; }
     }
 
-    // Arc is permanently drawn open
     .mesh-arc {
       stroke-dasharray: 400;
       stroke-dashoffset: 0;
@@ -218,182 +189,163 @@ $card-border:   rgba(255,255,255,.13);
     }
   }
 
-  // ── Glow blob — fades in then floats forever ───────────────────────────────
-  .card-blob {
-    position: absolute;
-    width: 180px; height: 180px;
-    border-radius: 50%;
-    top: -70px; right: -55px;
-    filter: blur(55px);
-    pointer-events: none;
-    z-index: 1;
-    animation: blobReveal .6s ease forwards, blobFloat 10s .6s ease-in-out infinite;
-  }
-
-  // ── Icon — lifts forever ───────────────────────────────────────────────────
+  // Icon
   .sector-icon {
-    animation: iconLift 2.4s ease-in-out infinite;
+    animation: iconLift 2.6s ease-in-out infinite;
   }
 
-  // ── Description — always visible ──────────────────────────────────────────
-  .sector-body p {
-    animation: descReveal .5s .15s cubic-bezier(.4,0,.2,1) both;
-  }
-
-  // ── Arrow — slides in then nudges forever ─────────────────────────────────
-  .sector-arrow {
-    animation: arrowReveal .4s .3s ease both;
-    svg { animation: arrowNudge 1.2s .65s ease-in-out infinite; }
+  // Points reveal
+  .sector-points {
+    animation: pointReveal .5s .15s cubic-bezier(.4,0,.2,1) both;
   }
 }
 
-// Stagger all sub-animations per card using delay-N
+// Stagger sub-animations per card
 @for $i from 1 through 9 {
   .sector-card.delay-#{$i} {
-    $base: ($i - 1) * 100ms;
-
-    &::before       { animation-delay: $base; }
-    &::after        { animation-delay: $base + 80ms; }
-    .card-blob      { animation-delay: $base, $base + 600ms; }
-    .card-svg-mesh  { animation-delay: $base + 80ms; }
-    .sector-body p  { animation-delay: $base + 150ms; }
-    .sector-arrow   { animation-delay: $base + 280ms; }
-    .sector-icon    { animation-delay: $base + 200ms; }
+    $base: ($i - 1) * 90ms;
+    &::before      { animation-delay: $base; }
+    .card-svg-mesh { animation-delay: $base + 80ms; }
+    .sector-icon   { animation-delay: $base + 180ms; }
+    .sector-points { animation-delay: $base + 150ms; }
   }
 }
 
 // ─── Color themes ─────────────────────────────────────────────────────────────
 .sector-card-green {
-  &::before    { background: linear-gradient(90deg, $em-deep, $em-core 50%, $em-bright); }
-  .card-blob   { background: radial-gradient(circle, rgba($em-core,.45), transparent 70%); }
+  &::before { background: linear-gradient(90deg, $em-deep, $em-core 50%, $em-bright); }
   .card-svg-mesh {
-    .mesh-line { stroke: rgba($em-core,.22); }
+    .mesh-line { stroke: rgba($em-core, .2); }
     .mesh-node { fill: $em-core; }
-    .mesh-arc  { stroke: rgba($em-bright,.35); }
+    .mesh-arc  { stroke: rgba($em-core, .3); }
   }
   .sector-icon {
-    background: linear-gradient(135deg, rgba($em-core,.12), rgba($em-bright,.2));
-    border: 1px solid rgba($em-core,.2);
-    box-shadow: 0 0 18px rgba($em-core,.12);
+    background: rgba($em-core, .08);
+    border: 1px solid rgba($em-core, .2);
   }
-  .sector-arrow  { color: $em-core; }
-  .sector-body h3 { color: #e2faf0; }
-  border-color: rgba($em-core,.3);
-  box-shadow: 0 0 0 1px rgba($em-core,.12), 0 20px 60px rgba($em-core,.15), 0 4px 20px rgba(0,0,0,.3);
+  .sector-body h3 { color: darken($em-deep, 10%); }
+  .pt-dot { background: $em-core; }
+  border-color: rgba($em-core, .2);
+  &:hover { box-shadow: 0 10px 36px rgba($em-core, .15); }
 }
 
 .sector-card-teal {
-  &::before    { background: linear-gradient(90deg, $sa-deep, $sa-core 50%, $sa-bright); }
-  .card-blob   { background: radial-gradient(circle, rgba($sa-core,.4), transparent 70%); }
+  &::before { background: linear-gradient(90deg, $sa-deep, $sa-core 50%, $sa-bright); }
   .card-svg-mesh {
-    .mesh-line { stroke: rgba($sa-core,.22); }
+    .mesh-line { stroke: rgba($sa-core, .2); }
     .mesh-node { fill: $sa-core; }
-    .mesh-arc  { stroke: rgba($sa-bright,.35); }
+    .mesh-arc  { stroke: rgba($sa-core, .3); }
   }
   .sector-icon {
-    background: linear-gradient(135deg, rgba($sa-core,.12), rgba($sa-bright,.2));
-    border: 1px solid rgba($sa-core,.2);
-    box-shadow: 0 0 18px rgba($sa-core,.12);
+    background: rgba($sa-core, .08);
+    border: 1px solid rgba($sa-core, .2);
   }
-  .sector-arrow  { color: $sa-core; }
-  .sector-body h3 { color: #e0f5ff; }
-  border-color: rgba($sa-core,.3);
-  box-shadow: 0 0 0 1px rgba($sa-core,.12), 0 20px 60px rgba($sa-core,.15), 0 4px 20px rgba(0,0,0,.3);
+  .sector-body h3 { color: darken($sa-deep, 10%); }
+  .pt-dot { background: $sa-core; }
+  border-color: rgba($sa-core, .2);
+  &:hover { box-shadow: 0 10px 36px rgba($sa-core, .15); }
 }
 
 .sector-card-navy {
-  &::before    { background: linear-gradient(90deg, $in-deep, $in-core 50%, $in-bright); }
-  .card-blob   { background: radial-gradient(circle, rgba($in-core,.4), transparent 70%); }
+  &::before { background: linear-gradient(90deg, $in-deep, $in-core 50%, $in-bright); }
   .card-svg-mesh {
-    .mesh-line { stroke: rgba($in-core,.22); }
+    .mesh-line { stroke: rgba($in-core, .2); }
     .mesh-node { fill: $in-core; }
-    .mesh-arc  { stroke: rgba($in-bright,.35); }
+    .mesh-arc  { stroke: rgba($in-core, .3); }
   }
   .sector-icon {
-    background: linear-gradient(135deg, rgba($in-core,.12), rgba($in-bright,.2));
-    border: 1px solid rgba($in-core,.2);
-    box-shadow: 0 0 18px rgba($in-core,.12);
+    background: rgba($in-core, .08);
+    border: 1px solid rgba($in-core, .2);
   }
-  .sector-arrow  { color: $in-core; }
-  .sector-body h3 { color: #eef0ff; }
-  border-color: rgba($in-core,.3);
-  box-shadow: 0 0 0 1px rgba($in-core,.12), 0 20px 60px rgba($in-core,.15), 0 4px 20px rgba(0,0,0,.3);
+  .sector-body h3 { color: darken($in-deep, 10%); }
+  .pt-dot { background: $in-core; }
+  border-color: rgba($in-core, .2);
+  &:hover { box-shadow: 0 10px 36px rgba($in-core, .15); }
 }
 
 .sector-card-amber {
-  &::before    { background: linear-gradient(90deg, $am-deep, $am-core 50%, $am-bright); }
-  .card-blob   { background: radial-gradient(circle, rgba($am-core,.38), transparent 70%); }
+  &::before { background: linear-gradient(90deg, $am-deep, $am-core 50%, $am-bright); }
   .card-svg-mesh {
-    .mesh-line { stroke: rgba($am-core,.22); }
+    .mesh-line { stroke: rgba($am-core, .2); }
     .mesh-node { fill: $am-core; }
-    .mesh-arc  { stroke: rgba($am-bright,.35); }
+    .mesh-arc  { stroke: rgba($am-core, .3); }
   }
   .sector-icon {
-    background: linear-gradient(135deg, rgba($am-core,.12), rgba($am-bright,.2));
-    border: 1px solid rgba($am-core,.2);
-    box-shadow: 0 0 18px rgba($am-core,.12);
+    background: rgba($am-core, .08);
+    border: 1px solid rgba($am-core, .2);
   }
-  .sector-arrow  { color: $am-core; }
-  .sector-body h3 { color: #fffbeb; }
-  border-color: rgba($am-core,.3);
-  box-shadow: 0 0 0 1px rgba($am-core,.12), 0 20px 60px rgba($am-core,.15), 0 4px 20px rgba(0,0,0,.3);
+  .sector-body h3 { color: darken($am-deep, 10%); }
+  .pt-dot { background: $am-core; }
+  border-color: rgba($am-core, .2);
+  &:hover { box-shadow: 0 10px 36px rgba($am-core, .15); }
 }
 
 .sector-card-cyan {
-  &::before    { background: linear-gradient(90deg, $cy-deep, $cy-core 50%, $cy-bright); }
-  .card-blob   { background: radial-gradient(circle, rgba($cy-core,.4), transparent 70%); }
+  &::before { background: linear-gradient(90deg, $cy-deep, $cy-core 50%, $cy-bright); }
   .card-svg-mesh {
-    .mesh-line { stroke: rgba($cy-core,.22); }
+    .mesh-line { stroke: rgba($cy-core, .2); }
     .mesh-node { fill: $cy-core; }
-    .mesh-arc  { stroke: rgba($cy-bright,.35); }
+    .mesh-arc  { stroke: rgba($cy-core, .3); }
   }
   .sector-icon {
-    background: linear-gradient(135deg, rgba($cy-core,.12), rgba($cy-bright,.2));
-    border: 1px solid rgba($cy-core,.2);
-    box-shadow: 0 0 18px rgba($cy-core,.12);
+    background: rgba($cy-core, .08);
+    border: 1px solid rgba($cy-core, .2);
   }
-  .sector-arrow  { color: $cy-core; }
-  .sector-body h3 { color: #cffafe; }
-  border-color: rgba($cy-core,.3);
-  box-shadow: 0 0 0 1px rgba($cy-core,.12), 0 20px 60px rgba($cy-core,.15), 0 4px 20px rgba(0,0,0,.3);
-}
-
-.sector-card-lime {
-  &::before    { background: linear-gradient(90deg, $li-deep, $li-core 50%, $li-bright); }
-  .card-blob   { background: radial-gradient(circle, rgba($li-core,.4), transparent 70%); }
-  .card-svg-mesh {
-    .mesh-line { stroke: rgba($li-core,.22); }
-    .mesh-node { fill: $li-core; }
-    .mesh-arc  { stroke: rgba($li-bright,.35); }
-  }
-  .sector-icon {
-    background: linear-gradient(135deg, rgba($li-core,.12), rgba($li-bright,.2));
-    border: 1px solid rgba($li-core,.2);
-    box-shadow: 0 0 18px rgba($li-core,.12);
-  }
-  .sector-arrow  { color: $li-core; }
-  .sector-body h3 { color: #f0fdf4; }
-  border-color: rgba($li-core,.3);
-  box-shadow: 0 0 0 1px rgba($li-core,.12), 0 20px 60px rgba($li-core,.15), 0 4px 20px rgba(0,0,0,.3);
+  .sector-body h3 { color: darken($cy-deep, 10%); }
+  .pt-dot { background: $cy-core; }
+  border-color: rgba($cy-core, .2);
+  &:hover { box-shadow: 0 10px 36px rgba($cy-core, .15); }
 }
 
 .sector-card-rose {
-  &::before    { background: linear-gradient(90deg, $ro-deep, $ro-core 50%, $ro-bright); }
-  .card-blob   { background: radial-gradient(circle, rgba($ro-core,.4), transparent 70%); }
+  &::before { background: linear-gradient(90deg, $ro-deep, $ro-core 50%, $ro-bright); }
   .card-svg-mesh {
-    .mesh-line { stroke: rgba($ro-core,.22); }
+    .mesh-line { stroke: rgba($ro-core, .2); }
     .mesh-node { fill: $ro-core; }
-    .mesh-arc  { stroke: rgba($ro-bright,.35); }
+    .mesh-arc  { stroke: rgba($ro-core, .3); }
   }
   .sector-icon {
-    background: linear-gradient(135deg, rgba($ro-core,.12), rgba($ro-bright,.2));
-    border: 1px solid rgba($ro-core,.2);
-    box-shadow: 0 0 18px rgba($ro-core,.12);
+    background: rgba($ro-core, .08);
+    border: 1px solid rgba($ro-core, .2);
   }
-  .sector-arrow  { color: $ro-core; }
-  .sector-body h3 { color: #fff1f2; }
-  border-color: rgba($ro-core,.3);
-  box-shadow: 0 0 0 1px rgba($ro-core,.12), 0 20px 60px rgba($ro-core,.15), 0 4px 20px rgba(0,0,0,.3);
+  .sector-body h3 { color: darken($ro-deep, 10%); }
+  .pt-dot { background: $ro-core; }
+  border-color: rgba($ro-core, .2);
+  &:hover { box-shadow: 0 10px 36px rgba($ro-core, .15); }
+}
+
+.sector-card-lime {
+  &::before { background: linear-gradient(90deg, $li-deep, $li-core 50%, $li-bright); }
+  .card-svg-mesh {
+    .mesh-line { stroke: rgba($li-core, .2); }
+    .mesh-node { fill: $li-core; }
+    .mesh-arc  { stroke: rgba($li-core, .3); }
+  }
+  .sector-icon {
+    background: rgba($li-core, .08);
+    border: 1px solid rgba($li-core, .2);
+  }
+  .sector-body h3 { color: darken($li-deep, 10%); }
+  .pt-dot { background: $li-core; }
+  border-color: rgba($li-core, .2);
+  &:hover { box-shadow: 0 10px 36px rgba($li-core, .15); }
+}
+
+.sector-card-purple {
+  &::before { background: linear-gradient(90deg, $pu-deep, $pu-core 50%, $pu-bright); }
+  .card-svg-mesh {
+    .mesh-line { stroke: rgba($pu-core, .2); }
+    .mesh-node { fill: $pu-core; }
+    .mesh-arc  { stroke: rgba($pu-core, .3); }
+  }
+  .sector-icon {
+    background: rgba($pu-core, .08);
+    border: 1px solid rgba($pu-core, .2);
+  }
+  .sector-body h3 { color: darken($pu-deep, 10%); }
+  .pt-dot { background: $pu-core; }
+  border-color: rgba($pu-core, .2);
+  &:hover { box-shadow: 0 10px 36px rgba($pu-core, .15); }
 }
 
 // ─── Icon box ─────────────────────────────────────────────────────────────────
@@ -417,42 +369,42 @@ $card-border:   rgba(255,255,255,.13);
 
   h3 {
     font-size: 14.5px;
-    font-weight: 650;
+    font-weight: 680;
     line-height: 1.35;
-    margin: 0;
+    margin: 0 0 10px;
     letter-spacing: .01em;
-  }
-
-  p {
-    font-size: 12.5px;
-    line-height: 1.7;
-    color: #64748b;
-    // Starts hidden — descReveal animation opens it
-    max-height: 0;
-    opacity: 0;
-    overflow: hidden;
-    margin-top: 0;
   }
 }
 
-// ─── Arrow CTA ────────────────────────────────────────────────────────────────
-.sector-arrow {
+// ─── Bullet points ────────────────────────────────────────────────────────────
+.sector-points {
+  list-style: none;
+  padding: 0;
+  margin: 0;
   display: flex;
-  align-items: center;
-  gap: 5px;
-  // Starts hidden — arrowReveal animation shows it
+  flex-direction: column;
+  gap: 6px;
+  // starts hidden — pointReveal animation opens it
+  max-height: 0;
   opacity: 0;
-  transform: translateX(-6px);
-  margin-top: auto;
-  padding-top: 12px;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: .04em;
-  text-transform: uppercase;
-  position: relative;
-  z-index: 3;
+  overflow: hidden;
 
-  svg { width: 13px; height: 13px; display: block; color: inherit; }
+  li {
+    font-size: 12.5px;
+    line-height: 1.5;
+    color: #475569;
+    display: flex;
+    align-items: flex-start;
+    gap: 7px;
+  }
+}
+
+.pt-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 5px;
 }
 
 // ─── Responsive ───────────────────────────────────────────────────────────────
@@ -469,48 +421,36 @@ $card-border:   rgba(255,255,255,.13);
     .section-sub   { font-size: 0.9rem; }
   }
 
-  .sector-card { min-height: 170px; padding: 1.2rem 1.1rem 1rem; }
-
+  .sector-card { padding: 1.2rem 1.1rem 1rem; }
   .sector-icon { width: 42px; height: 42px; border-radius: 11px; margin-bottom: 12px; }
 
-  .sector-body {
-    h3 { font-size: 13.5px; }
-    p  { font-size: 12px; }
-  }
+  .sector-body h3    { font-size: 13.5px; }
+  .sector-points li  { font-size: 12px; }
 }
 
 @media (max-width: 480px) {
   .sector-card {
-    min-height: unset;
-    padding: 1.1rem 1rem 0.9rem;
-    .sector-body p { font-size: 12.5px; }
+    padding: 1.1rem 1rem .9rem;
+    .sector-points li { font-size: 12.5px; }
   }
 
   .sector-icon    { width: 40px; height: 40px; margin-bottom: 10px; }
   .sector-body h3 { font-size: 14px; line-height: 1.3; }
-  .sector-arrow   { padding-top: 10px; font-size: 10.5px; }
 }
 
 // ─── Reduced motion ───────────────────────────────────────────────────────────
 @media (prefers-reduced-motion: reduce) {
   .sector-card,
   .sector-card::before,
-  .sector-card::after,
-  .card-blob,
   .sector-icon,
-  .card-svg-mesh *,
-  .sector-arrow svg {
+  .card-svg-mesh * {
     animation: none !important;
   }
 
-  .sector-body p  { max-height: 220px !important; opacity: 1 !important; margin-top: 10px !important; }
-  .sector-arrow   { opacity: 1 !important; transform: translateX(0) !important; }
+  .sector-points  { max-height: 300px !important; opacity: 1 !important; }
   .card-svg-mesh  { opacity: 1 !important; }
-  .card-blob      { opacity: 1 !important; }
   .sector-card::before { transform: scaleX(1) !important; opacity: 1 !important; }
 }
-
-
 
 
 
