@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { AfterViewInit } from '@angular/core';
 
 @Component({
   selector: 'app-why-us',
@@ -35,4 +36,23 @@ export class WhyUsComponent {
       color: '#6366F1'
     }
   ];
+    ngAfterViewInit(): void {
+    const cards = document.querySelectorAll('.why-card');
+    const pills = document.querySelectorAll('.sv-pill');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          cards.forEach((card, i) =>
+            setTimeout(() => card.classList.add('visible'), i * 80));
+          pills.forEach((pill, i) =>
+            setTimeout(() => pill.classList.add('visible'), 400 + i * 70));
+          observer.disconnect();
+        }
+      });
+    }, { threshold: 0.15 });
+
+    const section = document.querySelector('.why-section');
+    if (section) observer.observe(section);
+  }
 }

@@ -8,6 +8,7 @@ interface Leader {
   colorLight: string;
   bio: string[];
   tags: string[];
+  image?: string; // ← ONLY ADDITION
 }
 
 @Component({
@@ -26,6 +27,7 @@ export class LeadershipComponent {
       designation: 'Director',
       color: '#1b9fbf',
       colorLight: '#0e7a96',
+      // image: 'assets/leaders/bhaskaran-s.jpg', // ← add your asset path here
       bio: [
         'A seasoned professional bringing strategic direction and industry insight to VoltZVital. With a commitment to sustainable development, he leads the company\'s vision with purpose and precision.',
         'His expertise in environment policy and regulatory compliance has been instrumental in positioning VoltZVital as a trusted voice in the clean energy sector.'
@@ -37,6 +39,7 @@ export class LeadershipComponent {
       designation: 'Managing Director',
       color: '#4ba84b',
       colorLight: '#3a8a3a',
+      // image: 'assets/leaders/deepika.jpg', // ← add your asset path here
       bio: [
         'Driving operational excellence and business development, Bhaskaran Deepika steers VoltZVital\'s day-to-day functions with an unwavering focus on delivering measurable client outcomes.',
         'Her approach combines data-driven decision making with a deep commitment to sustainability, forging partnerships that create long-term value.'
@@ -48,6 +51,7 @@ export class LeadershipComponent {
       designation: 'Chief Technology Officer',
       color: '#0d2b4e',
       colorLight: '#1a4a78',
+      // image: omitted → falls back to SVG avatar automatically
       bio: [
         'A visionary technologist architecting VoltZVital\'s digital infrastructure. With deep expertise in clean-tech platforms and IoT integration, Arjun drives the innovation roadmap.',
         'He leads cross-functional engineering teams to build scalable solutions that accelerate the transition to renewable energy systems.'
@@ -75,7 +79,6 @@ export class LeadershipComponent {
       this.closeModal();
     }
   }
-  
 }
 
 
