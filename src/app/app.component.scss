@@ -221,3 +221,107 @@ main { display: block; }
     font-size: 24px;
   }
 }
+
+// ---- Extra mobile responsiveness (appended) ----
+
+@media (max-width: 480px) {
+  .maintenance-overlay {
+    padding: 16px;
+  }
+
+  .maintenance-badge {
+    width: 76px;
+    height: 76px;
+    margin-bottom: 20px;
+  }
+
+  .badge-plate {
+    width: 48px;
+    height: 48px;
+  }
+
+  .badge-logo {
+    width: 44px;
+  }
+
+  .maintenance-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+  }
+
+  .maintenance-text {
+    font-size: 14px;
+    margin-bottom: 22px;
+  }
+
+  .maintenance-status {
+    font-size: 12px;
+    padding: 7px 14px;
+  }
+}
+
+@media (max-width: 360px) {
+  .maintenance-card {
+    padding: 36px 18px 28px;
+    border-radius: 16px;
+  }
+
+  .maintenance-badge {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 16px;
+  }
+
+  .badge-plate {
+    width: 42px;
+    height: 42px;
+  }
+
+  .badge-logo {
+    width: 38px;
+  }
+
+  .maintenance-title {
+    font-size: 20px;
+    line-height: 1.3;
+  }
+
+  .maintenance-text {
+    font-size: 13px;
+    line-height: 1.55;
+  }
+}
+
+// Landscape phones — card can get cramped vertically
+@media (max-height: 480px) and (orientation: landscape) {
+  .maintenance-card {
+    padding: 24px 32px;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .maintenance-badge {
+    width: 56px;
+    height: 56px;
+    margin-bottom: 12px;
+  }
+
+  .badge-plate {
+    width: 38px;
+    height: 38px;
+  }
+
+  .badge-logo {
+    width: 34px;
+  }
+
+  .maintenance-title {
+    font-size: 20px;
+    margin-bottom: 8px;
+  }
+
+  .maintenance-text {
+    font-size: 13px;
+    margin-bottom: 16px;
+  }
+}
