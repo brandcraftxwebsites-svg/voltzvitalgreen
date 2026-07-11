@@ -1,3 +1,44 @@
+<div class="maintenance-overlay">
+  <div class="maintenance-backdrop"></div>
+
+  <div class="maintenance-card">
+<div class="maintenance-badge">
+  <svg class="badge-ring" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="ringGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#1b3a63" />
+        <stop offset="50%" stop-color="#1f8fa8" />
+        <stop offset="100%" stop-color="#6fcf5b" />
+      </linearGradient>
+    </defs>
+    <circle class="ring-track" cx="80" cy="80" r="70" />
+    <circle class="ring-spin" cx="80" cy="80" r="70" />
+  </svg>
+
+  <svg class="badge-glow" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="80" cy="80" r="50" />
+  </svg>
+
+  <div class="badge-plate">
+    <img class="badge-logo" src="assets/images/logo.png" alt="VoltZVital" />
+  </div>
+</div>
+
+    <span class="maintenance-eyebrow">Scheduled Maintenance</span>
+    <h1 class="maintenance-title">We're fine-tuning<br />something great</h1>
+    <p class="maintenance-text">
+      VoltZVital is temporarily offline while we perform essential
+      upgrades. Please check back shortly, or reach out to the
+      website owner for assistance.
+    </p>
+
+    <div class="maintenance-status">
+      <span class="status-dot"></span>
+      <span>Systems updating</span>
+    </div>
+  </div>
+</div>
+
 <app-navbar></app-navbar>
 <router-outlet></router-outlet>
 <app-footer></app-footer>

@@ -1,3 +1,223 @@
 @use '../assets/styles/global' as *;
 
 main { display: block; }
+
+// ================= Maintenance Overlay =================
+
+.maintenance-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  overflow: hidden;
+}
+
+.maintenance-backdrop {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(600px circle at 20% 15%, rgba(52, 211, 153, 0.10), transparent 60%),
+    radial-gradient(700px circle at 85% 85%, rgba(52, 211, 153, 0.08), transparent 60%),
+    #050b09;
+  background-color: rgb(126 168 159 / 83%)
+}
+
+.maintenance-card {
+  position: relative;
+  width: 100%;
+  max-width: 460px;
+  padding: 56px 40px 44px;
+  border-radius: 20px;
+  text-align: center;
+  color: #eef5f1;
+  background: linear-gradient(180deg, rgba(18, 28, 24, 0.85), rgba(10, 16, 14, 0.85));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(52, 211, 153, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(18px);
+  animation: cardRise 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes cardRise {
+  from { opacity: 0; transform: translateY(14px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+// ---- Badge (signature element) ----
+
+.maintenance-badge {
+  position: relative;
+  width: 96px;
+  height: 96px;
+  margin: 0 auto 28px;
+}
+
+.badge-ring {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+
+  circle {
+    fill: none;
+    cx: 80px;
+    cy: 80px;
+    r: 70px;
+  }
+}
+
+.ring-track {
+  stroke: rgba(255, 255, 255, 0.08);
+  stroke-width: 2;
+}
+
+.ring-spin {
+  stroke: url(#ringGradient);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-dasharray: 60 380;
+  transform-origin: 80px 80px;
+  animation: ringSpin 3.2s linear infinite;
+}
+
+@keyframes ringSpin {
+  to { transform: rotate(360deg); }
+}
+
+.badge-glow {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+
+  circle {
+    fill: #2fbf8f;
+    opacity: 0.16;
+    filter: blur(14px);
+    animation: glowPulse 2.6s ease-in-out infinite;
+    transform-origin: 80px 80px;
+  }
+}
+
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.12; transform: scale(0.94); }
+  50%      { opacity: 0.24; transform: scale(1.06); }
+}
+
+// Logo medallion — light plate keeps the navy/teal mark
+// legible against the dark card, floats gently in place.
+.badge-plate {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 35% 30%, #ffffff, #eef3f1 75%);
+  box-shadow:
+    0 10px 26px rgba(0, 0, 0, 0.4),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.6);
+  animation: iconFloat 3.6s ease-in-out infinite;
+}
+
+@keyframes iconFloat {
+  0%, 100% { transform: translate(-50%, -50%) translateY(0); }
+  50%      { transform: translate(-50%, -50%) translateY(-3px); }
+}
+
+.badge-logo {
+  width: 58px;
+  height: auto;
+  display: block;
+}
+
+// ---- Text ----
+
+.maintenance-eyebrow {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #6ee7b7;
+  margin-bottom: 14px;
+}
+
+.maintenance-title {
+  font-size: 28px;
+  line-height: 1.25;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 0 0 16px;
+  color: #ffffff;
+}
+
+.maintenance-text {
+  font-size: 15px;
+  line-height: 1.65;
+  color: rgba(238, 245, 241, 0.65);
+  margin: 0 0 28px;
+}
+
+// ---- Status pill ----
+
+.maintenance-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(238, 245, 241, 0.8);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #34d399;
+  box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.6);
+  animation: dotPulse 1.8s ease-out infinite;
+}
+
+@keyframes dotPulse {
+  0%   { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.55); }
+  70%  { box-shadow: 0 0 0 8px rgba(52, 211, 153, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0); }
+}
+
+// ---- Reduced motion ----
+
+@media (prefers-reduced-motion: reduce) {
+  .ring-spin,
+  .badge-glow circle,
+  .badge-icon,
+  .status-dot,
+  .maintenance-card {
+    animation: none !important;
+  }
+}
+
+// ---- Mobile ----
+
+@media (max-width: 480px) {
+  .maintenance-card {
+    padding: 44px 24px 36px;
+  }
+
+  .maintenance-title {
+    font-size: 24px;
+  }
+}
