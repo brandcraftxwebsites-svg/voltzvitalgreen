@@ -417,19 +417,23 @@
     margin-bottom: 2rem;
   }
 
-  .assoc-link {
-    font-size: .85rem;
-    text-align: center;
+.assoc-link {
+    font-size: .68rem;
+    white-space: nowrap;
+    padding: .4rem .7rem;
+    gap: .3rem;
   }
 
   .assoc-row {
-    flex-wrap: wrap;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
     justify-content: center;
-    row-gap: .5rem;
+    gap: .4rem;
   }
 
   .assoc-line {
-    width: 24px;
+    width: 10px;
   }
 
   .social-strip {
@@ -638,31 +642,28 @@
 @media (max-width: 480px) {
   .presence-row {
     flex-wrap: nowrap;
-    justify-content: flex-start;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
+    justify-content: center;
+    overflow-x: visible;
     width: 100%;
-    gap: .45rem;
-    padding: 0 .1rem .3rem;
-
-    scrollbar-width: none;
-    &::-webkit-scrollbar { display: none; }
+    gap: .28rem;
+    padding: 0;
   }
 
   .presence-badge {
-    flex: 0 0 auto;
-    padding: .3rem .75rem .3rem .3rem;
+    flex: 0 1 auto;
+    padding: .22rem .45rem .22rem .22rem;
+    gap: .25rem;
   }
 
   .presence-icon {
-    width: 24px;
-    height: 24px;
+    width: 17px;
+    height: 17px;
 
-    svg { width: 12px; height: 12px; }
+    svg { width: 8px; height: 8px; }
   }
 
   .presence-label {
-    font-size: .72rem;
+    font-size: .58rem;
     white-space: nowrap;
   }
 }
