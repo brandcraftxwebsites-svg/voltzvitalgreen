@@ -23,6 +23,30 @@ export class LeadershipComponent {
 
   leaders: Leader[] = [
     {
+      name: 'Bhaskaran Deepika',
+      designation: 'MD/CEO',
+      color: '#4ba84b',
+      colorLight: '#3a8a3a',
+      image: 'assets/leaders/deepika.JPEG', // ← add your asset path here
+      bio: [
+        'Driving operational excellence and business development, Bhaskaran Deepika steers VoltZVital\'s day-to-day functions with an unwavering focus on delivering measurable client outcomes.',
+        'Her approach combines data-driven decision making with a deep commitment to sustainability, forging partnerships that create long-term value.'
+      ],
+      tags: ['Operations', 'Business Development', 'Sustainability']
+    },
+    {
+      name: 'Xavier Allessu',
+      designation: 'Chief Technology Officer',
+      color: '#0d2b4e',
+      colorLight: '#1a4a78',
+      image: 'assets/leaders/xavier.png',
+      bio: [
+        'A visionary technologist architecting VoltZVital\'s digital infrastructure. With deep expertise in clean-tech platforms and IoT integration, Arjun drives the innovation roadmap.',
+        'He leads cross-functional engineering teams to build scalable solutions that accelerate the transition to renewable energy systems.'
+      ],
+      tags: ['Technology', 'IoT', 'Clean Energy', 'Innovation']
+    },
+    {
       name: 'Bhaskaran Swaminathan Kalvakulam',
       designation: 'Director',
       color: '#1b9fbf',
@@ -34,30 +58,6 @@ export class LeadershipComponent {
       ],
       tags: ['Strategic Leadership', 'Environment Policy', 'Compliance']
     },
-    {
-      name: 'Bhaskaran Deepika',
-      designation: 'Managing Director',
-      color: '#4ba84b',
-      colorLight: '#3a8a3a',
-      // image: 'assets/leaders/deepika.jpg', // ← add your asset path here
-      bio: [
-        'Driving operational excellence and business development, Bhaskaran Deepika steers VoltZVital\'s day-to-day functions with an unwavering focus on delivering measurable client outcomes.',
-        'Her approach combines data-driven decision making with a deep commitment to sustainability, forging partnerships that create long-term value.'
-      ],
-      tags: ['Operations', 'Business Development', 'Sustainability']
-    },
-    {
-      name: 'UNKNOWN',
-      designation: 'Chief Technology Officer',
-      color: '#0d2b4e',
-      colorLight: '#1a4a78',
-      // image: omitted → falls back to SVG avatar automatically
-      bio: [
-        'A visionary technologist architecting VoltZVital\'s digital infrastructure. With deep expertise in clean-tech platforms and IoT integration, Arjun drives the innovation roadmap.',
-        'He leads cross-functional engineering teams to build scalable solutions that accelerate the transition to renewable energy systems.'
-      ],
-      tags: ['Technology', 'IoT', 'Clean Energy', 'Innovation']
-    }
   ];
 
   getInitials(name: string): string {

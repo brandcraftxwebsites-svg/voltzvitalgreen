@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AfterViewInit } from '@angular/core';
-
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 @Component({
   selector: 'app-why-us',
   standalone: true,
@@ -9,10 +9,16 @@ import { AfterViewInit } from '@angular/core';
   templateUrl: './why-us.component.html',
   styleUrls: ['./why-us.component.scss']
 })
+
 export class WhyUsComponent {
+  constructor(private sanitizer: DomSanitizer) {}
   reasons = [
     {
-      icon: '🎯',
+     icon: this.sanitizer.bypassSecurityTrustHtml(`<svg width="34" height="34" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="12" cy="9" r="5.2" stroke="currentColor" stroke-width="1.4"/>
+      <path d="M12 6.3L12.9 8.1L14.9 8.4L13.45 9.8L13.8 11.8L12 10.85L10.2 11.8L10.55 9.8L9.1 8.4L11.1 8.1L12 6.3Z" fill="currentColor"/>
+      <path d="M8.5 13.2L6.5 21L12 18.5L17.5 21L15.5 13.2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>`),
       title: 'Domain Expertise',
       desc: 'Specialised environmental and energy knowledge that translates complex regulations into actionable strategies.',
       color: '#1B9FBF'

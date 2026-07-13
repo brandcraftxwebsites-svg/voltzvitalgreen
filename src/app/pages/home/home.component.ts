@@ -19,6 +19,8 @@ import { SectorsComponent } from './sectors/sectors.component';
 import { LeadershipComponent } from './leadership/leadership.component';
 import { WhyUsComponent } from './why-us/why-us.component';
 import { ContactComponent } from './contact/contact.component';
+import { NewsComponent } from './news/news.component';
+import { UpcomingProjectsComponent } from './upcoming-projects/upcoming-projects.component';
 
 @Component({
   selector: 'app-home',
@@ -32,6 +34,8 @@ import { ContactComponent } from './contact/contact.component';
     LeadershipComponent,
     WhyUsComponent,
     ContactComponent,
+    NewsComponent,
+    UpcomingProjectsComponent
   ],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
