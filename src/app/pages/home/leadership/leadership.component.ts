@@ -41,7 +41,7 @@ export class LeadershipComponent {
       colorLight: '#1a4a78',
       image: 'assets/leaders/xavier.png',
       bio: [
-        'A visionary technologist architecting VoltZVital\'s digital infrastructure. With deep expertise in clean-tech platforms and IoT integration, Arjun drives the innovation roadmap.',
+        'A visionary technologist architecting VoltZVital\'s digital infrastructure. With deep expertise in clean-tech platforms and IoT integration, Xavier drives the innovation roadmap.',
         'He leads cross-functional engineering teams to build scalable solutions that accelerate the transition to renewable energy systems.'
       ],
       tags: ['Technology', 'IoT', 'Clean Energy', 'Innovation']
