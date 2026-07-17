@@ -51,7 +51,7 @@ export class LeadershipComponent {
       designation: 'Director',
       color: '#1b9fbf',
       colorLight: '#0e7a96',
-      // image: 'assets/leaders/bhaskaran-s.jpg', // ← add your asset path here
+      image: 'assets/leaders/bhaskaran-s.png', // ← add your asset path here
       bio: [
         'A seasoned professional bringing strategic direction and industry insight to VoltZVital. With a commitment to sustainable development, he leads the company\'s vision with purpose and precision.',
         'His expertise in environment policy and regulatory compliance has been instrumental in positioning VoltZVital as a trusted voice in the clean energy sector.'
