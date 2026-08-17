@@ -18,6 +18,8 @@ export class NavbarComponent implements OnInit {
     { id: 'vision',     label: 'Vision',     href: '#vision' },
     { id: 'sectors',    label: 'Sectors',    href: '#sectors' },
     { id: 'leadership', label: 'Leadership', href: '#leadership' },
+    { id: 'news', label: 'News', href: '#news' },
+   { id: 'projects', label: 'Upcoming Projects', href: '#projects' }
   ];
 
   ngOnInit(): void {}
@@ -29,7 +31,7 @@ export class NavbarComponent implements OnInit {
   }
 
   updateActiveSection(): void {
-    const sections = ['about', 'vision', 'sectors', 'leadership', 'contact'];
+    const sections = ['about', 'vision', 'sectors', 'leadership','news', 'projects', 'contact'];
     for (const id of sections.reverse()) {
       const el = document.getElementById(id);
       if (el && window.scrollY >= el.offsetTop - 120) {
