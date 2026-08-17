@@ -23,13 +23,13 @@ export class LeadershipComponent {
 
   leaders: Leader[] = [
     {
-      name: 'Bhaskaran Deepika',
-      designation: 'MD/CEO',
+      name: 'Ashokkumar Muthusamy',
+      designation: 'MD',
       color: '#4ba84b',
       colorLight: '#3a8a3a',
-      image: 'assets/leaders/deepika.JPEG', // ← add your asset path here
+      image: 'assets/leaders/Ashokkumar.png', // ← add your asset path here
       bio: [
-        'Driving operational excellence and business development, Bhaskaran Deepika steers VoltZVital\'s day-to-day functions with an unwavering focus on delivering measurable client outcomes.',
+        'Driving operational excellence and business development, Ashokkumar Muthusamy steers VoltZVital\'s day-to-day functions with an unwavering focus on delivering measurable client outcomes.',
         'Her approach combines data-driven decision making with a deep commitment to sustainability, forging partnerships that create long-term value.'
       ],
       tags: ['Operations', 'Business Development', 'Sustainability']
@@ -47,17 +47,30 @@ export class LeadershipComponent {
       tags: ['Technology', 'IoT', 'Clean Energy', 'Innovation']
     },
     {
-      name: 'Bhaskaran Swaminathan Kalvakulam',
-      designation: 'Director',
+      name: 'Bhaskaran Deepika',
+      designation: 'Director & CEO',
       color: '#1b9fbf',
       colorLight: '#0e7a96',
-      image: 'assets/leaders/bhaskaran-s.png', // ← add your asset path here
+      image: 'assets/leaders/deepika.JPEG', // ← add your asset path here
       bio: [
         'A seasoned professional bringing strategic direction and industry insight to VoltZVital. With a commitment to sustainable development, he leads the company\'s vision with purpose and precision.',
         'His expertise in environment policy and regulatory compliance has been instrumental in positioning VoltZVital as a trusted voice in the clean energy sector.'
       ],
       tags: ['Strategic Leadership', 'Environment Policy', 'Compliance']
     },
+
+    //     {
+    //   name: 'Bhaskaran Swaminathan Kalvakulam',
+    //   designation: 'Director',
+    //   color: '#1b9fbf',
+    //   colorLight: '#0e7a96',
+    //   image: 'assets/leaders/bhaskaran-s.png', // ← add your asset path here
+    //   bio: [
+    //     'A seasoned professional bringing strategic direction and industry insight to VoltZVital. With a commitment to sustainable development, he leads the company\'s vision with purpose and precision.',
+    //     'His expertise in environment policy and regulatory compliance has been instrumental in positioning VoltZVital as a trusted voice in the clean energy sector.'
+    //   ],
+    //   tags: ['Strategic Leadership', 'Environment Policy', 'Compliance']
+    // },
   ];
 
   getInitials(name: string): string {
