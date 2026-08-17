@@ -30,9 +30,21 @@ export class LeadershipComponent {
       image: 'assets/leaders/Ashokkumar.png', // ← add your asset path here
       bio: [
         'Driving operational excellence and business development, Ashokkumar Muthusamy steers VoltZVital\'s day-to-day functions with an unwavering focus on delivering measurable client outcomes.',
-        'Her approach combines data-driven decision making with a deep commitment to sustainability, forging partnerships that create long-term value.'
+        'His approach combines data-driven decision making with a deep commitment to sustainability, forging partnerships that create long-term value.'
       ],
       tags: ['Operations', 'Business Development', 'Sustainability']
+    },
+    {
+      name: 'Deepika Bhaskaran',
+      designation: 'Director & CEO',
+      color: '#1b9fbf',
+      colorLight: '#0e7a96',
+      image: 'assets/leaders/deepika.JPEG', // ← add your asset path here
+      bio: [
+        'A seasoned professional bringing strategic direction and industry insight to VoltZVital, Bhaskaran Deepika leads the company\'s vision with purpose and precision, guided by a firm commitment to sustainable development.',
+        'Her expertise in environmental policy and regulatory compliance has been instrumental in positioning VoltZVital as a trusted voice in the clean energy sector.'
+      ],
+      tags: ['Strategic Leadership', 'Environment Policy', 'Compliance']
     },
     {
       name: 'Xavier Allessu',
@@ -41,36 +53,23 @@ export class LeadershipComponent {
       colorLight: '#1a4a78',
       image: 'assets/leaders/xavier.png',
       bio: [
-        'A visionary technologist architecting VoltZVital\'s digital infrastructure. With deep expertise in clean-tech platforms and IoT integration, Xavier drives the innovation roadmap.',
+        'A visionary technologist architecting VoltZVital\'s digital infrastructure, Xavier Allessu brings deep expertise in clean-tech platforms and IoT integration to drive the innovation roadmap.',
         'He leads cross-functional engineering teams to build scalable solutions that accelerate the transition to renewable energy systems.'
       ],
       tags: ['Technology', 'IoT', 'Clean Energy', 'Innovation']
     },
     {
-      name: 'Bhaskaran Deepika',
-      designation: 'Director & CEO',
+      name: 'Bhaskaran Swaminathan Kalvakulam',
+      designation: 'Director',
       color: '#1b9fbf',
       colorLight: '#0e7a96',
-      image: 'assets/leaders/deepika.JPEG', // ← add your asset path here
+      image: 'assets/leaders/bhaskaran-s.png', // ← add your asset path here
       bio: [
-        'A seasoned professional bringing strategic direction and industry insight to VoltZVital. With a commitment to sustainable development, he leads the company\'s vision with purpose and precision.',
-        'His expertise in environment policy and regulatory compliance has been instrumental in positioning VoltZVital as a trusted voice in the clean energy sector.'
+        'Bringing decades of cross-sector experience to the board, Bhaskaran Swaminathan Kalvakulam provides strategic oversight and governance that keep VoltZVital aligned with its long-term mission.',
+        'His focus on operational discipline and stakeholder value has helped strengthen the company\'s standing as a reliable partner in the clean energy space.'
       ],
-      tags: ['Strategic Leadership', 'Environment Policy', 'Compliance']
+      tags: ['Corporate Governance', 'Strategic Oversight', 'Stakeholder Value']
     },
-
-    //     {
-    //   name: 'Bhaskaran Swaminathan Kalvakulam',
-    //   designation: 'Director',
-    //   color: '#1b9fbf',
-    //   colorLight: '#0e7a96',
-    //   image: 'assets/leaders/bhaskaran-s.png', // ← add your asset path here
-    //   bio: [
-    //     'A seasoned professional bringing strategic direction and industry insight to VoltZVital. With a commitment to sustainable development, he leads the company\'s vision with purpose and precision.',
-    //     'His expertise in environment policy and regulatory compliance has been instrumental in positioning VoltZVital as a trusted voice in the clean energy sector.'
-    //   ],
-    //   tags: ['Strategic Leadership', 'Environment Policy', 'Compliance']
-    // },
   ];
 
   getInitials(name: string): string {
