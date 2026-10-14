@@ -23,20 +23,8 @@ export class LeadershipComponent {
 
   leaders: Leader[] = [
     {
-      name: 'Ashokkumar Muthusamy',
-      designation: 'MD',
-      color: '#4ba84b',
-      colorLight: '#3a8a3a',
-      image: 'assets/leaders/Ashokkumar.png', // ← add your asset path here
-      bio: [
-        'Driving operational excellence and business development, Ashokkumar Muthusamy steers VoltZVital\'s day-to-day functions with an unwavering focus on delivering measurable client outcomes.',
-        'His approach combines data-driven decision making with a deep commitment to sustainability, forging partnerships that create long-term value.'
-      ],
-      tags: ['Operations', 'Business Development', 'Sustainability']
-    },
-    {
       name: 'Deepika Bhaskaran',
-      designation: 'Director & CEO',
+      designation: 'MD & CEO',
       color: '#1b9fbf',
       colorLight: '#0e7a96',
       image: 'assets/leaders/deepika.JPEG', // ← add your asset path here
@@ -45,6 +33,18 @@ export class LeadershipComponent {
         'Her expertise in environmental policy and regulatory compliance has been instrumental in positioning VoltZVital as a trusted voice in the clean energy sector.'
       ],
       tags: ['Strategic Leadership', 'Environment Policy', 'Compliance']
+    },
+    {
+      name: 'Bhaskaran Swaminathan Kalvakulam',
+      designation: 'Director',
+      color: '#1b9fbf',
+      colorLight: '#0e7a96',
+      image: 'assets/leaders/bhaskaran-s.png', // ← add your asset path here
+      bio: [
+        'Bringing decades of cross-sector experience to the board, Bhaskaran Swaminathan Kalvakulam provides strategic oversight and governance that keep VoltZVital aligned with its long-term mission.',
+        'His focus on operational discipline and stakeholder value has helped strengthen the company\'s standing as a reliable partner in the clean energy space.'
+      ],
+      tags: ['Corporate Governance', 'Strategic Oversight', 'Stakeholder Value']
     },
     {
       name: 'Xavier Allessu',
@@ -59,16 +59,28 @@ export class LeadershipComponent {
       tags: ['Technology', 'IoT', 'Clean Energy', 'Innovation']
     },
     {
-      name: 'Bhaskaran Swaminathan Kalvakulam',
-      designation: 'Director',
-      color: '#1b9fbf',
-      colorLight: '#0e7a96',
-      image: 'assets/leaders/bhaskaran-s.png', // ← add your asset path here
+      name: 'Ashokkumar Muthusamy',
+      designation: 'President',
+      color: '#4ba84b',
+      colorLight: '#3a8a3a',
+      image: 'assets/leaders/Ashokkumar.png', // ← add your asset path here
       bio: [
-        'Bringing decades of cross-sector experience to the board, Bhaskaran Swaminathan Kalvakulam provides strategic oversight and governance that keep VoltZVital aligned with its long-term mission.',
-        'His focus on operational discipline and stakeholder value has helped strengthen the company\'s standing as a reliable partner in the clean energy space.'
+        'Driving operational excellence and business development, Ashokkumar Muthusamy steers VoltZVital\'s day-to-day functions with an unwavering focus on delivering measurable client outcomes.',
+        'His approach combines data-driven decision making with a deep commitment to sustainability, forging partnerships that create long-term value.'
       ],
-      tags: ['Corporate Governance', 'Strategic Oversight', 'Stakeholder Value']
+      tags: ['Operations', 'Business Development', 'Sustainability']
+    },
+    {
+      name: 'Prashantha PR',
+      designation: 'COO',
+      color: '#0d2b4e',
+      colorLight: '#1a4a78',
+      image: 'assets/leaders/prashantha-PR.jpeg',
+      bio: [
+        'Experienced business and sales professional with more than 34 years of experience across sales, marketing, business development, business promotion, customer relations, dealership operations, manpower services, interior contracting and insurance.',
+        'Proven exposure to diverse markets and business environments, with strong communication, relationship-building, negotiation, event coordination and business promotion capabilities. Comfortable working independently as well as leading teams and managing business responsibilities under demanding conditions.'
+      ],
+      tags: ['Business Operations', 'Business Development', 'Sales & Marketing']
     },
   ];
 
